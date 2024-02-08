@@ -7,15 +7,15 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h2 class="pageheader-title">Visiteurs</h2>
+                <h2 class="pageheader-title">Responsables</h2>
                 <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet
                     vestibulum mi. Morbi lobortis pulvinar quam.</p>
                 <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Visiteurs</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Listes Visiteurs</li>
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Responsables</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Listes des responsabls</li>
                         </ol>
                     </nav>
                 </div>
@@ -26,7 +26,7 @@
     <!-- end pageheader -->
     <!-- ============================================================== -->
     <div class="col-lg-1 my-3 ">
-            <a class="btn btn-success" href="{{ route('visiteur.create') }}">Ajouter</a>
+            <a class="btn btn-success" href="{{ route('responsable.create') }}">Ajouter</a>
         </div>
 
     <div class="row ">
@@ -36,7 +36,7 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">Listes des visiteurs </h5>
+                    <h5 class="mb-0">Listes des responsables </h5>
                     <!-- <p>This example shows DataTables and the RowGroup extension being used with Bootstrap 4 providing
                         the styling.</p> -->
                 </div>
@@ -51,30 +51,24 @@
                                     <th>Contacts</th>
                                     <th>Activites</th>
                                     <th>Sexes</th>
-                                    <th>Responsables</th>
-                                    <th>Type visiteurs</th>
-                                    <th>Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($visiteurs as $visiteur)
+                                @foreach($responsables as $responsable)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{$visiteur->nom}}</td>
-                                    <td>{{$visiteur->prenom}}</td>
-                                    <td>{{$visiteur->contact}}</td>
-                                    <td>{{$visiteur->activite}}</td>
-                                    <td>{{$visiteur->sexe}}</td>
-                                    <td>{{$visiteur->responsable->nom}}</td>
-                                    <td>{{$visiteur->type_visiteur->libelle}}</td>
-                                    <td>{{$visiteur->date}}</td>
+                                    <td>{{$responsable->nom}}</td>
+                                    <td>{{$responsable->prenom}}</td>
+                                    <td>{{$responsable->contact}}</td>
+                                    <td>{{$responsable->activite}}</td>
+                                    <td>{{$responsable->sexe}}</td>
                                     <td>
-                                    <form method="POST" action="{{ route('visiteur.delete', $visiteur->id)}}">
+                                    <form method="POST" action="{{ route('responsable.delete', $responsable->id)}}">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('visiteur.show', $visiteur->id)}}" class="btn btn-primary"> View</a>
-                                    <a href="{{ route('visiteur.edit', $visiteur->id)}}" class="btn btn-success"> Edit</a>
+                                    <a href="{{ route('responsable.show', $responsable->id)}}" class="btn btn-primary"> View</a>
+                                    <a href="{{ route('responsable.edit', $responsable->id)}}" class="btn btn-success"> Edit</a>
                                     <button type="submit" class="btn btn-danger"> Delete</button>
                                    </form>
                                     </td>

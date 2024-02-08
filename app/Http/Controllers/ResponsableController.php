@@ -11,7 +11,9 @@ class ResponsableController extends Controller
      */
     public function index()
     {
-        //
+        $responsables = Responsable::all();
+
+        return view('dashboard.admin.responsable.index',compact('responsables'));
     }
 
     /**
@@ -54,7 +56,9 @@ class ResponsableController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $responsable = Responsable::findOrFail($id);
+
+        return view('dashboard.admin.responsable.show', compact('responsable'));
     }
 
     /**
@@ -62,7 +66,9 @@ class ResponsableController extends Controller
      */
     public function edit(string $id)
     {
-        
+        $responsable = Responsable::findOrFail($id);
+
+        return view('dashboard.admin.responsable.edit', compact('responsable'));
     }
 
     /**
@@ -70,7 +76,26 @@ class ResponsableController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+         // dd($request);
+         $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'contact' => 'required',
+            // 'statuts' => 'required|string',
+            'activite' => 'required',
+            // 'date'      =>  'required|date',
+            
+        ]);
+    
+
+        $responsable = Responsable::find($id);
+        $responsable->nom = $request->nom;
+        $responsable->prenom = $request->prenom;
+        $responsable->contact = $request->contact;
+        $responsable->activite = $request->activite;
+        $responsable->save();
+
+        return redirect()->route('responsable.index')->with('message', "Le responsable a bien été modifier!");
     }
 
     /**

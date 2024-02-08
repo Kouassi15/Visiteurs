@@ -7,15 +7,15 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h2 class="pageheader-title">Visiteurs</h2>
+                <h2 class="pageheader-title">Historique des visiteurs</h2>
                 <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet
                     vestibulum mi. Morbi lobortis pulvinar quam.</p>
                 <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Visiteurs</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Listes Visiteurs</li>
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Historiques</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Historique des viisiteurs</li>
                         </ol>
                     </nav>
                 </div>
@@ -33,6 +33,30 @@
         <!-- ============================================================== -->
         <!-- data table rowgroup  -->
         <!-- ============================================================== -->
+        <form action="{{ route('filter.date') }}" method="get" >
+            @csrf
+        <!--<div class="col-xl-12 mx-auto"> -->
+        <div class="card-body d-flex align-items-center">
+         <div class=" col-md-5 m-5 p-2">
+            <div class="form-group">
+             <label for="start_date">Date debut</label>
+             <input id="start_date" type="date" name="start_date"  value="{{ old('start_date') }}" required="" class="form-control">
+            </div>
+        </div>
+        <div class=" col-md-5 m-5 p-2">
+            <div class="form-group">
+             <label for="end_date">Date fin</label>
+             <input id="end_date" type="date" name="end_date"  value="{{ old('end_date') }}"  required=""  class="form-control">
+            </div>
+        </div>
+        <div class=" col-md-2 mt-4 p-2">
+            <div class="form-group">
+             <!-- <label for="date">Date debut</label> -->
+             <button id="" type="submit" class="btn btn-success">Recherche</div>
+            </div>
+        </div>
+     </div>
+     </form>
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
                 <div class="card-header">
@@ -54,7 +78,7 @@
                                     <th>Responsables</th>
                                     <th>Type visiteurs</th>
                                     <th>Date</th>
-                                    <th>Action</th>
+                                    <!-- <th>Action</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,7 +93,7 @@
                                     <td>{{$visiteur->responsable->nom}}</td>
                                     <td>{{$visiteur->type_visiteur->libelle}}</td>
                                     <td>{{$visiteur->date}}</td>
-                                    <td>
+                                    <!-- <td>
                                     <form method="POST" action="{{ route('visiteur.delete', $visiteur->id)}}">
                                     @csrf
                                     @method('DELETE')
@@ -77,7 +101,7 @@
                                     <a href="{{ route('visiteur.edit', $visiteur->id)}}" class="btn btn-success"> Edit</a>
                                     <button type="submit" class="btn btn-danger"> Delete</button>
                                    </form>
-                                    </td>
+                                    </td> -->
                                 </tr>
 
                                 @endforeach

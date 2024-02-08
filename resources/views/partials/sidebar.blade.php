@@ -1,4 +1,4 @@
-<div class="nav-left-sidebar sidebar-dark">
+<div class="nav-left-sidebar sidebar-dark mx-auto pt-5">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
@@ -11,8 +11,8 @@
                                 Menu
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Tableau de bord <span class="badge badge-success">6</span></a>
-                                <div id="submenu-1" class="collapse submenu" style="">
+                                <a class="nav-link active" href="{{route('dashboard')}}"><i class="fa fa-fw fa-user-circle"></i>Tableau de bord <span class="badge badge-success">6</span></a>
+                                <!-- <div id="submenu-1" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">E-Commerce</a>
@@ -56,7 +56,7 @@
                                             </div>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Visiteurs</a>
@@ -68,7 +68,9 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ route('visiteur.index') }}">Listes</a>
                                         </li>
-                                        
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('historique.index') }}">Historiques</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -93,7 +95,7 @@
                                             <a class="nav-link" href="{{route('responsable.create')}}">Ajouter</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/form-validation.html">Listes</a>
+                                            <a class="nav-link" href="{{route('responsable.index')}}">Listes</a>
                                         </li>
                                         
                                     </ul>
