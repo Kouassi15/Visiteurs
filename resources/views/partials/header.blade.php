@@ -1,6 +1,6 @@
 <div class="dashboard-header mx-auto pb-5">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.html"><img src="{{asset('assets/images/logo1.png')}}" alt=""  class="rounded w-25 ">CMA DOKUI 2</a>
+                <a class="navbar-brand" href="index.html">{{--<img src="{{asset('assets/images/logo1.png')}}" alt=""  class="rounded w-25 ">CMA DOKUI 2--}}CONCEPT</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

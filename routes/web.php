@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FideleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VisiteurController;
 use App\Http\Controllers\HistoriqueController;
@@ -68,4 +69,16 @@ Route::prefix('responsable')->name('responsable.')->group(function () {
     Route::put('update/{id}',[ResponsableController::class, 'update'])->name('update');
     Route::delete('delete/{id}',[ResponsableController::class, 'destroy'])->name('delete');
     
+});
+
+//fidele
+Route::prefix('fidele')->name('fidele.')->group(function () {
+    Route::get('index',[FideleController::class, 'index'])->name('index');
+    Route::get('create',[FideleController::class, 'create'])->name('create');
+    Route::post('store',[FideleController::class, 'store'])->name('store');
+    Route::get('show/{id}',[FideleController::class, 'show'])->name('show');
+    Route::get('edit/{id}',[FideleController::class, 'edit'])->name('edit');
+    Route::put('update/{id}',[FideleController::class, 'update'])->name('update');
+    Route::delete('delete/{id}',[FideleController::class, 'destroy'])->name('delete');
+
 });

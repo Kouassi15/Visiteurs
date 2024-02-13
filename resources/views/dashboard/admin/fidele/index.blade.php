@@ -7,15 +7,15 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h2 class="pageheader-title">Visiteurs</h2>
+                <h2 class="pageheader-title">Responsables</h2>
                 <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet
                     vestibulum mi. Morbi lobortis pulvinar quam.</p>
                 <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Visiteurs</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Listes Visiteurs</li>
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Responsables</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Listes des responsabls</li>
                         </ol>
                     </nav>
                 </div>
@@ -26,7 +26,7 @@
     <!-- end pageheader -->
     <!-- ============================================================== -->
     <div class="col-lg-1 my-3 ">
-            <a class="btn btn-success" href="{{ route('visiteur.create') }}">Ajouter</a>
+            <a class="btn btn-success" href="{{ route('fidele.create')}}">Ajouter</a>
         </div>
 
     <div class="row ">
@@ -36,7 +36,7 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">Listes des visiteurs </h5>
+                    <h5 class="mb-0">Listes des responsables </h5>
                     <!-- <p>This example shows DataTables and the RowGroup extension being used with Bootstrap 4 providing
                         the styling.</p> -->
                 </div>
@@ -46,37 +46,31 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Noms</th>
-                                    <th>Prenoms</th>
-                                    <th>Contacts</th>
-                                    <th>Quartiers</th>
-                                    <th>Activites</th>
-                                    <th>Sexes</th>
-                                    <th>Responsables</th>
-                                    <th>Type visiteurs</th>
+                                    <th>Nombre des enfants</th>
+                                    <th>Nombre des femmes</th>
+                                    <th>Nombre des hommes</th>
+                                    <th>Nombre des visiteurs</th>
+                                    <th>Total des personnes</th>
                                     <th>Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($visiteurs as $visiteur)
+                                @foreach($fideles as $fidele)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{$visiteur->nom}}</td>
-                                    <td>{{$visiteur->prenom}}</td>
-                                    <td>{{$visiteur->contact}}</td>
-                                    <td>{{$visiteur->quartier}}</td>
-                                    <td>{{$visiteur->activite}}</td>
-                                    <td>{{$visiteur->sexe}}</td>
-                                    <td>{{$visiteur->responsable->nom}}</td>
-                                    <td>{{$visiteur->type_visiteur->libelle}}</td>
-                                    <td>{{$visiteur->date}}</td>
+                                    <td>{{$fidele->nombre_enfants}}</td>
+                                    <td>{{$fidele->nombre_femmes}}</td>
+                                    <td>{{$fidele->nombre_hommes}}</td>
+                                    <td>{{$fidele->nombre_visiteurs}}</td>
+                                    <td>{{$fidele->total_fidele}}</td>
+                                    <td>{{$fidele->date}}</td>
                                     <td>
-                                    <form method="POST" action="{{ route('visiteur.delete', $visiteur->id)}}">
+                                    <form method="POST" action="{{ route('fidele.delete', $fidele->id)}}">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('visiteur.show', $visiteur->id)}}" class="btn btn-primary"> View</a>
-                                    <a href="{{ route('visiteur.edit', $visiteur->id)}}" class="btn btn-success"> Edit</a>
+                                    <a href="{{ route('fidele.show', $fidele->id)}}" class="btn btn-primary"> View</a>
+                                    <a href="{{ route('fidele.edit', $fidele->id)}}" class="btn btn-success"> Edit</a>
                                     <button type="submit" class="btn btn-danger"> Delete</button>
                                    </form>
                                     </td>

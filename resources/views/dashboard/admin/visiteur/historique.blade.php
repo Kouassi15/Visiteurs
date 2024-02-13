@@ -73,6 +73,7 @@
                                     <th>Noms</th>
                                     <th>Prenoms</th>
                                     <th>Contacts</th>
+                                    <th>Quartier</th>
                                     <th>Activites</th>
                                     <th>Sexes</th>
                                     <th>Responsables</th>
@@ -88,6 +89,7 @@
                                     <td>{{$visiteur->nom}}</td>
                                     <td>{{$visiteur->prenom}}</td>
                                     <td>{{$visiteur->contact}}</td>
+                                    <td>{{$visiteur->quartier}}</td>
                                     <td>{{$visiteur->activite}}</td>
                                     <td>{{$visiteur->sexe}}</td>
                                     <td>{{$visiteur->responsable->nom}}</td>

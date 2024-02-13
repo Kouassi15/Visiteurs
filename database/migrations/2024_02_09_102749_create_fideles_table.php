@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('responsables', function (Blueprint $table) {
+        Schema::create('fideles', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('contact');
-            $table->string('activite')->nullable();
-            $table->string('statuts')->nullable();
-            $table->string('quartier')->nullable();
+            $table->string('nombre_enfants')->nullable();
+            $table->string('nombre_femmes')->nullable();
+            $table->string('nombre_hommes')->nullable();
+            $table->string('nombre_visiteurs')->nullable();
+            $table->string('total_fidele')->nullable();
             $table->date('date')->nullable();
             $table->timestamps();
         });
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('responsables');
+        Schema::dropIfExists('fideles');
     }
 };

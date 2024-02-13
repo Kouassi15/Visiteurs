@@ -49,6 +49,10 @@
                                             <input id="contact" type="text" name="contact" placeholder="Entrer le contact" required="" class="form-control">
                                         </div>
                                         <div class="form-group">
+                                            <label for="quartier">Quartier</label>
+                                            <input id="quartier" type="text" name="quartier" placeholder="Entrer le quartier" required="" class="form-control">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="activite">Activite</label>
                                             <input id="activite" type="text" name="activite" placeholder="Entrer l'activite" required="" class="form-control">
                                         </div>

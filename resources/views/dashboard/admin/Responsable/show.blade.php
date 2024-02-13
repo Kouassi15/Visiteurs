@@ -49,6 +49,7 @@
                                     <th>Noms</th>
                                     <th>Prenoms</th>
                                     <th>Contacts</th>
+                                    <th>Quartiers</th>
                                     <th>Activites</th>
                                     <!-- <th>Sexes</th> -->
                                     <!-- <th>Action</th> -->
@@ -59,6 +60,7 @@
                                     <td>{{$responsable->nom}}</td>
                                     <td>{{$responsable->prenom}}</td>
                                     <td>{{$responsable->contact}}</td>
+                                    <td>{{$responsable->quartier}}</td>
                                     <td>{{$responsable->Activite}}</td>
                                     <!-- <td>{{$responsable->sexe}}</td> -->
                                 </tr>

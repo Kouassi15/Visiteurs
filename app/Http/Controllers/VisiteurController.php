@@ -43,6 +43,7 @@ class VisiteurController extends Controller
             'contact' => 'required',
             'sexe'   => 'required',
             // 'statuts' => 'required',
+            'quartier' => 'required',
             'activite' => 'required',
             'date'      =>  'required',
              'responsable_id' => 'required',
@@ -56,6 +57,7 @@ class VisiteurController extends Controller
         $visiteur->contact = $request->contact;
         $visiteur->sexe = $request->sexe;
         // $visiteur->statuts = $request->statuts;
+        $visiteur->quartier = $request->quartier;
         $visiteur->activite = $request->activite;
         $visiteur->date = $request->date;
         $visiteur->responsable_id = $request->responsable_id;
@@ -112,6 +114,7 @@ class VisiteurController extends Controller
         $visiteur->contact = $request->contact;
         $visiteur->sexe = $request->sexe;
         // $visiteur->statuts = $request->statuts;
+        $visiteur->quartier = $request->quartier;
         $visiteur->activite = $request->activite;
         $visiteur->date = $request->date;
         $visiteur->responsable_id = $request->responsable_id;

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('sexe');
             // $table->string('statuts')->nullable();
             $table->string('activite')->nullable();
+            $table->string('quartier')->nullable();
             $table->date('date');
             $table->timestamps();
         });

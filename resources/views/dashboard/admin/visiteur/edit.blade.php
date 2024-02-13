@@ -57,6 +57,10 @@
                                             <input id="activite" type="text" name="activite" value="{{$visiteur->activite}}" placeholder="Entrer l'activite" required="" class="form-control">
                                         </div>
                                         <div class="form-group">
+                                            <label for="quartier">Quartier</label>
+                                            <input id="quartier" type="text" name="quartier" value="{{$visiteur->quartier}}" placeholder="Entrer le quartier" required="" class="form-control">
+                                        </div>
+                                        <div class="form-group">
                                         <label for="sexe">Sexe</label>
                                         <select class="form-control " name="sexe">
                                         <option value="" selected disabled hidden>Sélectionner...</option>

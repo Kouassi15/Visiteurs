@@ -45,6 +45,7 @@ class ResponsableController extends Controller
         $responsable->nom = $request->nom;
         $responsable->prenom = $request->prenom;
         $responsable->contact = $request->contact;
+        $responsable->quartier = $request->quartier;
         $responsable->activite = $request->activite;
         $responsable->save();
 
@@ -92,6 +93,7 @@ class ResponsableController extends Controller
         $responsable->nom = $request->nom;
         $responsable->prenom = $request->prenom;
         $responsable->contact = $request->contact;
+        $responsable->quartier = $request->quartier;
         $responsable->activite = $request->activite;
         $responsable->save();
 

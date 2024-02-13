@@ -60,22 +60,11 @@
                                     <td>{{$visiteur->nom}}</td>
                                     <td>{{$visiteur->prenom}}</td>
                                     <td>{{$visiteur->contact}}</td>
+                                    <td>{{$visiteur->quartier}}</td>
                                     <td>{{$visiteur->activite}}</td>
                                     <td>{{$visiteur->sexe}}</td>
-                                    <td>
-                                        <!-- @if($visiteur->responsable) -->
-                                        {{$visiteur->responsable->nom}}
-                                        <!-- @else
-                                        Aucun responsable
-                                        @endif -->
-                                    </td>
-                                    <td>
-                                        <!-- @if($visiteur->type_visiteur) -->
-                                        {{$visiteur->type_visiteur->libelle}}
-                                        <!-- @else
-                                        Aucun responsable
-                                        @endif -->
-                                    </td>
+                                    <td>{{$visiteur->responsable->nom}}</td>
+                                    <td>{{$visiteur->type_visiteur->libelle}}</td>
                                     <td>{{$visiteur->date}}</td>
                                     
                                 </tr>
