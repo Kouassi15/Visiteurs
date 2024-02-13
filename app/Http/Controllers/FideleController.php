@@ -108,7 +108,7 @@ class FideleController extends Controller
     public function destroy(string $id)
     {
         $fidele = Fidele::findOrFail($id);
-        $fidele->save();
+        $fidele->delete();
         return redirect()->route('fidele.index')->with('message', "Le total personne a bien été modifié !"); 
     }
 }

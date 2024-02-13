@@ -7,15 +7,15 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h2 class="pageheader-title">Visiteurs</h2>
+                <h2 class="pageheader-title">Responsables</h2>
                 <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet
                     vestibulum mi. Morbi lobortis pulvinar quam.</p>
                 <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Visiteurs</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Listes Visiteurs</li>
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Responsables</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Listes des responsables</li>
                         </ol>
                     </nav>
                 </div>
@@ -36,7 +36,7 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">Listes des visiteurs </h5>
+                    <h5 class="mb-0">Listes des responsables </h5>
                     <!-- <p>This example shows DataTables and the RowGroup extension being used with Bootstrap 4 providing
                         the styling.</p> -->
                 </div>
@@ -61,7 +61,7 @@
                                     <td>{{$responsable->prenom}}</td>
                                     <td>{{$responsable->contact}}</td>
                                     <td>{{$responsable->quartier}}</td>
-                                    <td>{{$responsable->Activite}}</td>
+                                    <td>{{$responsable->activite}}</td>
                                     <!-- <td>{{$responsable->sexe}}</td> -->
                                 </tr>
                             </tbody>

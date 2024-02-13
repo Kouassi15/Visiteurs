@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FideleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VisiteurController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoriqueController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ResponsableController;
@@ -24,10 +25,13 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group( function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+    
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile.profile');

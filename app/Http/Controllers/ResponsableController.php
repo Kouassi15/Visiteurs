@@ -36,6 +36,7 @@ class ResponsableController extends Controller
             'contact' => 'required',
             // 'statuts' => 'required|string',
             'activite' => 'required',
+            'quartier' => 'required',
             // 'date'      =>  'required|date',
             
         ]);
@@ -49,7 +50,7 @@ class ResponsableController extends Controller
         $responsable->activite = $request->activite;
         $responsable->save();
 
-        return redirect()->back()->with('message', "Le responsable a bien été créée !");
+        return redirect()->route('responsable.index')->with('message', "Le responsable a bien été créée !");
     }
 
     /**
@@ -105,6 +106,9 @@ class ResponsableController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $fidele = Fidele::findOrFail($id);
+
+        $fidele->delete();
+        return redirect()->route('responsable.index')->with('message', "Le responsable a bien été supprimer!");
     }
 }

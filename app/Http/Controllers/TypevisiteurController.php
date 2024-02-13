@@ -46,7 +46,8 @@ class TypevisiteurController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $typevisiteur = Type_visiteur::findOrFail($id);
+        return view('dashboard.admin.typevisiteur.show',compact('typevisiteur'));
     }
 
     /**
@@ -54,7 +55,8 @@ class TypevisiteurController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $typevisiteur = Type_visiteur::findOrFail($id);
+        return view('dashboard.admin.typevisiteur.edit',compact('typevisiteur'));
     }
 
     /**
@@ -62,7 +64,16 @@ class TypevisiteurController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'libelle' => 'required',
+        ]);
+
+        $typevisiteur = Type_visiteur::find($id);
+        $typevisiteur->libelle = $request->libelle;
+
+        $typevisiteur->save();
+
+        return redirect()->back()->with('message', "Le typevisiteur a bien été modifié !");
     }
 
     /**
