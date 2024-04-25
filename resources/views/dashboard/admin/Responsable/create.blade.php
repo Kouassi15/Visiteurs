@@ -57,15 +57,15 @@
                                             <label for="activite">Activites</label>
                                             <input id="activite" type="text" name="activite" placeholder="Entrer l'activite" required="" class="form-control">
                                         </div>
-                                        <!-- <div class="form-group">
-                                        <label for="inputSexe">Sexe</label>
+                                        <div class="form-group">
+                                        <label for="sexe">Sexe</label>
                                         <select class="form-control " name="sexe">
                                         <option value="" selected disabled hidden>Sélectionner...</option>
                                             <option value="femme">Femme</option>
                                             <option value="homme">Homme</option>
                                         </select>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                         <label for="inputStatuts">Statuts</label>
                                         <select class="form-control" name="statuts">
                                         <option value="" selected disabled hidden>Sélectionner...</option>

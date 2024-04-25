@@ -82,7 +82,7 @@
                                             <a class="nav-link" href="{{ route('typevisiteur.create')}}">Ajouter</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/chart-chartist.html">Listes</a>
+                                            <a class="nav-link" href="{{ route('typevisiteur.index')}}">Listes</a>
                                         </li>
                                     </ul>
                                 </div>

@@ -69,9 +69,9 @@
                                     <form method="POST" action="{{ route('responsable.delete', $responsable->id)}}">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('responsable.show', $responsable->id)}}" class="btn btn-primary"> View</a>
-                                    <a href="{{ route('responsable.edit', $responsable->id)}}" class="btn btn-success"> Edit</a>
-                                    <button type="submit" class="btn btn-danger"> Delete</button>
+                                    <a href="{{ route('responsable.show', $responsable->id)}}" class="btn btn-primary"> Voir</a>
+                                    <a href="{{ route('responsable.edit', $responsable->id)}}" class="btn btn-success"> Modifier</a>
+                                    <button type="submit" class="btn btn-danger"> Supprimer</button>
                                    </form>
                                     </td>
                                 </tr>

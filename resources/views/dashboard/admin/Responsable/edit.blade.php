@@ -60,15 +60,15 @@
                                             <label for="activite">Activites</label>
                                             <input id="activite" type="text" name="activite" value="{{$responsable->activite}}" placeholder="Entrer l'activite" required="" class="form-control">
                                         </div>
-                                        <!-- <div class="form-group">
+                                         <div class="form-group">
                                         <label for="inputSexe">Sexe</label>
                                         <select class="form-control " name="sexe">
                                         <option value="" selected disabled hidden>Sélectionner...</option>
-                                            <option value="femme">Femme</option>
-                                            <option value="homme">Homme</option>
+                                            <option value="femme" {{ $responsable->sexe == 'femme' ? 'selected' : '' }}>Femme</option>
+                                            <option value="homme" {{ $responsable->sexe == 'homme' ? 'selected' : '' }}>Homme</option>
                                         </select>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                         <label for="inputStatuts">Statuts</label>
                                         <select class="form-control" name="statuts">
                                         <option value="" selected disabled hidden>Sélectionner...</option>

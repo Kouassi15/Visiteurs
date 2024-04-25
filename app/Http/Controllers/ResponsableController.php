@@ -37,7 +37,7 @@ class ResponsableController extends Controller
             // 'statuts' => 'required|string',
             'activite' => 'required',
             'quartier' => 'required',
-            // 'date'      =>  'required|date',
+            'sexe'      =>  'required',
             
         ]);
     
@@ -48,6 +48,7 @@ class ResponsableController extends Controller
         $responsable->contact = $request->contact;
         $responsable->quartier = $request->quartier;
         $responsable->activite = $request->activite;
+        $responsable->sexe = $request->sexe;
         $responsable->save();
 
         return redirect()->route('responsable.index')->with('message', "Le responsable a bien été créée !");
@@ -96,6 +97,7 @@ class ResponsableController extends Controller
         $responsable->contact = $request->contact;
         $responsable->quartier = $request->quartier;
         $responsable->activite = $request->activite;
+        $responsable->sexe = $request->sexe;
         $responsable->save();
 
         return redirect()->route('responsable.index')->with('message', "Le responsable a bien été modifier!");

@@ -69,9 +69,9 @@
                                     <form method="POST" action="{{ route('fidele.delete', $fidele->id)}}">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('fidele.show', $fidele->id)}}" class="btn btn-primary"> View</a>
-                                    <a href="{{ route('fidele.edit', $fidele->id)}}" class="btn btn-success"> Edit</a>
-                                    <button type="submit" class="btn btn-danger"> Delete</button>
+                                    <a href="{{ route('fidele.show', $fidele->id)}}" class="btn btn-primary"> Voir</a>
+                                    <a href="{{ route('fidele.edit', $fidele->id)}}" class="btn btn-success"> Modifier</a>
+                                    <button type="submit" class="btn btn-danger"> Supprimer</button>
                                    </form>
                                     </td>
                                 </tr>

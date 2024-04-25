@@ -53,9 +53,9 @@
                                     <th>Activites</th>
                                     <th>Sexes</th>
                                     <th>Responsables</th>
-                                    <th>Type visiteurs</th>
-                                    <th>Date</th>
-                                    <th>Action</th>
+                                    <th >Type visiteurs</th>
+                                    <th >Date</th>
+                                    <th >Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -70,14 +70,14 @@
                                     <td>{{$visiteur->sexe}}</td>
                                     <td>{{$visiteur->responsable->nom}}</td>
                                     <td>{{$visiteur->type_visiteur->libelle}}</td>
-                                    <td>{{$visiteur->date}}</td>
-                                    <td>
+                                    <td >{{$visiteur->date}}</td>
+                                    <td width="180%">
                                     <form method="POST" action="{{ route('visiteur.delete', $visiteur->id)}}">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('visiteur.show', $visiteur->id)}}" class="btn btn-primary"> View</a>
-                                    <a href="{{ route('visiteur.edit', $visiteur->id)}}" class="btn btn-success"> Edit</a>
-                                    <button type="submit" class="btn btn-danger"> Delete</button>
+                                    <a href="{{ route('visiteur.show', $visiteur->id)}}" class="btn btn-primary"> Voir</a>
+                                    <a href="{{ route('visiteur.edit', $visiteur->id)}}" class="btn btn-success"> Modifier</a>
+                                    <button type="submit" class="btn btn-danger"> Supprimer</button>
                                    </form>
                                     </td>
                                 </tr>

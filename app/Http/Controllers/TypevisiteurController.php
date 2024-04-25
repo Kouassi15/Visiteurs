@@ -13,7 +13,7 @@ class TypevisiteurController extends Controller
     {
         $typevisiteurs = Type_visiteur::all();
 
-        return view('dashboard.admin.type_visiteur.index',compact('typevisiteurs'));
+        return view('dashboard.admin.typevisiteur.index',compact('typevisiteurs'));
     }
 
     /**

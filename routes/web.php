@@ -59,8 +59,13 @@ Route::prefix('visiteur')->name('visiteur.')->group(function () {
 
 //  type visiteur
 Route::prefix('typevisiteur')->name('typevisiteur.')->group(function () {
+    Route::get('index',[TypevisiteurController::class, 'index'])->name('index');
     Route::get('create',[TypevisiteurController::class, 'create'])->name('create');
     Route::post('store',[TypevisiteurController::class, 'store'])->name('store');
+    Route::get('show/{id}',[TypevisiteurController::class, 'show'])->name('show');
+    Route::get('edit/{id}',[TypevisiteurController::class, 'edit'])->name('edit');
+    Route::put('update/{id}',[TypevisiteurController::class, 'update'])->name('update');
+    Route::delete('delete/{id}',[TypevisiteurController::class, 'destroy'])->name('delete');
 });
 
 // responsable

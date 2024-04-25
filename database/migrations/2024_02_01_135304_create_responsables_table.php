@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('activite')->nullable();
             $table->string('statuts')->nullable();
             $table->string('quartier')->nullable();
-            $table->date('date')->nullable();
+            $table->string('sexe')->nullable();
             $table->timestamps();
         });
     }
