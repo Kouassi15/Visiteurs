@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
+            $table->string('contact');
             $table->string('activite');
+            $table->string('sexe');
+            $table->string('quartier');
             $table->string('images');
             $table->timestamps();
         });

@@ -15,12 +15,12 @@ class AssignPermissionsToMember extends Seeder
      */
     public function run()
     {
-        // $memberRole = Role::where('name','collaborateur')->first();
+        $memberRole = Role::where('name','affaire_social')->first();
 
-        // $memberRole->givePermissionTo([
-        //     'view collaborateur',
-        //     'view project',
-        //     'view task',
-        // ]);
+        $memberRole->givePermissionTo([
+            'view affaire_social',
+            'view membre',
+            
+        ]);
     }
 }

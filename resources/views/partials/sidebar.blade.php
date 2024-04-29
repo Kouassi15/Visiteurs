@@ -114,20 +114,20 @@
                                     </ul>
                                 </div>
                             </li>
-                            <!--<li class="nav-divider">
+                           <li class="nav-divider">
                                 Features
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i> Pages </a>
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-users"></i> Adehrents </a>
                                 <div id="submenu-6" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/blank-page.html">Blank Page</a>
+                                            <a class="nav-link" href="{{route('membre.create')}}">Ajouter un adehrent</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/blank-page-header.html">Blank Page Header</a>
+                                            <a class="nav-link" href="pages/blank-page-header.html">Liste des adehrents</a>
                                         </li>
-                                        <li class="nav-item">
+                                        <!-- <li class="nav-item">
                                             <a class="nav-link" href="pages/login.html">Login</a>
                                         </li>
                                         <li class="nav-item">
@@ -164,9 +164,9 @@
                                             <a class="nav-link" href="pages/color-picker.html">Color Picker</a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </li>
-                            <li class="nav-item">
+                          <!--  <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Apps <span class="badge badge-secondary">New</span></a>
                                 <div id="submenu-7" class="collapse submenu" style="">
                                     <ul class="nav flex-column">

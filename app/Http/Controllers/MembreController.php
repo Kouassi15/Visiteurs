@@ -19,7 +19,7 @@ class MembreController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.admin.membre.create');
     }
 
     /**
@@ -27,8 +27,41 @@ class MembreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'contact' => 'required|string|max:255', 
+            'activite' => 'required|string|max:255',
+            'sexe' => 'required|in:Homme,Femme',
+            'quartier' => 'required|string|max:255',
+            'images' => 'required|image|mimes:jpg,png,jpeg|max:2048',
+        ]);
+        
+        try {
+            $membre = new Membre();
+            $membre->nom = $request->input('nom');
+            $membre->prenom = $request->input('prenom');
+            $membre->contact = $request->input('contact');
+            $membre->activite = $request->input('activite');
+            $membre->sexe = $request->input('sexe');
+            $membre->quartier = $request->input('quartier');
+        
+            if ($request->hasFile('images')) {
+                $imageName = $request->file('images')->getClientOriginalName();
+                $path = $request->file('images')->store('assets/img');
+                $membre->images = $path;
+            }
+        
+            $membre->save();
+            return redirect()->route('membre.index')->with('success', 'Membre ajouté avec succès.');
+        } catch (\Exception $e) {
+            // Log the error or handle it appropriately
+            return redirect()->back()->with('error', 'Une erreur est survenue lors de l\'ajout du membre.');
+        }
     }
+    
+
+    
 
     /**
      * Display the specified resource.

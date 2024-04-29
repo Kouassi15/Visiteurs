@@ -7,6 +7,9 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\RoleSeeder;
 use Database\Seeders\PermissionSeeder;
 use Database\Seeders\UserSeeder;
+use Database\Seeders\assign_permissions_to_role\AssignPermissionsToAdmin;
+use Database\Seeders\assign_permissions_to_role\AssignPermissionsToMember;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,6 +25,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'admin@gmail.com',
         // ]);
 
-        $this->call([ RoleSeeder::class, UserSeeder::class, PermissionSeeder::class,AssignPermissionsToAdmin::class,AssignPermissionsToMember::class]);
+        $this->call([ RoleSeeder::class, UserSeeder::class, PermissionSeeder::class, AssignPermissionsToAdmin::class, AssignPermissionsToMember::class]);
     }
 }

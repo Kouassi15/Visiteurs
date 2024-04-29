@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FideleController;
+use App\Http\Controllers\MembreController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VisiteurController;
 use App\Http\Controllers\DashboardController;
@@ -89,5 +90,16 @@ Route::prefix('fidele')->name('fidele.')->group(function () {
     Route::get('edit/{id}',[FideleController::class, 'edit'])->name('edit');
     Route::put('update/{id}',[FideleController::class, 'update'])->name('update');
     Route::delete('delete/{id}',[FideleController::class, 'destroy'])->name('delete');
+
+});
+
+Route::prefix('membre')->name('membre.')->group(function () {
+    Route::get('index',[MembreController::class, 'index'])->name('index');
+    Route::get('create',[MembreController::class, 'create'])->name('create');
+    Route::post('store',[MembreController::class, 'store'])->name('store');
+    // Route::get('show/{id}',[FideleController::class, 'show'])->name('show');
+    // Route::get('edit/{id}',[FideleController::class, 'edit'])->name('edit');
+    // Route::put('update/{id}',[FideleController::class, 'update'])->name('update');
+    // Route::delete('delete/{id}',[FideleController::class, 'destroy'])->name('delete');
 
 });
