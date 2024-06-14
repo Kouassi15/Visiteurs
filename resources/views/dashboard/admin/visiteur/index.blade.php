@@ -37,11 +37,9 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="mb-0">Listes des visiteurs </h5>
-                    <!-- <p>This example shows DataTables and the RowGroup extension being used with Bootstrap 4 providing
-                        the styling.</p> -->
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table-responsive text-nowrap" >
                         <table id="example2" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>

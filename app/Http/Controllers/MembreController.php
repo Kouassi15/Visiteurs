@@ -37,7 +37,7 @@ class MembreController extends Controller
             'images' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
         
-        try {
+        
             $membre = new Membre();
             $membre->nom = $request->input('nom');
             $membre->prenom = $request->input('prenom');
@@ -46,18 +46,15 @@ class MembreController extends Controller
             $membre->sexe = $request->input('sexe');
             $membre->quartier = $request->input('quartier');
         
-            if ($request->hasFile('images')) {
+           
+             // télécharger l'image
                 $imageName = $request->file('images')->getClientOriginalName();
-                $path = $request->file('images')->store('assets/img');
-                $membre->images = $path;
-            }
-        
+                $path = $request->file('images')->move(public_path('assets/images1',$imageName),$imageName);
+                $membre->images = $imageName;
+            
+                //dd($membre);
             $membre->save();
             return redirect()->route('membre.index')->with('success', 'Membre ajouté avec succès.');
-        } catch (\Exception $e) {
-            // Log the error or handle it appropriately
-            return redirect()->back()->with('error', 'Une erreur est survenue lors de l\'ajout du membre.');
-        }
     }
     
 
