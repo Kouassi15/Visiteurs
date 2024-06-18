@@ -16,10 +16,13 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('contact');
-            $table->string('activite');
+            $table->string('poste');
             $table->string('sexe');
-            $table->string('quartier');
-            $table->string('images');
+            $table->string('domicile');
+            $table->string('image');
+            $table->date('date_naissance');
+            $table->string('personne_contacte');
+            $table->string('numero_urgent');
             $table->timestamps();
         });
     }

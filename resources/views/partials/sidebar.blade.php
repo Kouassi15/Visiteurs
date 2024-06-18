@@ -125,7 +125,7 @@
                                             <a class="nav-link" href="{{route('membre.create')}}">Ajouter un adehrent</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/blank-page-header.html">Liste des adehrents</a>
+                                            <a class="nav-link" href="{{route('membre.index')}}">Liste des adehrents</a>
                                         </li>
                                         <!-- <li class="nav-item">
                                             <a class="nav-link" href="pages/login.html">Login</a>
