@@ -6,6 +6,7 @@ use App\Http\Controllers\MembreController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VisiteurController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CotisationController;
 use App\Http\Controllers\HistoriqueController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ResponsableController;
@@ -97,9 +98,23 @@ Route::prefix('membre')->name('membre.')->group(function () {
     Route::get('index',[MembreController::class, 'index'])->name('index');
     Route::get('create',[MembreController::class, 'create'])->name('create');
     Route::post('store',[MembreController::class, 'store'])->name('store');
-    // Route::get('show/{id}',[FideleController::class, 'show'])->name('show');
-    // Route::get('edit/{id}',[FideleController::class, 'edit'])->name('edit');
-    // Route::put('update/{id}',[FideleController::class, 'update'])->name('update');
-    // Route::delete('delete/{id}',[FideleController::class, 'destroy'])->name('delete');
+     Route::get('show/{id}',[MembreController::class, 'show'])->name('show');
+     Route::get('edit/{id}',[MembreController::class, 'edit'])->name('edit');
+     Route::put('update/{id}',[MembreController::class, 'update'])->name('update');
+     Route::delete('delete/{id}',[MembreController::class, 'destroy'])->name('delete');
 
 });
+
+// cotisation
+Route::prefix('cotisation')->name('cotisation.')->group(function () {
+    Route::get('index',[CotisationController::class, 'index'])->name('index');
+    Route::get('create',[CotisationController::class, 'create'])->name('create');
+    Route::post('store',[CotisationController::class, 'store'])->name('store');
+     Route::get('show/{id}',[CotisationController::class, 'show'])->name('show');
+     Route::get('edit/{id}',[CotisationController::class, 'edit'])->name('edit');
+     Route::put('update/{id}',[CotisationController::class, 'update'])->name('update');
+     Route::delete('delete/{id}',[CotisationController::class, 'destroy'])->name('delete');
+
+});
+
+

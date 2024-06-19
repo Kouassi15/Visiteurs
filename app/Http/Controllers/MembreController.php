@@ -117,7 +117,8 @@ class MembreController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $membre = Membre::find($id);
+        return view('dashboard.admin.membre.edit',compact('membre'));
     }
 
     /**
@@ -125,7 +126,39 @@ class MembreController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'contact' => 'required|string|max:255',
+            'poste' => 'required|string|max:255',
+            'sexe' => 'required|in:Homme,Femme',
+            'domicile' => 'required|string|max:255',
+            'personne_contacte' => 'required|string|max:255',
+            'numero_urgent' => 'required|string|max:255',
+            'date_naissance' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
+        ]);
+
+        $membre = Membre::find($id);
+        $membre->nom = $request->nom;
+        $membre->prenom = $request->prenom;
+        $membre->contact = $request->contact;
+        $membre->poste = $request->poste;
+        $membre->sexe = $request->sexe;
+        $membre->domicile = $request->domicile;
+        $membre->personne_contacte = $request->personne_contacte;
+        $membre->numero_urgent = $request->numero_urgent;
+        $membre->date_naissance = $request->date_naissance ;
+
+        // Télécharger l'image
+        if ($request->hasFile('image')) {
+            $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path('assets/images'), $imageName);
+            $membre->image = $imageName;
+        }
+
+        $membre->save();
+        return redirect()->route('membre.index')->with('success', 'Membre modifié avec succès.');
     }
 
     /**

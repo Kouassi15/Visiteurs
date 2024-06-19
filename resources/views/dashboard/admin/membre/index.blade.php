@@ -72,11 +72,11 @@
                                     <td >{{$membre->date_naissance}}</td>
                                     <td><img src="{{asset('assets/images/'.$membre->image)}}"  width="40px" alt="Archive Image"></td>
                                     <td width="180%">
-                                    <form method="POST" action="{{ route('visiteur.delete', $membre->id)}}">
+                                    <form method="POST" action="{{ route('membre.delete', $membre->id)}}">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('visiteur.show', $membre->id)}}" class="btn btn-primary"> Voir</a>
-                                    <a href="{{ route('visiteur.edit', $membre->id)}}" class="btn btn-success"> Modifier</a>
+                                    <a href="{{ route('membre.show', $membre->id)}}" class="btn btn-primary"> Voir</a>
+                                    <a href="{{ route('membre.edit', $membre->id)}}" class="btn btn-success"> Modifier</a>
                                     <button type="submit" class="btn btn-danger"> Supprimer</button>
                                    </form>
                                     </td>

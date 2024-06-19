@@ -162,30 +162,30 @@
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="pages/color-picker.html">Color Picker</a>
-                                        </li>
+                                        </li>-->
                                     </ul>
-                                </div> -->
+                                </div> 
                             </li>
-                          <!--  <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Apps <span class="badge badge-secondary">New</span></a>
+                           <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Cotisations <span class="badge badge-secondary">New</span></a>
                                 <div id="submenu-7" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/inbox.html">Inbox</a>
+                                            <a class="nav-link" href="{{route('cotisation.create')}}">Ajouter</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/email-details.html">Email Detail</a>
+                                            <a class="nav-link" href="{{route('cotisation.index')}}">Liste des cotisations</a>
                                         </li>
-                                        <li class="nav-item">
+                                        <!-- <li class="nav-item">
                                             <a class="nav-link" href="pages/email-compose.html">Email Compose</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="pages/message-chat.html">Message Chat</a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-8" aria-controls="submenu-8"><i class="fas fa-fw fa-columns"></i>Icons</a>
                                 <div id="submenu-8" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
