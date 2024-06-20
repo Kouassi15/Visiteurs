@@ -34,6 +34,7 @@ class CotisationController extends Controller
         $request->validate([
             'membre_id' => 'required',
             'montant_mensuel' => 'required',
+            'mois' => 'required|string|max:255',
             'date' => 'required',
             'status' => 'nullable',
         ]);
@@ -41,6 +42,7 @@ class CotisationController extends Controller
         $cotisation = new Cotisation();
         $cotisation->membre_id = $request->membre_id;
         $cotisation->montant_mensuel = $request->montant_mensuel;
+        $cotisation->mois = $request->mois;
         $cotisation->date = $request->date;
         $cotisation->montant_total = $request->montant_mensuel * 12;
 

@@ -13,16 +13,17 @@ return new class extends Migration
     {
         Schema::create('membres', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('contact');
-            $table->string('poste');
-            $table->string('sexe');
-            $table->string('domicile');
-            $table->string('image');
-            $table->date('date_naissance');
-            $table->string('personne_contacte');
-            $table->string('numero_urgent');
+            $table->string('nom')->nullable();
+            $table->string('prenom')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('poste')->nullable();
+            $table->string('sexe')->nullable();
+            $table->string('domicile')->nullable();
+            $table->string('image')->nullable();
+            $table->date('date_naissance')->nullable();
+            $table->string('lieu')->nullable();
+            $table->string('personne_contacte')->nullable();
+            $table->string('numero_urgent')->nullable();
             $table->timestamps();
         });
     }

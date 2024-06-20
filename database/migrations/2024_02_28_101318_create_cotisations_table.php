@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('no_cotisation')->nullable();
             $table->string('montant_mensuel')->nullable();
             $table->string('montant_total')->nullable();
+            $table->string('mois')->nullable();
             $table->enum('status', ['en cours', 'soldé'])->nullable();
             $table->date('date')->nullable();
             $table->timestamps();

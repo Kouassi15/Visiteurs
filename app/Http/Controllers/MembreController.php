@@ -72,6 +72,7 @@ class MembreController extends Controller
             'prenom' => 'required|string|max:255',
             'contact' => 'required|string|max:255',
             'poste' => 'required|string|max:255',
+            'lieu' => 'required|string|max:255',
             'sexe' => 'required|in:Homme,Femme',
             'domicile' => 'required|string|max:255',
             'personne_contacte' => 'required|string|max:255',
@@ -87,6 +88,7 @@ class MembreController extends Controller
         $membre->poste = $request->poste;
         $membre->sexe = $request->sexe;
         $membre->domicile = $request->domicile;
+        $membre->lieu = $request->lieu;
         $membre->personne_contacte = $request->personne_contacte;
         $membre->numero_urgent = $request->numero_urgent;
         $membre->date_naissance = $request->date_naissance ;
@@ -131,6 +133,7 @@ class MembreController extends Controller
             'prenom' => 'required|string|max:255',
             'contact' => 'required|string|max:255',
             'poste' => 'required|string|max:255',
+            'lieu' => 'required|string|max:255',
             'sexe' => 'required|in:Homme,Femme',
             'domicile' => 'required|string|max:255',
             'personne_contacte' => 'required|string|max:255',
@@ -146,6 +149,7 @@ class MembreController extends Controller
         $membre->poste = $request->poste;
         $membre->sexe = $request->sexe;
         $membre->domicile = $request->domicile;
+        $membre->lieu = $request->lieu;
         $membre->personne_contacte = $request->personne_contacte;
         $membre->numero_urgent = $request->numero_urgent;
         $membre->date_naissance = $request->date_naissance ;

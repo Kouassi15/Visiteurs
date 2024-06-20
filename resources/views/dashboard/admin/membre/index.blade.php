@@ -48,11 +48,12 @@
                                     <th>Prenoms</th>
                                     <th>Contacts</th>
                                     <th>Quartier</th>
-                                    <th>Activites de l'église</th>
+                                    <th>Profession</th>
                                     <th>Sexes</th>
                                     <th>Personne contactée en cas urgence</th>
                                     <th>Numero en cas urgence</th>
                                     <th >Date de naissance</th>
+                                    <th >Lieu de naissance</th>
                                     <th>Images</th>
                                     <th >Action</th>
                                 </tr>
@@ -69,7 +70,8 @@
                                     <td>{{$membre->sexe}}</td>
                                     <td>{{$membre->personne_contacte}}</td>
                                     <td>{{$membre->numero_urgent}}</td>
-                                    <td >{{$membre->date_naissance}}</td>
+                                    <td>{{ $membre->date_naissance }}</td>
+                                    <td >{{$membre->lieu}}</td>
                                     <td><img src="{{asset('assets/images/'.$membre->image)}}"  width="40px" alt="Archive Image"></td>
                                     <td width="180%">
                                     <form method="POST" action="{{ route('membre.delete', $membre->id)}}">
