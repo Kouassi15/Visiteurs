@@ -53,7 +53,7 @@
                             <input type="text" name="domicile" required placeholder="Entrer le quartier" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3 form-group">
-                            <label for="poste">Profission</label>
+                            <label for="poste">Profession</label>
                             <input type="text" name="poste" required placeholder="Entrer l'activité" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3 form-group">

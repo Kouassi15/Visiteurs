@@ -44,7 +44,7 @@
                             <select class="form-control @error('membre_id') is-invalid @enderror" name="membre_id">
                                 <option value="" selected disabled>Selectionner....</option>
                                 @foreach($membres as $membre)
-                                <option value="{{$membre->membre_id}}">{{$membre->nom}}</option>
+                                <option value="{{$membre->id}}">{{$membre->nom}}</option>
                                 @endforeach
                             </select>
                             @error('membre_id')
@@ -58,6 +58,26 @@
                             <input type="number" class="form-control @error('montant_mensuel') is-invalid @enderror" id=""
                                 placeholder="Entrer le montant" name="montant_mensuel" value="{{ old('montant_mensuel') }}" />
                             @error('montant_mensuel')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6 mb-3 form-group">
+                            <label for="mois" class="form-label">Mois: </label>
+                            <input type="text" class="form-control @error('mois') is-invalid @enderror" id=""
+                                placeholder="Entrer le mois" name="mois" value="{{ old('mois') }}" />
+                            @error('mois')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6 mb-3 form-group">
+                            <label for="annee" class="form-label">Années: </label>
+                            <input type="text" class="form-control @error('annee') is-invalid @enderror" id=""
+                                placeholder="Entrer le montant" name="annee" value="{{ old('annee') }}" />
+                            @error('annee')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

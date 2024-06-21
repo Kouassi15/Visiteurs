@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Cotisation extends Model
 {
     use HasFactory;
+
+    public function membre()
+    {
+        return $this->belongsTo(Membre::class);
+    }
 }

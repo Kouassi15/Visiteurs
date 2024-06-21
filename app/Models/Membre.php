@@ -11,4 +11,8 @@ class Membre extends Model
 
     protected $fillable = ['nom', 'prenom', 'contact', 'activite', 'sexe', 'quartier', 'images'];
 
+    public function cotisations()
+    {
+        return $this->hasMany(Cotisation::class);
+    }
 }
