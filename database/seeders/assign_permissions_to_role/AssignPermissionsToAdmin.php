@@ -23,9 +23,7 @@ class AssignPermissionsToAdmin extends Seeder
             'create affaire_social',
             'edit affaire_social',
             'delete affaire_social',
-            // 'manage project',
-            // 'manage task',
-            // 'manage comptable',
+             
         ]);
     }
 }

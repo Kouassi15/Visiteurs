@@ -69,6 +69,20 @@ class PermissionSeeder extends Seeder
         ]);
 
         Permission::create([
+            'name' => 'create cotisation',
+            "guard_name" => "web",
+        ]);
+
+        Permission::create([
+            'name' => 'edit cotisation',
+            "guard_name" => "web",
+        ]);
+         
+        Permission::create([
+            'name' => 'delete cotisation',
+            "guard_name" => "web",
+        ]);
+        Permission::create([
             'name' => 'manage jepcma',
             "guard_name" => "web",
         ]);

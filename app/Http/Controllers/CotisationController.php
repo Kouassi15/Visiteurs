@@ -97,9 +97,54 @@ class CotisationController extends Controller
 // }
 
 
+// public function store(Request $request)
+// {
+//     // Validation de la requête
+//     $request->validate([
+//         'membre_id' => 'required|string|max:255',
+//         'montant_mensuel' => 'required|numeric|min:0',
+//         'mois' => 'required|string|max:255',
+//         'annee' => 'required|string|max:255', 
+//         'date' => 'required|date',
+//         'status' => 'nullable',
+//     ]);
+
+//     // Trouver une cotisation existante pour le membre et l'année spécifiés
+//     $cotisation = Cotisation::where('membre_id', $request->membre_id);
+//                             // ->whereYear('date', $request->annee)
+//                              //->whereMonth('date', $request->mois)
+//                             // ->first();
+
+//     // if ($cotisation) {
+//         // Incrémenter le montant total à partir du deuxième ajout
+//         // Assurez-vous que le montant total est initialisé avant de l'incrémenter
+//         // if (!$cotisation->montant_total) {
+//         //     $cotisation->montant_total = 0; // Initialisation du montant total si jamais il était null
+//         // }
+//         // $cotisation->montant_total += $request->montant_mensuel;
+        
+//     // } else {
+//         // Créer une nouvelle cotisation si elle n'existe pas
+//         $cotisation = new Cotisation();
+//         $cotisation->membre_id = $request->membre_id;
+//         $cotisation->montant_mensuel = $request->montant_mensuel;
+//         $cotisation->mois = $request->mois;
+//         $cotisation->annee = $request->annee;
+//         $cotisation->date = $request->date;
+//         // Initialiser le montant total au montant mensuel pour le premier ajout
+//         $cotisation->montant_total = $request->montant_mensuel;
+//     // }
+
+//     // Sauvegarder les modifications
+//     $cotisation->save();
+
+//     // Redirection avec un message de succès
+//     return redirect()->route('cotisation.index')->with('success', 'Une cotisation ajoutée avec succès.');
+// }
+
 public function store(Request $request)
 {
-    // Validation de la requête
+
     $request->validate([
         'membre_id' => 'required|string|max:255',
         'montant_mensuel' => 'required|numeric|min:0',
@@ -109,36 +154,27 @@ public function store(Request $request)
         'status' => 'nullable',
     ]);
 
-    // Trouver une cotisation existante pour le membre et l'année spécifiés
     $cotisation = Cotisation::where('membre_id', $request->membre_id)
-                            // ->whereYear('date', $request->annee)
-                             ->whereMonth('date', $request->mois)
-                             ->first();
+                            ->whereYear('date', $request->annee)
+                            ->whereMonth('date', $request->mois)
+                            ->first();
 
     if ($cotisation) {
-        // Incrémenter le montant total à partir du deuxième ajout
-        // Assurez-vous que le montant total est initialisé avant de l'incrémenter
-        if (!$cotisation->montant_total) {
-            $cotisation->montant_total = 0; // Initialisation du montant total si jamais il était null
-        }
-        $cotisation->montant_total += $request->montant_mensuel;
         
+        $cotisation->montant_total += $request->montant_mensuel;
     } else {
-        // Créer une nouvelle cotisation si elle n'existe pas
+        
         $cotisation = new Cotisation();
         $cotisation->membre_id = $request->membre_id;
         $cotisation->montant_mensuel = $request->montant_mensuel;
         $cotisation->mois = $request->mois;
         $cotisation->annee = $request->annee;
         $cotisation->date = $request->date;
-        // Initialiser le montant total au montant mensuel pour le premier ajout
         $cotisation->montant_total = $request->montant_mensuel;
     }
 
-    // Sauvegarder les modifications
     $cotisation->save();
 
-    // Redirection avec un message de succès
     return redirect()->route('cotisation.index')->with('success', 'Une cotisation ajoutée avec succès.');
 }
 
@@ -172,6 +208,8 @@ public function store(Request $request)
      */
     public function destroy(string $id)
     {
-        //
+        $cotisation = Cotisation::find($id);
+        $cotisation->delete();
+        return redirect()->route('cotisation.index')->with('success', 'Une cotisation supprimé avec succès.');
     }
 }

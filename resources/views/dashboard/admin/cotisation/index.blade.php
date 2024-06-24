@@ -64,9 +64,16 @@
                                     <td>{{$cotisation->mois}}</td>
                                     <td>{{$cotisation->annee}}</td>
                                     <td>{{ $cotisation->date }}</td>
-                                    <td class="badge bg-warning text-white m-2">{{ $cotisation->status }}</td>
+                                    <td class=" m-2">
+                                        @if($cotisation->status == "en cours")
+                                       <span class="badge bg-warning text-white">En cours</span>
+                                       @endif
+                                       @if($cotisation->status == "soldé")
+                                       <span class="badge bg-success text-white">Soldé</span>
+                                       @endif
+                                     </td>
                                     <td>
-                                    <form method="POST" action="{{ route('membre.delete', $cotisation->id)}}">
+                                    <form method="POST" action="{{ route('cotisation.delete', $cotisation->id)}}">
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{ route('membre.show', $cotisation->id)}}" class="btn btn-primary"> Voir</a>

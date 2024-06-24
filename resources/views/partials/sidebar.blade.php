@@ -114,6 +114,7 @@
                                     </ul>
                                 </div>
                             </li>
+                            @can('affaire_social')
                            <li class="nav-divider">
                                 Features
                             </li>
@@ -127,42 +128,6 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{route('membre.index')}}">Liste des adehrents</a>
                                         </li>
-                                        <!-- <li class="nav-item">
-                                            <a class="nav-link" href="pages/login.html">Login</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/404-page.html">404 page</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/sign-up.html">Sign up Page</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/forgot-password.html">Forgot Password</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/pricing.html">Pricing Tables</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/timeline.html">Timeline</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/calendar.html">Calendar</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/sortable-nestable-lists.html">Sortable/Nestable List</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/widgets.html">Widgets</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/media-object.html">Media Objects</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/cropper-image.html">Cropper</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/color-picker.html">Color Picker</a>
-                                        </li>-->
                                     </ul>
                                 </div> 
                             </li>
@@ -176,15 +141,10 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{route('cotisation.index')}}">Liste des cotisations</a>
                                         </li>
-                                        <!-- <li class="nav-item">
-                                            <a class="nav-link" href="pages/email-compose.html">Email Compose</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/message-chat.html">Message Chat</a>
-                                        </li> -->
                                     </ul>
                                 </div>
                             </li>
+                            @endcan
                             <!-- <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-8" aria-controls="submenu-8"><i class="fas fa-fw fa-columns"></i>Icons</a>
                                 <div id="submenu-8" class="collapse submenu" style="">
