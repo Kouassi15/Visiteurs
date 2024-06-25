@@ -11,6 +11,7 @@ use App\Http\Controllers\HistoriqueController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ResponsableController;
 use App\Http\Controllers\TypevisiteurController;
+use App\Http\Controllers\CollaborateurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,6 +115,18 @@ Route::prefix('cotisation')->name('cotisation.')->group(function () {
      Route::get('edit/{id}',[CotisationController::class, 'edit'])->name('edit');
      Route::put('update/{id}',[CotisationController::class, 'update'])->name('update');
      Route::delete('delete/{id}',[CotisationController::class, 'destroy'])->name('delete');
+
+});
+
+// collaborateur
+Route::prefix('collaborateur')->name('collaborateur.')->group(function () {
+    Route::get('index',[CollaborateurController::class, 'index'])->name('index');
+    Route::get('create',[CollaborateurController::class, 'create'])->name('create');
+    Route::post('store',[CollaborateurController::class, 'store'])->name('store');
+     Route::get('show/{id}',[CollaborateurController::class, 'show'])->name('show');
+     Route::get('edit/{id}',[CollaborateurController::class, 'edit'])->name('edit');
+     Route::put('update/{id}',[CollaborateurController::class, 'update'])->name('update');
+     Route::delete('delete/{id}',[CollaborateurController::class, 'destroy'])->name('delete');
 
 });
 

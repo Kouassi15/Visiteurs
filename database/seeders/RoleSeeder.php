@@ -13,19 +13,20 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        Role::create([
-            'name' => 'admin',
-            "guard_name" => "web",
-        ]);
+        // Définition des rôles à créer
+        $roles = [
+            'admin',
+            'affaire_social',
+            'jepcma',
+            'affermissement',
+        ];
 
-        Role::create([
-            'name' => 'affaire_social',
-            "guard_name" => "web",
-        ]);
-
-        Role::create([
-            'name' => 'jepcma',
-            "guard_name" => "web",
-        ]);
+        // Parcourir chaque rôle et créer celui-ci dans la base de données
+        foreach ($roles as $role) {
+            Role::create([
+                'name' => $role,
+                'guard_name' => 'web', // Assurez-vous que 'web' est le guard approprié pour votre application
+            ]);
+        }
     }
 }

@@ -58,6 +58,7 @@
                                     </ul>
                                 </div> -->
                             </li>
+                            @role('admin')
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-users"></i>Visiteurs</a>
                                 <div id="submenu-2" class="collapse submenu" style="">
@@ -114,9 +115,35 @@
                                     </ul>
                                 </div>
                             </li>
-                            @can('affaire_social')
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-8" aria-controls="submenu-8"><i class="fas fa-fw fa-columns"></i>Collaborateurs</a>
+                                <div id="submenu-8" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('collaborateur.create')}}">Ajouter</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('collaborateur.index')}}">Listes</a>
+                                        </li>
+                                        <!-- <li class="nav-item">
+                                            <a class="nav-link" href="pages/icon-simple-lineicon.html">Simpleline Icon</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/icon-themify.html">Themify Icon</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/icon-flag.html">Flag Icons</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/icon-weather.html">Weather Icon</a>
+                                        </li> -->
+                                    </ul>
+                                </div>
+                            </li>
+                            @endrole
+                           @role('affaire_social')
                            <li class="nav-divider">
-                                Features
+                                GESTION DES ADHERENTS 
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-users"></i> Adehrents </a>
@@ -144,33 +171,8 @@
                                     </ul>
                                 </div>
                             </li>
-                            @endcan
+                            @endrole
                             <!-- <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-8" aria-controls="submenu-8"><i class="fas fa-fw fa-columns"></i>Icons</a>
-                                <div id="submenu-8" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/icon-fontawesome.html">FontAwesome Icons</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/icon-material.html">Material Icons</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/icon-simple-lineicon.html">Simpleline Icon</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/icon-themify.html">Themify Icon</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/icon-flag.html">Flag Icons</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/icon-weather.html">Weather Icon</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-9" aria-controls="submenu-9"><i class="fas fa-fw fa-map-marker-alt"></i>Maps</a>
                                 <div id="submenu-9" class="collapse submenu" style="">
                                     <ul class="nav flex-column">

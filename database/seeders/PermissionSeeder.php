@@ -13,78 +13,39 @@ class PermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        Permission::create([
-            'name'=>'manage users',
-            "guard_name" => "web",
-        ]);
-        
-        Permission::create([
-            'name' => 'manage affaire_social',
-            "guard_name" => "web",
-        ]);
+        $permissions = [
+            'manage users',
+            'manage affaire_social',
+            'create affaire_social',
+            'view affaire_social',
+            'edit affaire_social',
+            'delete affaire_social',
+            'manage membre',
+            'view membre',
+            'create membre',
+            'edit membre',
+            'delete membre',
+            'create cotisation',
+            'edit cotisation',
+            'delete cotisation',
+            'manage jepcma',
+            'view jepcma',
+            'create jepcma',
+            'edit jepcma',
+            'delete jepcma',
+            'manage affermissement',
+            'view affermissement',
+            'create affermissement',
+            'edit affermissement',
+            'delete affermissement',
 
-        Permission::create([
-            'name' => 'create affaire_social',
-            "guard_name" => "web",
-        ]);
-        
-        Permission::create([
-            'name' => 'view affaire_social',
-            "guard_name" => "web",
-        ]);
+        ];
 
-        Permission::create([
-            'name' => 'edit affaire_social',
-            "guard_name" => "web",
-        ]);
-
-        Permission::create([
-            'name' => 'delete affaire_social',
-            "guard_name" => "web",
-        ]);
-
-        Permission::create([
-            'name' => 'manage membre',
-            "guard_name" => "web",
-        ]);
-        
-        Permission::create([
-            'name' => 'view membre',
-            "guard_name" => "web",
-        ]);
-        
-        Permission::create([
-            'name' => 'create membre',
-            "guard_name" => "web",
-        ]);
-
-        Permission::create([
-            'name' => 'edit membre',
-            "guard_name" => "web",
-        ]);
-
-        Permission::create([
-            'name' => 'delete membre',
-            "guard_name" => "web",
-        ]);
-
-        Permission::create([
-            'name' => 'create cotisation',
-            "guard_name" => "web",
-        ]);
-
-        Permission::create([
-            'name' => 'edit cotisation',
-            "guard_name" => "web",
-        ]);
-         
-        Permission::create([
-            'name' => 'delete cotisation',
-            "guard_name" => "web",
-        ]);
-        Permission::create([
-            'name' => 'manage jepcma',
-            "guard_name" => "web",
-        ]);
+        // Créer les permissions
+        foreach ($permissions as $permission) {
+            Permission::create([
+                'name' => $permission,
+            ]);
+        }
     }
 }
