@@ -15,8 +15,8 @@ class CollaborateurController extends Controller
     public function index()
     {
         $users = User::all();
-        $collaborateur = Collaborateur::all();
-        return view('dashboard.admin.collaborateur.index',compact('users'));
+        $collaborateurs = Collaborateur::all();
+        return view('dashboard.admin.collaborateur.index',compact('users','collaborateurs'));
     }
 
     /**
@@ -74,7 +74,9 @@ class CollaborateurController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $collaborateur = Collaborateur::find($id);
+        return view('dashboard.admin.collaborateur.edit');
+        
     }
 
     /**
@@ -82,7 +84,38 @@ class CollaborateurController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:4',
+            'prenom' => 'required|string|max:255',
+            'contact' => 'required|string|max:255',
+            'poste' => 'required|string|max:255',
+        ]);
+        //create user account
+        $user = User::find($id);
+        if ($user) {
+        $user = User::update(
+            [
+                "name" => $request->name . ' ' . $request->prenom,
+                "email" => $request->email,
+                "password" => Hash::make($request->password)
+            ]
+        );
+        $user->save();
+    }
+
+        $collaborateur = Collaborateur::find($id);
+        $collaborateur->user_id = $user->id;
+        $collaborateur->nom = $request->name;
+        $collaborateur->prenom = $request->prenom;
+        $collaborateur->contact = $request->contact;
+        $collaborateur->poste = $request->poste;
+
+        $collaborateur->save();
+
+        return redirect()->route('collaborateur.index')->with('Succès','Collaborateur ajouté avec succès');
+        
     }
 
     /**

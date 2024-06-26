@@ -26,7 +26,7 @@
     <!-- end pageheader -->
     <!-- ============================================================== -->
     <div class="col-lg-1 my-3 ">
-            <a class="btn btn-success" href="{{ route('membre.create') }}">Ajouter</a>
+            <a class="btn btn-success" href="{{ route('cotisation.create') }}">Ajouter</a>
         </div>
 
     <div class="row ">
@@ -44,44 +44,43 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Noms</th>
-                                    <th>Prenoms</th>
-                                    <th>Contacts</th>
-                                    <th>Quartier</th>
-                                    <th>Profession</th>
-                                    <th>Sexes</th>
-                                    <th>Personne contactée en cas urgence</th>
-                                    <th>Numero en cas urgence</th>
-                                    <th >Date de naissance</th>
-                                    <th >Lieu de naissance</th>
-                                    <th>Images</th>
-                                    <th >Action</th>
+                                    <th>Noms & Prenoms</th>
+                                    <th>Montant mensuel</th>
+                                    <th>Montant total</th>
+                                    <th>Mois</th>
+                                    <th>Années</th>
+                                    <th>Date </th>
+                                    <th>status</th>
+                                    <!-- <th>Action</th> -->
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($membres as $membre)
+                                @foreach($cotisations as $cotisation)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{$membre->nom}}</td>
-                                    <td>{{$membre->prenom}}</td>
-                                    <td>{{$membre->contact}}</td>
-                                    <td>{{$membre->domicile}}</td>
-                                    <td>{{$membre->poste}}</td>
-                                    <td>{{$membre->sexe}}</td>
-                                    <td>{{$membre->personne_contacte}}</td>
-                                    <td>{{$membre->numero_urgent}}</td>
-                                    <td>{{ $membre->date_naissance }}</td>
-                                    <td >{{$membre->lieu}}</td>
-                                    <td><img src="{{asset('assets/images/'.$membre->image)}}"  width="40px" alt="Archive Image"></td>
-                                    <td width="180%">
-                                    <form method="POST" action="{{ route('membre.delete', $membre->id)}}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <a href="{{ route('cotisation.show', $membre->id)}}" class="btn btn-primary"> Voir mes cotisations</a>
-                                    <a href="{{ route('membre.edit', $membre->id)}}" class="btn btn-success"> Modifier</a>
-                                    <button type="submit" class="btn btn-danger"> Supprimer</button>
-                                   </form>
-                                    </td>
+                                    <td>{{$cotisation->membre->nom}}  {{$cotisation->membre->prenom}}</td>
+                                    <td>{{$cotisation->montant_mensuel}}</td>
+                                    <td>{{$cotisation->montant_total}}</td>
+                                    <td>{{$cotisation->mois}}</td>
+                                    <td>{{$cotisation->annee}}</td>
+                                    <td>{{ $cotisation->date }}</td>
+                                    <td class=" m-2">
+                                        @if($cotisation->status == "en cours")
+                                       <span class="badge bg-warning text-white">En cours</span>
+                                       @endif
+                                       @if($cotisation->status == "soldé")
+                                       <span class="badge bg-success text-white">Soldé</span>
+                                       @endif
+                                     </td>
+                                    {{-- <td>
+                                        <form method="POST" action="{{ route('cotisation.delete', $cotisation->id)}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="{{ route('membre.show', $cotisation->id)}}" class="btn btn-primary"> Voir</a>
+                                            <a href="{{ route('membre.edit', $cotisation->id)}}" class="btn btn-success"> Modifier</a>
+                                            <button type="submit" class="btn btn-danger"> Supprimer</button>
+                                        </form>
+                                    </td> --}}
                                 </tr>
 
                                 @endforeach
