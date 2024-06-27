@@ -170,6 +170,8 @@ class MembreController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $membre = Membre::find($id);
+        $membre->delete();
+        return redirect()->route('membre.index')->with('success', 'Membre supprimé avec succès.');
     }
 }

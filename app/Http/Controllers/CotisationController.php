@@ -114,10 +114,15 @@ class CotisationController extends Controller
         ]);
 
         $cotisation = Cotisation::where('membre_id', $request->membre_id)
-                                ->whereYear('annee', $request->annee)
-                                ->whereMonth('mois', $request->mois)
+                                ->whereYear('date', $request->annee)
+                                //->whereMonth('date', $request->mois)
                                 ->first();
+
+        if ($cotisation) {
             
+            $cotisation->montant_total += $request->montant_mensuel ;
+            } else {
+           
             $cotisation = new Cotisation();
             $cotisation->membre_id = $request->membre_id;
             $cotisation->montant_mensuel = $request->montant_mensuel;
@@ -125,13 +130,8 @@ class CotisationController extends Controller
             $cotisation->annee = $request->annee;
             $cotisation->date = $request->date;
             $cotisation->montant_total = $request->montant_mensuel;
-            if ($cotisation) {
-            
-                $cotisation->montant_total += $request->montant_mensuel ;
-            } else {
-                return redirect()->route('cotisation.index')->with('error', 'Le montant total pour l\'année a déjà atteint 12000.');
-        }
-
+           
+            }
         $cotisation->save();
 
         return redirect()->route('cotisation.index')->with('success', 'Une cotisation ajoutée avec succès.');
