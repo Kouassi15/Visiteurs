@@ -140,6 +140,19 @@
                                     </ul>
                                 </div>
                             </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-9" aria-controls="submenu-9"><i class="fas fa-fw fa-map-marker-alt"></i>Annonces</a>
+                                <div id="submenu-9" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{route('annonce.create')}}">Ajouter</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{route('annonce.index')}}">Liste des annonce</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
                             @endrole
                            @role('affaire_social')
                            <li class="nav-divider">

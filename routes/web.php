@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FideleController;
 use App\Http\Controllers\MembreController;
+use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VisiteurController;
 use App\Http\Controllers\DashboardController;
@@ -127,6 +128,18 @@ Route::prefix('collaborateur')->name('collaborateur.')->group(function () {
      Route::get('edit/{id}',[CollaborateurController::class, 'edit'])->name('edit');
      Route::put('update/{id}',[CollaborateurController::class, 'update'])->name('update');
      Route::delete('delete/{id}',[CollaborateurController::class, 'destroy'])->name('delete');
+
+});
+
+// Annonces
+Route::prefix('annonce')->name('annonce.')->group(function () {
+    Route::get('index',[AnnonceController::class, 'index'])->name('index');
+    Route::get('create',[AnnonceController::class, 'create'])->name('create');
+    Route::post('store',[AnnonceController::class, 'store'])->name('store');
+     Route::get('show/{id}',[AnnonceController::class, 'show'])->name('show');
+     Route::get('edit/{id}',[AnnonceController::class, 'edit'])->name('edit');
+     Route::put('update/{id}',[AnnonceController::class, 'update'])->name('update');
+     Route::delete('delete/{id}',[AnnonceController::class, 'destroy'])->name('delete');
 
 });
 

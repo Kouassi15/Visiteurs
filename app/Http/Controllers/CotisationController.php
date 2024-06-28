@@ -114,8 +114,8 @@ class CotisationController extends Controller
         ]);
 
         $cotisation = Cotisation::where('membre_id', $request->membre_id)
-                                ->whereYear('date', $request->annee)
-                                //->whereMonth('date', $request->mois)
+                                //->whereYear('date', $request->annee)
+                                ->whereMonth('date', $request->mois)
                                 ->first();
 
         if ($cotisation) {

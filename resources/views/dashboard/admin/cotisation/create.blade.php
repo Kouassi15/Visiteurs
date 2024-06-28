@@ -44,7 +44,7 @@
                             <select class="form-control @error('membre_id') is-invalid @enderror" name="membre_id">
                                 <option value="" selected disabled>Selectionner....</option>
                                 @foreach($membres as $membre)
-                                <option value="{{$membre->id}}">{{$membre->nom}}</option>
+                                <option value="{{$membre->id}}">{{$membre->nom}} {{$membre->prenom}}</option>
                                 @endforeach
                             </select>
                             @error('membre_id')
