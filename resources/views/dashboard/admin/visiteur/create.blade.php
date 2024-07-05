@@ -34,29 +34,29 @@
                             <div class="card">
                                 <h5 class="card-header">Ajouter un visiteur</h5>
                                 <div class="card-body">
-                                    <form action="{{ route('visiteur.store')}}"  method="post">
+                                    <form action="{{ route('visiteur.store')}}" class="row g-3"  method="post">
                                         @csrf
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="nom">Nom</label>
                                             <input id="nom" type="text" name="nom"  required="" placeholder="Entrer nom du visiteur" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="prenom">Prénom</label>
                                             <input id="prenom" type="text" name="prenom" required="" placeholder="Entrer le prenom" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="contact">Contact</label>
                                             <input id="contact" type="text" name="contact" placeholder="Entrer le contact" required="" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="quartier">Quartier</label>
                                             <input id="quartier" type="text" name="quartier" placeholder="Entrer le quartier" required="" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="activite">Activite</label>
                                             <input id="activite" type="text" name="activite" placeholder="Entrer l'activite" required="" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                         <label for="sexe">Sexe</label>
                                         <select class="form-control " name="sexe">
                                         <option value="" selected disabled hidden>Sélectionner...</option>
@@ -64,7 +64,7 @@
                                             <option value="homme">Homme</option>
                                         </select>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                         <label for="statuts">Statuts</label>
                                         <select class="form-control" name="type_visiteur_id">
                                         <option value="" selected disabled hidden>Sélectionner...</option>
@@ -74,23 +74,26 @@
                                             
                                         </select>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                         <label for="statuts">Responsables</label>
                                         <select class="form-control" name="responsable_id">
                                         <option value="" selected disabled hidden>Sélectionner...</option>
                                          @foreach ($responsables as $responsable)
                                          <option value="{{ $responsable->id }}">{{ $responsable->nom }}</option>
                                          @endforeach
-                                            
                                         </select>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
+                                            <label for="motif">Motif de la visite</label>
+                                            <textarea id="motif" type="text" name="motif"  placeholder="Entrer le motif" required="" class="form-control"></textarea>
+                                        </div>
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="date">Date</label>
                                             <input id="date" type="date" name="date"  required="" placeholder="Entrer nom du visiteur" class="form-control">
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 pl-0">
-                                                <p class="text-right">
+                                                <p class="text-right d-flex m-4">
                                                     <button type="submit" class="btn btn-space btn-primary">Enregistrer</button>
                                                     <button class="btn btn-space btn-secondary">Retour</button>
                                                 </p>

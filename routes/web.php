@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ActeurController;
 use App\Http\Controllers\FideleController;
 use App\Http\Controllers\MembreController;
 use App\Http\Controllers\AnnonceController;
@@ -140,6 +141,18 @@ Route::prefix('annonce')->name('annonce.')->group(function () {
      Route::get('edit/{id}',[AnnonceController::class, 'edit'])->name('edit');
      Route::put('update/{id}',[AnnonceController::class, 'update'])->name('update');
      Route::delete('delete/{id}',[AnnonceController::class, 'destroy'])->name('delete');
+
+});
+
+// Acteurs
+Route::prefix('acteur')->name('acteur.')->group(function () {
+    Route::get('index',[ActeurController::class, 'index'])->name('index');
+    Route::get('create',[ActeurController::class, 'create'])->name('create');
+    Route::post('store',[ActeurController::class, 'store'])->name('store');
+     Route::get('show/{id}',[ActeurController::class, 'show'])->name('show');
+     Route::get('edit/{id}',[ActeurController::class, 'edit'])->name('edit');
+     Route::put('update/{id}',[ActeurController::class, 'update'])->name('update');
+     Route::delete('delete/{id}',[ActeurController::class, 'destroy'])->name('delete');
 
 });
 

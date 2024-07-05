@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('contact');
             $table->string('sexe');
-            // $table->string('statuts')->nullable();
+            $table->string('motif')->nullable();
             $table->string('activite')->nullable();
             $table->string('quartier')->nullable();
             $table->date('date');

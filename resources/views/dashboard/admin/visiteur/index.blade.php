@@ -50,6 +50,7 @@
                                     <th>Quartiers</th>
                                     <th>Activites</th>
                                     <th>Sexes</th>
+                                    <th>Motif de la visite</th>
                                     <th>Responsables</th>
                                     <th >Type visiteurs</th>
                                     <th >Date</th>
@@ -66,6 +67,7 @@
                                     <td>{{$visiteur->quartier}}</td>
                                     <td>{{$visiteur->activite}}</td>
                                     <td>{{$visiteur->sexe}}</td>
+                                    <td>{{$visiteur->motif}}</td>
                                     <td>{{$visiteur->responsable->nom}}</td>
                                     <td>{{$visiteur->type_visiteur->libelle}}</td>
                                     <td >{{$visiteur->date}}</td>

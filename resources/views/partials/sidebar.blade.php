@@ -153,6 +153,20 @@
                                     </ul>
                                 </div>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-10" aria-controls="submenu-10"><i class="fas fa-f fa-folder"></i>Acteur de culte</a>
+                                <div id="submenu-10" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{route('acteur.create')}}">Ajouter</a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{route('acteur.index')}}">Listes</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
                             @endrole
                            @role('affaire_social')
                            <li class="nav-divider">

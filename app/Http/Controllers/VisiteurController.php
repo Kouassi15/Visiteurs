@@ -42,7 +42,7 @@ class VisiteurController extends Controller
             'prenom' => 'required',
             'contact' => 'required',
             'sexe'   => 'required',
-            // 'statuts' => 'required',
+            'motif' => 'required',
             'quartier' => 'required',
             'activite' => 'required',
             'date'      =>  'required',
@@ -56,7 +56,7 @@ class VisiteurController extends Controller
         $visiteur->prenom = $request->prenom;
         $visiteur->contact = $request->contact;
         $visiteur->sexe = $request->sexe;
-        // $visiteur->statuts = $request->statuts;
+        $visiteur->motif = $request->motif;
         $visiteur->quartier = $request->quartier;
         $visiteur->activite = $request->activite;
         $visiteur->date = $request->date;
@@ -69,7 +69,19 @@ class VisiteurController extends Controller
 
 
     }
+    
 
+    public function visiteurPdf($id)
+    {
+        $title = 'Fichier pdf';
+        $visiteur = Visiteur::where('id',$id)->first();
+        // $personnels = Visiteur::where('id', $leaves->id)->get();
+
+        $pdf = PDF::loadView('dashboard.admin.visiteur.pdf.in', compact('title','visiteur'));
+        $pdfname = 'pdf_visiteur_' . str_replace(' ', '_', $visiteur->name) . '.pdf';
+
+       return $pdf->download($pdfname);
+    }
     /**
      * Display the specified resource.
      */
