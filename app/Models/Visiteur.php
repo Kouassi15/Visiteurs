@@ -20,6 +20,6 @@ public function responsable()
 
 public function type_visiteur()
 { 
-    return $this->belongsTo(Type_visiteur::class,'type_visiteur_id', 'id'); 
+    return $this->belongsTo(Type_visiteur::class,'type_visiteur_id'); 
 }
 }

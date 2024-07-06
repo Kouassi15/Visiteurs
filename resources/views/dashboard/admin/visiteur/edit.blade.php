@@ -73,7 +73,7 @@
                                         <select class="form-control" name="type_visiteur_id">
                                         <option value="" selected disabled hidden>Sélectionner...</option>
                                          @foreach ($typevisiteurs as $typevisiteur)
-                                         <option value="{{ $typevisiteur->id }}">{{ $typevisiteur->libelle }}</option>
+                                         <option value="{{ $typevisiteur->id }}" {{ $visiteur->type_visiteur->id == $typevisiteur->id ? 'selected' : '' }}>{{ $typevisiteur->libelle }}</option>
                                          @endforeach
                                             
                                         </select>
@@ -83,7 +83,7 @@
                                         <select class="form-control" name="responsable_id">
                                         <option value="" selected disabled hidden>Sélectionner...</option>
                                          @foreach ($responsables as $responsable)
-                                         <option value="{{ $responsable->id }}">{{ $responsable->nom }}</option>
+                                         <option value="{{ $responsable->id }}" {{ $visiteur->responsable->id == $responsable->id ? 'selected' : '' }}>{{ $responsable->nom }}</option>
                                          @endforeach
                                             
                                         </select>

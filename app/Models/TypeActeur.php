@@ -10,6 +10,10 @@ class TypeActeur extends Model
 {
     use HasFactory;
 
+    protected $table = 'type_acteurs';
+
+    protected $fillable = ['libelle'];
+    
     public function acteur() 
     { 
         return $this->hasMany(Acteur::class); 

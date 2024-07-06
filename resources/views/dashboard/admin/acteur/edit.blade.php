@@ -16,7 +16,7 @@
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Tableau de bord</a></li>
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Acteurs</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Enregistrer un nouvel acteur</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Editer un acteur</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -32,28 +32,29 @@
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">Ajouter un acteur</h5>
+                                <h5 class="card-header">Editer un acteur</h5>
                                 <div class="card-body">
-                                    <form action="{{ route('acteur.store')}}" class="row g-3"  method="post">
+                                    <form action="{{ route('acteur.update',$acteur->id)}}" class="row g-3"  method="post">
                                         @csrf
+                                        @method('PUT')
                                         <div class="col-md-6 mb-3 form-group">
                                             <label for="nom">Nom</label>
-                                            <input id="nom" type="text" name="nom"  required="" placeholder="Entrer nom" class="form-control">
+                                            <input id="nom" type="text" name="nom"  required="" placeholder="Entrer nom" class="form-control" value="{{$acteur->nom}}">
                                         </div>
                                         <div class="col-md-6 mb-3 form-group">
                                             <label for="prenom">Prénom</label>
-                                            <input id="prenom" type="text" name="prenom" required="" placeholder="Entrer le prenom" class="form-control">
+                                            <input id="prenom" type="text" name="prenom" required="" placeholder="Entrer le prenom" class="form-control" value="{{$acteur->prenom}}">
                                         </div>
                                         <div class="col-md-6 mb-3 form-group">
                                             <label for="contact">Contact</label>
-                                            <input id="contact" type="text" name="contact" placeholder="Entrer le contact" required="" class="form-control">
+                                            <input id="contact" type="text" name="contact" placeholder="Entrer le contact" required="" class="form-control" value="{{$acteur->contact}}">
                                         </div>
                                         <div class="col-md-6 mb-3 form-group">
                                         <label for="sexe">Sexe</label>
                                         <select class="form-control " name="sexe">
                                         <option value="" selected disabled hidden>Sélectionner...</option>
-                                            <option value="femme">Femme</option>
-                                            <option value="homme">Homme</option>
+                                            <option value="femme"{{ $acteur->sexe == 'femme' ? 'selected' : '' }}>Femme</option>
+                                            <option value="homme"{{ $acteur->sexe == 'homme' ? 'selected' : '' }}>Homme</option>
                                         </select>
                                         </div>
                                         <div class="col-md-12 mb-3 form-group">
@@ -61,7 +62,7 @@
                                         <select class="form-control" name="typeActeur_id">
                                         <option value="" selected disabled hidden>Sélectionner...</option>
                                          @foreach ($typeacteurs as $typeacteur)
-                                         <option value="{{ $typeacteur->id }}">{{ $typeacteur->libelle }}</option>
+                                         <option value="{{ $typeacteur->id }}"{{ $acteur->typeActeur->id == $typeacteur->id ? 'selected' : '' }}>{{ $typeacteur->libelle }}</option>
                                          @endforeach
                                             
                                         </select>

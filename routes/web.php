@@ -57,6 +57,7 @@ Route::prefix('visiteur')->name('visiteur.')->group(function () {
     Route::get('create',[VisiteurController::class, 'create'])->name('create');
     Route::post('store',[VisiteurController::class, 'store'])->name('store');
     Route::get('show/{id}',[VisiteurController::class, 'show'])->name('show');
+    Route::get('generatePdf/{id}',[VisiteurController::class, 'visiteurPdf'])->name('generatePdf');
     Route::get('edit/{id}',[VisiteurController::class, 'edit'])->name('edit');
     Route::put('update/{id}',[VisiteurController::class, 'update'])->name('update');
     Route::delete('delete/{id}',[VisiteurController::class, 'destroy'])->name('delete');
@@ -149,10 +150,11 @@ Route::prefix('acteur')->name('acteur.')->group(function () {
     Route::get('index',[ActeurController::class, 'index'])->name('index');
     Route::get('create',[ActeurController::class, 'create'])->name('create');
     Route::post('store',[ActeurController::class, 'store'])->name('store');
-     Route::get('show/{id}',[ActeurController::class, 'show'])->name('show');
-     Route::get('edit/{id}',[ActeurController::class, 'edit'])->name('edit');
-     Route::put('update/{id}',[ActeurController::class, 'update'])->name('update');
-     Route::delete('delete/{id}',[ActeurController::class, 'destroy'])->name('delete');
+    Route::get('show/{id}',[ActeurController::class, 'show'])->name('show');
+    // Route::get('generatePdf/{id}',[ActeurController::class, 'visiteurPdf'])->name('generatePdf');
+    Route::get('edit/{id}',[ActeurController::class, 'edit'])->name('edit');
+    Route::put('update/{id}',[ActeurController::class, 'update'])->name('update');
+    Route::delete('delete/{id}',[ActeurController::class, 'destroy'])->name('delete');
 
 });
 

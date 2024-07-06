@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Visiteur;
+use Barryvdh\DomPDF\PDF;
 use App\Models\Responsable;
 use Illuminate\Http\Request;
 use App\Models\Type_visiteur;
@@ -77,7 +78,7 @@ class VisiteurController extends Controller
         $visiteur = Visiteur::where('id',$id)->first();
         // $personnels = Visiteur::where('id', $leaves->id)->get();
 
-        $pdf = PDF::loadView('dashboard.admin.visiteur.pdf.in', compact('title','visiteur'));
+        $pdf = PDF::loadView('dashboard.admin.visiteur.pdf.index', compact('title','visiteur'));
         $pdfname = 'pdf_visiteur_' . str_replace(' ', '_', $visiteur->name) . '.pdf';
 
        return $pdf->download($pdfname);

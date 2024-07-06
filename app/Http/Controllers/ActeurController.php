@@ -14,7 +14,8 @@ class ActeurController extends Controller
     public function index()
     {
         $acteurs = Acteur::all();
-        return view('dashboard.admin.acteur.create',compact('acteurs'));
+        $acteurs = Acteur::with('typeActeur')->get();
+        return view('dashboard.admin.acteur.index',compact('acteurs'));
     }
 
     /**
@@ -31,13 +32,13 @@ class ActeurController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+         
         $request->validate([
-          'typeActeur_id' => 'required',
-          'nom' => 'required',
-          'prenom' => 'required',
-          'contact' => 'required',
-          'sexe' => 'required',
+            'typeActeur_id' => 'required|integer', 
+            'nom' => 'required|string|max:255', 
+            'prenom' => 'required|string|max:255', 
+            'contact' => 'required|string|max:255', 
+            'sexe' => 'required|string|max:255', 
         ]);
 
         $acteur = new Acteur();
@@ -46,10 +47,11 @@ class ActeurController extends Controller
         $acteur->prenom = $request->prenom;
         $acteur->contact = $request->contact;
         $acteur->sexe = $request->sexe;
-
+        // dd('ok');
         $acteur->save();
-        return redirect()->route('acteur.index')->with('Succèc','Acteur enregistré avec succès');
+        return redirect()->route('acteur.index')->with('Succès', 'Acteur enregistré avec succès'); // Correction de "Succèc" en "Succès"
     }
+
 
     /**
      * Display the specified resource.
@@ -64,7 +66,9 @@ class ActeurController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $typeacteurs = TypeActeur::all();
+        $acteur = Acteur::find($id);
+        return view('dashboard.admin.acteur.edit',compact('acteur','typeacteurs'));
     }
 
     /**
@@ -72,7 +76,23 @@ class ActeurController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'typeActeur_id' => 'required|integer', 
+            'nom' => 'required|string|max:255', 
+            'prenom' => 'required|string|max:255', 
+            'contact' => 'required|string|max:255', 
+            'sexe' => 'required|string|max:255', 
+        ]);
+
+        $acteur = Acteur::find($id);
+        $acteur->typeActeur_id = $request->typeActeur_id;
+        $acteur->nom = $request->nom;
+        $acteur->prenom = $request->prenom;
+        $acteur->contact = $request->contact;
+        $acteur->sexe = $request->sexe;
+        // dd('ok');
+        $acteur->save();
+        return redirect()->route('acteur.index')->with('Succès', 'Acteur mise à jour avec succès'); 
     }
 
     /**
@@ -80,6 +100,8 @@ class ActeurController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $acteur = Acteur::find($id);
+        $acteur->delete();
+        return redirect()->route('acteur.index')->with('Succès', 'Acteur supprimé avec succès'); 
     }
 }
