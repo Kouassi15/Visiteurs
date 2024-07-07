@@ -76,7 +76,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{ route('visiteur.show', $visiteur->id)}}" class="btn btn-primary"> Voir</a>
-                                    <a href="{{ route('visiteur.generatePdf', $visiteur->id)}}" class="btn btn-warning"> Télécharger</a>
+                                    <a href="{{ route('visiteur.generatePdf', $visiteur->id)}}" class="btn btn-warning" target="_blank"> Télécharger</a>
                                     <a href="{{ route('visiteur.edit', $visiteur->id)}}" class="btn btn-success"> Modifier</a>
                                     <button type="submit" class="btn btn-danger"> Supprimer</button>
                                    </form>

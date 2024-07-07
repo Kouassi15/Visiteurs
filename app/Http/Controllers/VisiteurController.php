@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Visiteur;
-use Barryvdh\DomPDF\PDF;
+// // use Barryvdh\DomPDF\PDF;
+// use Barryvdh\DomPDF\Facade as PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Responsable;
 use Illuminate\Http\Request;
 use App\Models\Type_visiteur;
@@ -75,13 +77,17 @@ class VisiteurController extends Controller
     public function visiteurPdf($id)
     {
         $title = 'Fichier pdf';
-        $visiteur = Visiteur::where('id',$id)->first();
-        // $personnels = Visiteur::where('id', $leaves->id)->get();
+        $visiteur = Visiteur::find($id);
 
-        $pdf = PDF::loadView('dashboard.admin.visiteur.pdf.index', compact('title','visiteur'));
-        $pdfname = 'pdf_visiteur_' . str_replace(' ', '_', $visiteur->name) . '.pdf';
+        if (!$visiteur) {
+            // Gérer le cas où le visiteur n'est pas trouvé
+            return redirect()->back()->with('error', 'Visiteur non trouvé');
+        }
 
-       return $pdf->download($pdfname);
+        $pdf = PDF::loadView('dashboard.admin.visiteur.pdf.index', compact('title', 'visiteur'));
+        $pdfname = 'pdf_visiteur_' . str_replace(' ', '_', $visiteur->nom) . '.pdf';
+
+        return $pdf->download($pdfname);
     }
     /**
      * Display the specified resource.

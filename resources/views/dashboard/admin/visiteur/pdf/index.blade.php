@@ -31,7 +31,7 @@
         .content h1 {
             text-align: center;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: -20px;
             color: #333;
         }
         .content p {
@@ -49,17 +49,17 @@
     </div>
 
     <div class="content">
-        <h1>Données du Visiteur</h1>
-        <p><strong>Nom :</strong> {{ $nom }}</p>
-        <p><strong>Prénom :</strong> {{ $prenom }}</p>
-        <p><strong>Contact :</strong> {{ $contact }}</p>
-        <p><strong>Sexe :</strong> {{ $sexe }}</p>
-        <p><strong>Quartier :</strong> {{ $quartier }}</p>
-        <p><strong>Motif :</strong> {{ $motif }}</p>
-        <p><strong>Activité :</strong> {{ $activite }}</p>
-        <p><strong>Date :</strong> {{ $date }}</p>
-        <p><strong>Responsable ID :</strong> {{ $responsable_id }}</p>
-        <p><strong>Type de Visiteur ID :</strong> {{ $type_visiteur_id }}</p>
+        <h2>les informations du Visiteur</h2>
+        <p><strong>Nom :</strong> {{ $visiteur->nom }}</p>
+        <p><strong>Prénom :</strong> {{ $visiteur->prenom }}</p>
+        <p><strong>Contact :</strong> {{ $visiteur->contact }}</p>
+        <p><strong>Sexe :</strong> {{ $visiteur->sexe }}</p>
+        <p><strong>Quartier :</strong> {{ $visiteur->quartier }}</p>
+        <p><strong>Motif :</strong> {{ $visiteur->motif }}</p>
+        <p><strong>Activité :</strong> {{ $visiteur->activite }}</p>
+        <p><strong>Date :</strong> {{ $visiteur->date }}</p>
+        <p><strong>Responsable ID :</strong> {{ $visiteur->responsable->nom }}</p>
+        <p><strong>Type de Visiteur ID :</strong> {{ $visiteur->type_visiteur->libelle }}</p>
     </div>
 
     <div class="footer">
