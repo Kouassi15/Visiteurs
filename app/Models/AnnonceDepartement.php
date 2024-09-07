@@ -6,10 +6,9 @@ use App\Models\Annonce;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Fidele extends Model
+class AnnonceDepartement extends Model
 {
     use HasFactory;
-    
     public function annonce() 
     { 
         return $this->hasMany(Annonce::class); 

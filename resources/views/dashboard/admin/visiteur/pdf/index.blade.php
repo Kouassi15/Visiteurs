@@ -25,18 +25,19 @@
             padding: 10px 0;
         }
         .content {
-            margin: 50px 0;
+            margin: 100px 0;
             padding: 0 20px;
         }
-        .content h1 {
+        .titre{
             text-align: center;
             text-transform: uppercase;
-            margin-bottom: -20px;
+            margin-top: 100px;
             color: #333;
         }
         .content p {
-            margin: 5px 0;
+            margin: 10px 0;
             line-height: 1.6;
+            /* margin-bottom: 30px; */
         }
         .content strong {
             color: #000;
@@ -49,7 +50,7 @@
     </div>
 
     <div class="content">
-        <h2>les informations du Visiteur</h2>
+        <h1 class="titre">les informations du Visiteur</h1>
         <p><strong>Nom :</strong> {{ $visiteur->nom }}</p>
         <p><strong>Prénom :</strong> {{ $visiteur->prenom }}</p>
         <p><strong>Contact :</strong> {{ $visiteur->contact }}</p>
@@ -57,9 +58,9 @@
         <p><strong>Quartier :</strong> {{ $visiteur->quartier }}</p>
         <p><strong>Motif :</strong> {{ $visiteur->motif }}</p>
         <p><strong>Activité :</strong> {{ $visiteur->activite }}</p>
-        <p><strong>Date :</strong> {{ $visiteur->date }}</p>
-        <p><strong>Responsable ID :</strong> {{ $visiteur->responsable->nom }}</p>
-        <p><strong>Type de Visiteur ID :</strong> {{ $visiteur->type_visiteur->libelle }}</p>
+        <p><strong>Date :</strong> {{$visiteur->date}}</p>
+        <p><strong>Responsable:</strong> {{ $visiteur->responsable->nom }}</p>
+        <p><strong>Type de Visiteur :</strong> {{ $visiteur->type_visiteur->libelle }}</p>
     </div>
 
     <div class="footer">

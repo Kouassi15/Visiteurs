@@ -13,9 +13,15 @@ return new class extends Migration
     {
         Schema::create('annonces', function (Blueprint $table) {
             $table->id();
-            $table->string('titre')->nullable();
+            $table->integer('id_fidele')->nullable();
+            $table->integer('id_programme')->nullable();
+            $table->integer('id_annonceDepartement')->nullable();
+            $table->string('dirigeant')->nullable();
+            $table->string('orateur')->nullable();
+            $table->string('texte')->nullable();
+            $table->string('theme')->nullable();
             $table->string('description')->nullable();
-            $table->string('image')->nullable();
+            $table->date('date');
             $table->timestamps();
         });
     }

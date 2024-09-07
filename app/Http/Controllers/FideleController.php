@@ -47,7 +47,7 @@ class FideleController extends Controller
         $fidele->nombre_hommes = $request->nombre_hommes;
         $fidele->nombre_visiteurs = $request->nombre_visiteurs;
         $fidele->date = $request->date;
-        $fidele->total_fidele = $request->nombre_enfants + $request->nombre_femmes + $request->nombre_hommes + $request->nombre_visiteurs;
+        $fidele->total_fidele = $request->nombre_enfants + $request->nombre_femmes + $request->nombre_hommes;
 
         $fidele->save();
 

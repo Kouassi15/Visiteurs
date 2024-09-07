@@ -85,10 +85,10 @@
     var nombreEnfantsInput = document.getElementById('nombre_enfants');
     var nombreFemmesInput = document.getElementById('nombre_femmes');
     var nombreHommesInput = document.getElementById('nombre_hommes');
-    var nombreVisiteursInput = document.getElementById('nombre_visiteurs');
+    // nombreVisiteursInput = document.getElementById('nombre_visiteurs');
     var totalFideleInput = document.getElementById('total_fidele');
 
-    [nombreEnfantsInput, nombreFemmesInput, nombreHommesInput, nombreVisiteursInput].forEach(input => {
+    [nombreEnfantsInput, nombreFemmesInput, nombreHommesInput].forEach(input => {
         input.addEventListener('input', calculerNombreTotal);
     });
 
@@ -96,9 +96,9 @@
         var nombreEnfants = parseInt(nombreEnfantsInput.value) || 0;
         var nombreFemmes = parseInt(nombreFemmesInput.value) || 0;
         var nombreHommes = parseInt(nombreHommesInput.value) || 0;
-        var nombreVisiteurs = parseInt(nombreVisiteursInput.value) || 0;
+        //var nombreVisiteurs = parseInt(nombreVisiteursInput.value) || 0;
 
-        var totalFidele = nombreEnfants + nombreFemmes + nombreHommes + nombreVisiteurs;
+        var totalFidele = nombreEnfants + nombreFemmes + nombreHommes;
         totalFideleInput.value = totalFidele;
     }
 </script>

@@ -30,21 +30,71 @@ class AnnonceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'titre' => 'required',
+            'id_fidele' => 'nullable',
+            'id_annonceDepartement' => 'nullable',
+            'id_programme' => 'nullable',
+            'dirigeant' => 'required',
+            'orateur' => 'required',
+            'texte' => 'required',
+            'theme' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg,gif|max:2048',
+            'date' => 'required',
+            'annonceJepcma' => 'nullable',
+            'annonceAfecmaci' => 'nullable',
+            'annonceRecmaci' => 'nullable',
+            'annonceFeci' => 'nullable',
+            'annonceNational' => 'nullable',
+            'annonceecoleDimanche' => 'nullable',
+            'ensiegnementFemme' => 'nullable',
+            'heureEnseignementFemme' =>'nullable',
+            'enseignementBiblique' => 'nullable',
+            'heureEnseignementBiblique'=>'nullable',
+            'premierCulte' =>'nullable',
+            'deuxiemeCulte' => 'nullable',
+            'culteJumele' => 'nullabe',
+            'heureCulte1' => 'nullable',
+            'heureCulte2' => 'nullable',
+            'heureCulteJumele' => 'nullable',
+            
         ]);
-
+        DB::transaction(function () use ($request) {
         $annonce = Annonce::create([
-            'titre' => $request->titre,
+            'id_fidele'=> $fidele->id,
+            'id_programme' => $programme->id,
+            'id_annonceDepartement'=> $annonceDepartement->id,
+            'texte' => $request->texte,
             'description'=> $request->description,
+            'theme' => $request->theme,
+            'dirigeant'=> $request->dirigeant,
+            'orateur' => $request->orateur,
         ]);
+        $programme = Programme::create([
+            'ensiegnementFemme' => $request->enseignentFemme,
+            'heureEnseignementFemme' => $request->heureEnseignementFemme,
+            'enseignementBiblique' => $request->enseignementBiblique,
+            'heureEnseignementBiblique' => $request->heureEnseignementBiblique,
+            'premierCulte' => $request->premierCulte,
+            'deuxiemeCulte' => $request->deuxiemeCulte,
+            'culteJumele' => $request->culteJumele,
+            'heureCulte1' => $request->heureCulte1,
+            'heureCulte2' => $request->heureCulte2,
+            'heureCulteJumele' => $request->heureCulteJumele,
+        ]);
+        $annonceDepartement = AnnonceDepartement::create([
+         'annonceJepcma' => $request->annonceJepcma,
+         'annonceAfecmaci' => $request->annonceAfecmaci,
+         'annonceFeci' => $request->annonceFeci,
+         'annonceRecmaci' => $request->annonceRecmaci,
+         'annonceNational' => $request->annonceNational,
+         'annonceecoleDimanche' => $request->annonceecoleDimanche,
+        ]);
+        });
          
-        if ($request->hasFile('image')) {
-            $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path('assets/images/img'), $imageName);
-            $annonce->image = $imageName;
-        }
+        // if ($request->hasFile('image')) {
+        //     $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
+        //     $request->file('image')->move(public_path('assets/images/img'), $imageName);
+        //     $annonce->image = $imageName;
+        // }
 
         $annonce->save();
         return redirect()->route('annonce.index')->with('Succès','Annonce ajouté avec succès');
@@ -101,6 +151,7 @@ class AnnonceController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $annonce = Annonce::find($id);
+        $annonce->delete();
     }
 }
