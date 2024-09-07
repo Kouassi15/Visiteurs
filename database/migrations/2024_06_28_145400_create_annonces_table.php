@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('annonces', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_fidele')->nullable();
-            $table->integer('id_programme')->nullable();
-            $table->integer('id_annonceDepartement')->nullable();
+            $table->integer('fidele_id')->nullable();
+            $table->integer('programme_id')->nullable();
+            $table->integer('annonceDepartement_id')->nullable();
             $table->string('dirigeant')->nullable();
             $table->string('orateur')->nullable();
             $table->string('texte')->nullable();

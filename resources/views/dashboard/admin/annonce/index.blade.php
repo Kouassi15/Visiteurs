@@ -44,9 +44,18 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Titre</th>
+                                    <th>Dirigeant</th>
+                                    <th>Orateur</th>
+                                    <th>Texte</th>
+                                    <th>Theme</th>
                                     <th>Description</th>
-                                    <th>Images</th>
+                                    <th>Date</th>
+                                    <th>Annonce de JEPCMA</th>
+                                    <th>Annonce de l'AFECMA</th>
+                                    <th>Annonce de la FECI</th>
+                                    <th>Annonce de RECMACI</th>
+                                    <th>Annonce de la Nationale</th>
+                                    <th>Annonce de l'Ecole deDimanche</th>
                                     <th >Action</th>
                                 </tr>
                             </thead>
@@ -54,9 +63,19 @@
                                 @foreach($annonces as $annonce)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{$annonce->titre}}</td>
+                                    <td>{{$annonce->dirigeant}}</td>
+                                    <td>{{$annonce->orateur}}</td>
+                                    <td>{{$annonce->texte}}</td>
+                                    <td>{{$annonce->theme}}</td>
                                     <td>{{$annonce->description}}</td>
-                                    <td><img src="{{asset('assets/images/img/'.$annonce->image)}}"  width="80px" alt="Annonce Image"></td>
+                                    <td>{{$annonce->date}}</td>
+                                    <td>{{$annonce->AnnonceDepartement->annonceJepcma ?? null}}</td>
+                                    <td>{{$annonce->AnnonceDepartement->annonceAfecmaci ?? null}}</td>
+                                    <td>{{$annonce->AnnonceDepartement->annonceFeci ?? null}}</td>
+                                    <td>{{$annonce->AnnonceDepartement->annonceRecmaci ?? null}}</td>
+                                    <td>{{$annonce->AnnonceDepartement->annonceNational ?? null}}</td>
+                                    <td>{{$annonce->AnnonceDepartement->annonceecoleDimanche ?? null}}</td>
+                                    <!-- <td><img src="{{asset('assets/images/img/'.$annonce->image)}}"  width="80px" alt="Annonce Image"></td> -->
                                     <td width="180%">
                                     <form method="POST" action="{{ route('annonce.delete', $annonce->id)}}">
                                     @csrf

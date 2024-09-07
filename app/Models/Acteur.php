@@ -23,18 +23,5 @@ public function typeActeur()
         return $this->belongsTo(TypeActeur::class, 'typeActeur_id');
     }
 
-    public function programme()
-    {
-        return $this->belongsTo(Programme::class, 'id_programme');
-    }
-
-    public function annonceDepartement()
-    {
-        return $this->belongsTo(AnnonceDepartement::class, 'id_annonceDpepartement');
-    }
-
-    public function fidele()
-    {
-        return $this->belongsTo(Fidele::class, 'id_fidele');
-    }
+   
 }

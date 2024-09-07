@@ -15,14 +15,19 @@ return new class extends Migration
             $table->id();
             $table->string('enseignementFemme')->nullable();
             $table->string('heureEnseignementFemme')->nullable();
+            $table->string('heurefinEnseignementFemme')->nullable();
             $table->string('enseignementBiblique')->nullable();
             $table->string('heureEnseignementBiblique')->nullable();
+            $table->string('heurefinEnseignementBiblique')->nullable();
             $table->string('premierCulte')->nullable();
             $table->string('deuxiemeCulte')->nullable();
             $table->string('culteJumele')->nullable();
             $table->string('heureCulte1')->nullable();
+            $table->string('heurefinCulte1')->nullable();
             $table->string('heureCulte2')->nullable();
+            $table->string('heurefinCulte2')->nullable();
             $table->string('heureCulteJumele')->nullable();
+            $table->string('heurefinCulteJumele')->nullable();
             $table->timestamps();
         });
     }

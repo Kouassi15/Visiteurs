@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fidele;
 use App\Models\Annonce;
+use App\Models\Programme;
 use Illuminate\Http\Request;
+use App\Models\AnnonceDepartement;
+use Illuminate\Support\Facades\DB;
 
 class AnnonceController extends Controller
 {
@@ -13,7 +17,9 @@ class AnnonceController extends Controller
     public function index()
     {
         $annonces = Annonce::all();
-        return view('dashboard.admin.annonce.index',compact('annonces'));
+        $annonceDepartements = AnnonceDepartement::all();
+        $programmes = Programme::all();
+        return view('dashboard.admin.annonce.index',compact('annonces','annonceDepartements','programmes'));
     }
 
     /**
@@ -29,10 +35,8 @@ class AnnonceController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
-            'id_fidele' => 'nullable',
-            'id_annonceDepartement' => 'nullable',
-            'id_programme' => 'nullable',
             'dirigeant' => 'required',
             'orateur' => 'required',
             'texte' => 'required',
@@ -47,56 +51,69 @@ class AnnonceController extends Controller
             'annonceecoleDimanche' => 'nullable',
             'ensiegnementFemme' => 'nullable',
             'heureEnseignementFemme' =>'nullable',
+            'heurefinEnseignementFemme' =>'nullable',
             'enseignementBiblique' => 'nullable',
             'heureEnseignementBiblique'=>'nullable',
+            'heurefinEnseignementBiblique'=>'nullable',
             'premierCulte' =>'nullable',
             'deuxiemeCulte' => 'nullable',
-            'culteJumele' => 'nullabe',
+            'culteJumele' => 'nullable',
             'heureCulte1' => 'nullable',
+            'heurefinCulte1' => 'nullable',
             'heureCulte2' => 'nullable',
+            'heurefinCulte2' => 'nullable',
             'heureCulteJumele' => 'nullable',
+            'heurefinCulteJumele' =>'nullable',
             
         ]);
         DB::transaction(function () use ($request) {
-        $annonce = Annonce::create([
-            'id_fidele'=> $fidele->id,
-            'id_programme' => $programme->id,
-            'id_annonceDepartement'=> $annonceDepartement->id,
-            'texte' => $request->texte,
-            'description'=> $request->description,
-            'theme' => $request->theme,
-            'dirigeant'=> $request->dirigeant,
-            'orateur' => $request->orateur,
-        ]);
         $programme = Programme::create([
-            'ensiegnementFemme' => $request->enseignentFemme,
-            'heureEnseignementFemme' => $request->heureEnseignementFemme,
-            'enseignementBiblique' => $request->enseignementBiblique,
-            'heureEnseignementBiblique' => $request->heureEnseignementBiblique,
-            'premierCulte' => $request->premierCulte,
-            'deuxiemeCulte' => $request->deuxiemeCulte,
-            'culteJumele' => $request->culteJumele,
-            'heureCulte1' => $request->heureCulte1,
-            'heureCulte2' => $request->heureCulte2,
-            'heureCulteJumele' => $request->heureCulteJumele,
+            'enseignementFemme' => $request->input('enseignementFemme'),
+            'heureEnseignementFemme' => $request->input('heureEnseignementFemme'),
+            'heurefinEnseignementFemme' => $request->input('heurefinEnseignementFemme'),
+            'enseignementBiblique' => $request->input('enseignementBiblique'),
+            'heureEnseignementBiblique' => $request->input('heureEnseignementBiblique'),
+            'heurefinEnseignementBiblique' => $request->input('heurefinEnseignementBiblique'),
+            'premierCulte' => $request->input('premierCulte'),
+            'deuxiemeCulte' => $request->input('deuxiemeCulte'),
+            'culteJumele' => $request->input('culteJumele'),
+            'heureCulte1' => $request->input('heureCulte1'),
+            'heurefinCulte1' => $request->input('heurefinCulte1'),
+            'heureCulte2' => $request->input('heureCulte2'),
+            'heurefinCulte2' => $request->input('heureCulte2'),
+            'heureCulteJumele' => $request->input('heureCulteJumele'),
+            'heurefinCulteJumele' => $request->input('heurefinCulteJumele'),
         ]);
         $annonceDepartement = AnnonceDepartement::create([
-         'annonceJepcma' => $request->annonceJepcma,
-         'annonceAfecmaci' => $request->annonceAfecmaci,
-         'annonceFeci' => $request->annonceFeci,
-         'annonceRecmaci' => $request->annonceRecmaci,
-         'annonceNational' => $request->annonceNational,
-         'annonceecoleDimanche' => $request->annonceecoleDimanche,
+         'annonceJepcma' => $request->input('annonceJepcma'),
+         'annonceAfecmaci' => $request->input('annonceAfecmaci'),
+         'annonceFeci' => $request->input('annonceFeci'),
+         'annonceRecmaci' => $request->input('annonceRecmaci'),
+         'annonceNational' => $request->input('annonceNational'),
+         'annonceecoleDimanche' => $request->input('annonceecoleDimanche'),
         ]);
+        
+        $annonce = Annonce::create([
+            //  'fidele_id'=> $fidele->id,
+            'programme_id' => $programme->id,
+            'annonceDepartement_id'=> $annonceDepartement->id,
+            'texte' => $request->input('texte'),
+            'description'=> $request->input('description'),
+            'theme' => $request->input('theme'),
+            'dirigeant'=> $request->input('dirigeant'),
+            'orateur' => $request->input('orateur'),
+            'date' => $request->input('date'),
+        ]);
+        
         });
-         
+       
         // if ($request->hasFile('image')) {
         //     $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
         //     $request->file('image')->move(public_path('assets/images/img'), $imageName);
         //     $annonce->image = $imageName;
         // }
 
-        $annonce->save();
+        // $annonce->save();
         return redirect()->route('annonce.index')->with('Succès','Annonce ajouté avec succès');
     }
 
