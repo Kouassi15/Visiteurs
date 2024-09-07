@@ -6,6 +6,8 @@ use App\Models\Fidele;
 use App\Models\Annonce;
 use App\Models\Programme;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\AnnonceDepartement;
 use Illuminate\Support\Facades\DB;
 
@@ -30,6 +32,19 @@ class AnnonceController extends Controller
         return view('dashboard.admin.annonce.create');
     }
 
+
+    public function generatePDF($id)
+    {
+        $annonce = Annonce::all();
+        $pdf =  Pdf::loadView('dashboard.admin.annonce.pdf.annoncepdf', ['annonce' => Annonce::findOrFail($id)]);
+        $pdf->setPaper('A4', 'portrait')->render();
+
+        $response = new Response();
+        $response->setContent($pdf->output())->header('Content-Type', 'application/pdf');
+        $response->header('Content-Disposition', "inline; filename=$id-" . date('dmY') . ".pdf");
+
+        return $response;
+    }
     /**
      * Store a newly created resource in storage.
      */

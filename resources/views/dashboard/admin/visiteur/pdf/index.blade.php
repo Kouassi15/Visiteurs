@@ -59,8 +59,8 @@
         <p><strong>Motif :</strong> {{ $visiteur->motif }}</p>
         <p><strong>Activité :</strong> {{ $visiteur->activite }}</p>
         <p><strong>Date :</strong> {{$visiteur->date}}</p>
-        <p><strong>Responsable:</strong> {{ $visiteur->responsable->nom }}</p>
         <p><strong>Type de Visiteur :</strong> {{ $visiteur->type_visiteur->libelle }}</p>
+        <p><strong>Responsable:</strong> {{ $visiteur->responsable->nom }}</p>
     </div>
 
     <div class="footer">

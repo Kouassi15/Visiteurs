@@ -69,18 +69,19 @@
                                     <td>{{$annonce->theme}}</td>
                                     <td>{{$annonce->description}}</td>
                                     <td>{{$annonce->date}}</td>
-                                    <td>{{$annonce->AnnonceDepartement->annonceJepcma ?? null}}</td>
-                                    <td>{{$annonce->AnnonceDepartement->annonceAfecmaci ?? null}}</td>
-                                    <td>{{$annonce->AnnonceDepartement->annonceFeci ?? null}}</td>
-                                    <td>{{$annonce->AnnonceDepartement->annonceRecmaci ?? null}}</td>
-                                    <td>{{$annonce->AnnonceDepartement->annonceNational ?? null}}</td>
-                                    <td>{{$annonce->AnnonceDepartement->annonceecoleDimanche ?? null}}</td>
+                                    <td>{{$annonce->annonceDepartement->annonceJepcma}}</td>
+                                    <td>{{$annonce->annonceDepartement->annonceAfecmaci }}</td>
+                                    <td>{{$annonce->annonceDepartement->annonceFeci }}</td>
+                                    <td>{{$annonce->annonceDepartement->annonceRecmaci }}</td>
+                                    <td>{{$annonce->annonceDepartement->annonceNational }}</td>
+                                    <td>{{$annonce->annonceDepartement->annonceecoleDimanche }}</td>
                                     <!-- <td><img src="{{asset('assets/images/img/'.$annonce->image)}}"  width="80px" alt="Annonce Image"></td> -->
                                     <td width="180%">
                                     <form method="POST" action="{{ route('annonce.delete', $annonce->id)}}">
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{ route('annonce.show', $annonce->id)}}" class="btn btn-primary"> Voir</a>
+                                    <a href="{{ route('annonce.annoncePdf', $annonce->id)}}" class="btn btn-primary"> Voir</a>
                                     <a href="{{ route('annonce.edit', $annonce->id)}}" class="btn btn-success"> Modifier</a>
                                     <button type="submit" class="btn btn-danger"> Supprimer</button>
                                    </form>

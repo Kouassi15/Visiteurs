@@ -18,7 +18,7 @@ class Annonce extends Model
 
     public function annonceDepartement()
     {
-        return $this->belongsTo(AnnonceDepartement::class, 'annonceDpepartement_id');
+        return $this->belongsTo(AnnonceDepartement::class, 'annonceDepartement_id');
     }
 
     public function fidele()
