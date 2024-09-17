@@ -81,7 +81,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{ route('annonce.show', $annonce->id)}}" class="btn btn-primary"> Voir</a>
-                                    <a href="{{ route('annonce.annoncePdf', $annonce->id)}}" class="btn btn-primary"> Voir</a>
+                                    <a href="{{ route('annonce.annoncePdf', $annonce->id)}}"  target="_blank" class="btn btn-warning"> Imprimer le PDF</a>
                                     <a href="{{ route('annonce.edit', $annonce->id)}}" class="btn btn-success"> Modifier</a>
                                     <button type="submit" class="btn btn-danger"> Supprimer</button>
                                    </form>

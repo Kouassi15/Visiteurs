@@ -41,7 +41,7 @@
                         the styling.</p> -->
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table-responsive text-nowrap">
                         <table id="example2" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>

@@ -2,7 +2,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                             Copyright © 2024 Concept. Tout droit reservé. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                             Copyright © 2024 Concept. Tout droit reservé. A l'eglise CMA du <a href="https://colorlib.com/wp/"> Dokui2</a>.
                         </div>
                        {{--<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="text-md-right footer-links d-none d-sm-block">

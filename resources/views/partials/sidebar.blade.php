@@ -59,6 +59,20 @@
                                 </div> -->
                             </li>
                             @role('admin')
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fas fa-fw fa-user"></i>Responsables</a>
+                                <div id="submenu-4" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{route('responsable.create')}}">Ajouter</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{route('responsable.index')}}">Listes</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-users"></i>Visiteurs</a>
                                 <div id="submenu-2" class="collapse submenu" style="">
@@ -75,7 +89,7 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Type visiteurs</a>
                                 <div id="submenu-3" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
@@ -87,21 +101,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fas fa-fw fa-user"></i>Responsables</a>
-                                <div id="submenu-4" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{route('responsable.create')}}">Ajouter</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{route('responsable.index')}}">Listes</a>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Nombre de personnes</a>
                                 <div id="submenu-5" class="collapse submenu" style="">

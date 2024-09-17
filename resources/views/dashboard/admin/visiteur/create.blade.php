@@ -79,7 +79,7 @@
                                         <select class="form-control" name="responsable_id">
                                         <option value="" selected disabled hidden>Sélectionner...</option>
                                          @foreach ($responsables as $responsable)
-                                         <option value="{{ $responsable->id }}">{{ $responsable->nom }}</option>
+                                         <option value="{{ $responsable->id }}">{{ $responsable->nom }} {{ $responsable->prenom }}</option>
                                          @endforeach
                                         </select>
                                         </div>

@@ -29,12 +29,14 @@ class AnnonceController extends Controller
      */
     public function create()
     {
-        return view('dashboard.admin.annonce.create');
+        $fideles = Fidele::all();
+        return view('dashboard.admin.annonce.create',compact('fideles'));
     }
 
 
     public function generatePDF($id)
     {
+        $fideles = Fidele::all();
         $annonce = Annonce::all();
         $pdf =  Pdf::loadView('dashboard.admin.annonce.pdf.annoncepdf', ['annonce' => Annonce::findOrFail($id)]);
         $pdf->setPaper('A4', 'portrait')->render();
@@ -52,6 +54,7 @@ class AnnonceController extends Controller
     {
         
         $request->validate([
+            'fidele_id' => 'required',
             'dirigeant' => 'required',
             'orateur' => 'required',
             'texte' => 'required',
@@ -81,6 +84,7 @@ class AnnonceController extends Controller
             'heurefinCulteJumele' =>'nullable',
             
         ]);
+        
         DB::transaction(function () use ($request) {
         $programme = Programme::create([
             'enseignementFemme' => $request->input('enseignementFemme'),
@@ -107,11 +111,11 @@ class AnnonceController extends Controller
          'annonceNational' => $request->input('annonceNational'),
          'annonceecoleDimanche' => $request->input('annonceecoleDimanche'),
         ]);
-        
-        $annonce = Annonce::create([
-            //  'fidele_id'=> $fidele->id,
+
+         $annonce = Annonce::create([
             'programme_id' => $programme->id,
             'annonceDepartement_id'=> $annonceDepartement->id,
+             'fidele_id'=> $request->input('fidele_id'),
             'texte' => $request->input('texte'),
             'description'=> $request->input('description'),
             'theme' => $request->input('theme'),
@@ -119,16 +123,8 @@ class AnnonceController extends Controller
             'orateur' => $request->input('orateur'),
             'date' => $request->input('date'),
         ]);
-        
+    
         });
-       
-        // if ($request->hasFile('image')) {
-        //     $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
-        //     $request->file('image')->move(public_path('assets/images/img'), $imageName);
-        //     $annonce->image = $imageName;
-        // }
-
-        // $annonce->save();
         return redirect()->route('annonce.index')->with('Succès','Annonce ajouté avec succès');
     }
 
@@ -145,8 +141,9 @@ class AnnonceController extends Controller
      */
     public function edit(string $id)
     {
+        $fideles = Fidele::all();
         $annonce = Annonce::findOrFail($id);
-        return view('dashboard.admin.annonce.edit', compact('annonce'));
+        return view('dashboard.admin.annonce.edit', compact('annonce','fideles'));
 
     }
 
@@ -156,23 +153,80 @@ class AnnonceController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'titre' => 'required',
+            'fidele_id' => 'required',
+            'dirigeant' => 'required',
+            'orateur' => 'required',
+            'texte' => 'required',
+            'theme' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg,gif|max:2048',
+            'date' => 'required',
+            'annonceJepcma' => 'nullable',
+            'annonceAfecmaci' => 'nullable',
+            'annonceRecmaci' => 'nullable',
+            'annonceFeci' => 'nullable',
+            'annonceNational' => 'nullable',
+            'annonceecoleDimanche' => 'nullable',
+            'ensiegnementFemme' => 'nullable',
+            'heureEnseignementFemme' =>'nullable',
+            'heurefinEnseignementFemme' =>'nullable',
+            'enseignementBiblique' => 'nullable',
+            'heureEnseignementBiblique'=>'nullable',
+            'heurefinEnseignementBiblique'=>'nullable',
+            'premierCulte' =>'nullable',
+            'deuxiemeCulte' => 'nullable',
+            'culteJumele' => 'nullable',
+            'heureCulte1' => 'nullable',
+            'heurefinCulte1' => 'nullable',
+            'heureCulte2' => 'nullable',
+            'heurefinCulte2' => 'nullable',
+            'heureCulteJumele' => 'nullable',
+            'heurefinCulteJumele' =>'nullable',
+            
         ]);
-        $annonce = Annonce::findOrFail($id);
-        $annonce->update([
-            'titre' => $request->titre,
-            'description'=> $request->description,
+        DB::transaction(function () use ($request,$id) {
+        $programme = Programme::findOrFail($id);
+        $programme->update([
+            'enseignementFemme' => $request->input('enseignementFemme'),
+            'heureEnseignementFemme' => $request->input('heureEnseignementFemme'),
+            'heurefinEnseignementFemme' => $request->input('heurefinEnseignementFemme'),
+            'enseignementBiblique' => $request->input('enseignementBiblique'),
+            'heureEnseignementBiblique' => $request->input('heureEnseignementBiblique'),
+            'heurefinEnseignementBiblique' => $request->input('heurefinEnseignementBiblique'),
+            'premierCulte' => $request->input('premierCulte'),
+            'deuxiemeCulte' => $request->input('deuxiemeCulte'),
+            'culteJumele' => $request->input('culteJumele'),
+            'heureCulte1' => $request->input('heureCulte1'),
+            'heurefinCulte1' => $request->input('heurefinCulte1'),
+            'heureCulte2' => $request->input('heureCulte2'),
+            'heurefinCulte2' => $request->input('heureCulte2'),
+            'heureCulteJumele' => $request->input('heureCulteJumele'),
+            'heurefinCulteJumele' => $request->input('heurefinCulteJumele'),
         ]);
          
-        if ($request->hasFile('image')) {
-            $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path('assets/images/img'), $imageName);
-            $annonce->image = $imageName;
-        }
+        $annonceDepartement = AnnonceDepartement::findOrFail($id);
+          $annonceDepartement->update([
+            'annonceJepcma' => $request->input('annonceJepcma'),
+            'annonceAfecmaci' => $request->input('annonceAfecmaci'),
+            'annonceFeci' => $request->input('annonceFeci'),
+            'annonceRecmaci' => $request->input('annonceRecmaci'),
+            'annonceNational' => $request->input('annonceNational'),
+            'annonceecoleDimanche' => $request->input('annonceecoleDimanche'),
+           ]);
 
-        $annonce->save();
+        $annonce = Annonce::findOrFail($id);
+         $annonce->update([
+            'programme_id' => $programme->id,
+            'annonceDepartement_id'=> $annonceDepartement->id,
+             'fidele_id'=> $request->input('fidele_id'),
+            'texte' => $request->input('texte'),
+            'description'=> $request->input('description'),
+            'theme' => $request->input('theme'),
+            'dirigeant'=> $request->input('dirigeant'),
+            'orateur' => $request->input('orateur'),
+            'date' => $request->input('date'),
+        ]);
+   
+       });
         return redirect()->route('annonce.index')->with('Succès','Annonce ajouté avec succès');
     }
 

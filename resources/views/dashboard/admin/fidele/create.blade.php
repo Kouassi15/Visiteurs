@@ -35,35 +35,35 @@
                             <div class="card">
                                 <h5 class="card-header">Ajouter un nouveau nombre de personne</h5>
                                 <div class="card-body">
-                                    <form action="{{ route('fidele.store')}}"  method="post">
+                                    <form action="{{ route('fidele.store')}}"  method="post" class="row g-3">
                                         @csrf
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="nombre_enfants">Nombre des enfants</label>
                                             <input id="nombre_enfants" type="text" name="nombre_enfants"  required="" placeholder="Entrer le nombre des enfants" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="nombre_femmes">Nombre des femme</label>
                                             <input id="nombre_femmes" type="text" name="nombre_femmes" required="" placeholder="Entrer le nombre des femmes" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="nombre_hommes">Nombre des hommes</label>
                                             <input id="nombre_hommes" type="text" name="nombre_hommes" placeholder="Entrer le nombre des hommes" required="" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="nombre_visiteurs">Nombre des visiteurs</label>
                                             <input id="nombre_visiteurs" type="text" name="nombre_visiteurs" placeholder="Entrer le nombre des visiteurs" required="" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="date">Date</label>
                                             <input id="date" type="date" name="date"  required="" placeholder="Entrer nom du visiteur" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="total_fidele">Total personne</label>
                                             <input id="total_fidele" type="text" name="total_fidele" readonly placeholder="Entrer le total de fidele" required="" class="form-control">
                                         </div> 
                                         <div class="row">
                                             <div class="col-sm-6 pl-0">
-                                                <p class="text-right">
+                                                <p class="text-right d-flex m-4">
                                                     <button type="submit" class="btn btn-space btn-primary">Enregistrer</button>
                                                     <button class="btn btn-space btn-secondary">Retour</button>
                                                 </p>

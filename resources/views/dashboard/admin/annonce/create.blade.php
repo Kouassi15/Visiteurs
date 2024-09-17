@@ -53,13 +53,22 @@
                              <input type="text" name="theme" required placeholder="Entrer le theme" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3 form-group">
-                             <label for="description">Description</label>
-                             <textarea type="text" name="description"cols="2" rows="2" required placeholder="Entrer le description" class="form-control">
-                             </textarea>
+                            <label for="fidele_id">Nombre de fideles</label>
+                            <select class="form-control" name="fidele_id">
+                                <option value="" selected disabled hidden>Sélectionner...</option>
+                                @foreach ($fideles as $fidele)
+                                <option value="{{ $fidele->id }}">{{ $fidele->total_fidele }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-md-6 mb-3 form-group">
                              <label for="date">Date</label>
                              <input type="date" name="date" required class="form-control">
+                        </div>
+                        <div class="col-md-12 mb-3 form-group">
+                             <label for="description">Description</label>
+                             <textarea type="text" name="description"cols="2" rows="2" required placeholder="Entrer le description" class="form-control">
+                             </textarea>
                         </div>
                         <div class="col-md-12 mb-3 form-group">
                             <h1>Annonces par departements</h1>
