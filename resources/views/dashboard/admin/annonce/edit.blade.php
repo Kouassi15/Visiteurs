@@ -75,10 +75,22 @@
                              <label for="date">Date</label>
                              <input type="date" name="date" required class="form-control" value="{{ $annonce->date }}">
                         </div>
-                        <div class="col-md-12 mb-3 form-group">
+                        <div class="col-md-6 mb-3 form-group">
+                             <label for="remerciement">Remerciements</label>
+                             <input type="text" name="remerciement" required placeholder="Entrer le nom" class="form-control" value="{{$annonce->remerciement}}">
+                        </div>
+                        <div class="col-md-6 mb-3 form-group">
+                             <label for="intervention">Interventions</label>
+                             <input type="text" name="intervention" required placeholder="Entrer nom intervenant" class="form-control" value="{{$annonce->intervention}}">
+                        </div>
+                        <div class="col-md-6 mb-3 form-group">
                              <label for="description">Description</label>
-                             <textarea type="text" name="description"cols="5" rows="5" required placeholder="Entrer le description" class="form-control">{{$annonce->description}}
+                             <textarea type="text" name="description"cols="2" rows="2" required placeholder="Entrer le description" class="form-control">{{$annonce->description}}
                              </textarea>
+                        </div>
+                        <div class="col-md-6 mb-3 form-group">
+                             <label for="nettoyage">Nettoyage de l'église</label>
+                             <input type="text" name="nettoyage" required placeholder="Entrer le grouge" class="form-control" value="{{$annonce->nettoyage}}">
                         </div>
                         <div class="col-md-12 mb-3 form-group">
                             <h1>Annonces par departements</h1>

@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('texte')->nullable();
             $table->string('theme')->nullable();
             $table->string('description')->nullable();
+            $table->string('nettoyage')->nullable();
+            $table->string('remerciement')->nullable();
+            $table->string('intervention')->nullable();
             $table->date('date');
             $table->timestamps();
         });

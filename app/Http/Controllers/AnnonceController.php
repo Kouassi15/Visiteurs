@@ -61,6 +61,9 @@ class AnnonceController extends Controller
             'theme' => 'required',
             'description' => 'required',
             'date' => 'required',
+            'nettoyage' => 'nullable',
+            'remerciement' => 'nullable',
+            'intervention' => 'nullable',
             'annonceJepcma' => 'nullable',
             'annonceAfecmaci' => 'nullable',
             'annonceRecmaci' => 'nullable',
@@ -122,6 +125,9 @@ class AnnonceController extends Controller
             'dirigeant'=> $request->input('dirigeant'),
             'orateur' => $request->input('orateur'),
             'date' => $request->input('date'),
+            'nettoyage' => $request->input('nettoyage'),
+            'remerciement' => $request->input('remerciement'),
+            'intervention' => $request->input('intervention'),
         ]);
     
         });

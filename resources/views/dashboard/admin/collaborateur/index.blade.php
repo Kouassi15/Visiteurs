@@ -65,7 +65,7 @@
                                     <form method="POST" action="{{ route('collaborateur.delete', $collaborateur->id)}}">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('collaborateur.show', $collaborateur->id)}}" class="btn btn-primary"> Voir</a>
+                                    <!-- <a href="{{ route('collaborateur.show', $collaborateur->id)}}" class="btn btn-primary"> Voir</a> -->
                                     <a href="{{ route('collaborateur.edit', $collaborateur->id)}}" class="btn btn-success"> Modifier</a>
                                     <button type="submit" class="btn btn-danger"> Supprimer</button>
                                    </form>

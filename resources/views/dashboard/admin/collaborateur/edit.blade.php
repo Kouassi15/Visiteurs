@@ -8,14 +8,14 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h2 class="pageheader-title">Adhérents</h2>
+                <h2 class="pageheader-title">Collaborateurs</h2>
                 <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                 <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Tableau de bord</a></li>
-                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Adhérents</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Enregistrer un nouveau adhérent</li>
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Collaborateurs</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Enregistrer un nouveau collaborateur</li>
                         </ol>
                     </nav>
                 </div>
@@ -34,12 +34,12 @@
             <div class="card">
                 <h5 class="card-header">Ajouter un Responsable d'activité</h5>
                 <div class="card-body p-4">
-                    <form method="POST" action="{{ route('collaborateur.store')}}" class="row g-3">
+                    <form method="POST" action="{{ route('collaborateur.update',$collaborateur->id)}}" class="row g-3">
                                       @csrf
-                                        
+                                      @method('PUT')
                                             <div class="form-group col-md-6">
                                                 <label class="name">Nom</label>
-                                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nom" value="{{ $collaborateur->name }}">
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nom" value="{{ $collaborateur->nom }}">
                                             @error('name')
                                             <span class="invalid-feedback mb-3" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -53,21 +53,21 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="email">Email</label>
-                                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ $collaborateur->email}}">
+                                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ $collaborateur->user->email}}">
                                                 @error('email')
-                                            <span class="invalid-feedback mb-3" role="alert">
+                                              <span class="invalid-feedback mb-3" role="alert">
                                                 <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
+                                              </span>
+                                              @enderror
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="password">Mot de passe</label>
                                                 <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" value="{{$collaborateur->password}}">
                                                 @error('password')
-                                            <span class="invalid-feedback mb-3" role="alert">
+                                              <span class="invalid-feedback mb-3" role="alert">
                                                 <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
+                                              </span>
+                                               @enderror
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="contact">Contact</label>

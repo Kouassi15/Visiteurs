@@ -26,7 +26,7 @@
     <!-- end pageheader -->
     <!-- ============================================================== -->
     <div class="col-lg-1 my-3 ">
-            <a class="btn btn-success" href="{{ route('responsable.index') }}">Ajouter</a>
+            <a class="btn btn-success" href="{{ route('responsable.index') }}">Listes</a>
         </div>
 
     <div class="row ">

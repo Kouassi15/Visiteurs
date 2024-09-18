@@ -75,7 +75,7 @@ class CollaborateurController extends Controller
     public function edit(string $id)
     {
         $collaborateur = Collaborateur::find($id);
-        return view('dashboard.admin.collaborateur.edit');
+        return view('dashboard.admin.collaborateur.edit', compact('collaborateur'));
         
     }
 
@@ -95,7 +95,7 @@ class CollaborateurController extends Controller
         //create user account
         $user = User::find($id);
         if ($user) {
-        $user = User::update(
+        $user->update(
             [
                 "name" => $request->name . ' ' . $request->prenom,
                 "email" => $request->email,
@@ -123,6 +123,9 @@ class CollaborateurController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $collaborateur = Collaborateur::find($id);
+        $collaborateur->delete();
+
+        return redirect()->route('collaborateur.index')->with('Succès','Collaborateur à été suprimer avec succès');
     }
 }

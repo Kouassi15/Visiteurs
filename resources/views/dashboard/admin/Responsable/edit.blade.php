@@ -37,30 +37,30 @@
                             <div class="card">
                                 <h5 class="card-header">Ajouter un responsable</h5>
                                 <div class="card-body">
-                                    <form action="{{ route('responsable.update',$responsable->id)}}"  method="post">
+                                    <form action="{{ route('responsable.update',$responsable->id)}}"  method="post" class="row g-3">
                                         @csrf
                                         @method('PUT')
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="nom">Nom</label>
                                             <input id="nom" type="text" name="nom" value="{{$responsable->nom}}"  required="" placeholder="Entrer nom du visiteur" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="prenom">Prénom</label>
                                             <input id="prenom" type="text" name="prenom" value="{{$responsable->prenom}}" required="" placeholder="Entrer le prenom" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="contact">Contact</label>
                                             <input id="contact" type="text" name="contact" value="{{$responsable->contact}}" placeholder="Entrer le contact" required="" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="quartier">Quartier</label>
                                             <input id="quartier" type="text" name="quartier" value="{{$responsable->quartier}}" placeholder="Entrer le quartier" required="" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-6 mb-3 form-group">
                                             <label for="activite">Activites</label>
                                             <input id="activite" type="text" name="activite" value="{{$responsable->activite}}" placeholder="Entrer l'activite" required="" class="form-control">
                                         </div>
-                                         <div class="form-group">
+                                         <div class="col-md-6 mb-3 form-group">
                                         <label for="inputSexe">Sexe</label>
                                         <select class="form-control " name="sexe">
                                         <option value="" selected disabled hidden>Sélectionner...</option>
@@ -82,7 +82,7 @@
                                         </div> -->
                                         <div class="row">
                                             <div class="col-sm-6 pl-0">
-                                                <p class="text-right">
+                                                <p class="text-right d-flex m-4">
                                                     <button type="submit" class="btn btn-space btn-primary">Enregistrer</button>
                                                     <button class="btn btn-space btn-secondary">Retour</button>
                                                 </p>

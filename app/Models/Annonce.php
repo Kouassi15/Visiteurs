@@ -9,7 +9,7 @@ class Annonce extends Model
 {
     use HasFactory;
 
-     protected $fillable = ['texte','theme', 'description','date','dirigeant','orateur','programme_id','fidele_id','annonceDepartement_id',];
+     protected $fillable = ['texte','theme', 'description','date','dirigeant','orateur','programme_id','fidele_id','annonceDepartement_id','nettoyage','remerciement','intervention'];
 
     public function programme()
     {

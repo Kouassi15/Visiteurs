@@ -20,7 +20,7 @@
            
         }
         .section h2 {
-            font-size: 15px;
+            font-size: 14px;
             margin-bottom: 1px;
         }
         .section p {
@@ -109,6 +109,16 @@
         <h2>Eccepter, les derniers dimanche du mois, le culte est jumele, debut : de {{ $annonce->programme->heureCulteJumele}} et prend fin à {{ $annonce->programme->heurefinCulteJumele }}</h2>
     </div>
 
+    <h1><i><u>Remerciements, Nettoyage et Interventions</u></i></h1>
+    <div class="section">
+        <h2>Remerciements : {{ $annonce->remerciement }}</h2> 
+    </div>
+    <div class="section">
+        <h2>Nettoyage : {{ $annonce->nettoyage }}</h2> 
+    </div>
+    <div class="section">
+        <h2>Interventions : {{ $annonce->intervention }}</h2> 
+    </div>
     <!-- Pied de page -->
     <div class="footer">
         <p>PV du culte précèdent - {{ date('Y') }} | Église CMA Dokui2</p>
