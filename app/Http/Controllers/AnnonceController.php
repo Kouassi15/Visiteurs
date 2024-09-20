@@ -18,19 +18,21 @@ class AnnonceController extends Controller
      */
     public function index()
     {
+        // $fidele = Fidele::findOrFail($id);
+        // $annonces = $fidele->annonces;
+        $fidele = Fidele::all();
         $annonces = Annonce::all();
-        $annonceDepartements = AnnonceDepartement::all();
-        $programmes = Programme::all();
-        return view('dashboard.admin.annonce.index',compact('annonces','annonceDepartements','programmes'));
+        return view('dashboard.admin.annonce.index',compact('annonces','fidele'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        $fideles = Fidele::all();
-        return view('dashboard.admin.annonce.create',compact('fideles'));
+        $fidele = Fidele::findOrFail($id);
+        $annonces = Annonce::all();
+        return view('dashboard.admin.annonce.create',compact('fidele','annonces'));
     }
 
 
@@ -50,11 +52,11 @@ class AnnonceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         
         $request->validate([
-            'fidele_id' => 'required',
+            'fidele_id' => 'nullable',
             'dirigeant' => 'required',
             'orateur' => 'required',
             'texte' => 'required',
@@ -88,7 +90,7 @@ class AnnonceController extends Controller
             
         ]);
         
-        DB::transaction(function () use ($request) {
+        DB::transaction(function () use ($request, $id) {
         $programme = Programme::create([
             'enseignementFemme' => $request->input('enseignementFemme'),
             'heureEnseignementFemme' => $request->input('heureEnseignementFemme'),
@@ -115,10 +117,11 @@ class AnnonceController extends Controller
          'annonceecoleDimanche' => $request->input('annonceecoleDimanche'),
         ]);
 
+        $fidele = Fidele::findOrFail($id);
          $annonce = Annonce::create([
             'programme_id' => $programme->id,
             'annonceDepartement_id'=> $annonceDepartement->id,
-             'fidele_id'=> $request->input('fidele_id'),
+             'fidele_id'=> $fidele->id,
             'texte' => $request->input('texte'),
             'description'=> $request->input('description'),
             'theme' => $request->input('theme'),
@@ -131,7 +134,9 @@ class AnnonceController extends Controller
         ]);
     
         });
+         
         return redirect()->route('annonce.index')->with('Succès','Annonce ajouté avec succès');
+      
     }
 
     /**
@@ -141,7 +146,15 @@ class AnnonceController extends Controller
     {
         //
     }
+    public function editfidele(string $id)
+    {
+        $fidele = Fidele::findOrFail($id);
 
+    if (!$fidele) {
+        return back()->with('error', 'Fidèle non trouvé.');
+     }
+     return redirect()->route('annonce.create',$fidele->id)->with('Succès','Annonce ajouté avec succès');
+    }
     /**
      * Show the form for editing the specified resource.
      */
@@ -235,8 +248,6 @@ class AnnonceController extends Controller
        });
         return redirect()->route('annonce.index')->with('Succès','Annonce ajouté avec succès');
     }
-
-
 
     /**
      * Remove the specified resource from storage.

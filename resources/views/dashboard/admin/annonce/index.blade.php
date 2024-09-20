@@ -26,7 +26,7 @@
     <!-- end pageheader -->
     <!-- ============================================================== -->
     <div class="col-lg-1 my-3 ">
-            <a class="btn btn-success" href="{{ route('annonce.create') }}">Ajouter</a>
+            <a class="btn btn-success" href="{{ route('fidele.index') }}">Ajouter</a>
         </div>
 
     <div class="row ">

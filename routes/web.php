@@ -136,11 +136,12 @@ Route::prefix('collaborateur')->name('collaborateur.')->group(function () {
 // Annonces
 Route::prefix('annonce')->name('annonce.')->group(function () {
     Route::get('index',[AnnonceController::class, 'index'])->name('index');
-    Route::get('create',[AnnonceController::class, 'create'])->name('create');
-    Route::post('store',[AnnonceController::class, 'store'])->name('store');
+    Route::get('create/{id}',[AnnonceController::class, 'create'])->name('create');
+    Route::post('store/{id}',[AnnonceController::class, 'store'])->name('store');
     Route::get('show/{id}',[AnnonceController::class, 'show'])->name('show');
     Route::get('annoncePdf/{id}',[AnnonceController::class, 'generatePDF'])->name('annoncePdf');
     Route::get('edit/{id}',[AnnonceController::class, 'edit'])->name('edit');
+    Route::get('editfidele/{id}',[AnnonceController::class, 'editfidele'])->name('fidele');
     Route::put('update/{id}',[AnnonceController::class, 'update'])->name('update');
     Route::delete('delete/{id}',[AnnonceController::class, 'destroy'])->name('delete');
 

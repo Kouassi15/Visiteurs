@@ -34,8 +34,10 @@
             <div class="card">
                 <h5 class="card-header">Ajouter une annonce</h5>
                 <div class="card-body p-4">
-                    <form action="{{ route('annonce.store') }}" method="post" class="row g-3" enctype="multipart/form-data">
+                    <form action="{{ route('annonce.store',$fidele->id) }}" method="post" class="row g-3" enctype="multipart/form-data">
                         @csrf
+
+                        <input type="hidden" name="fidele_id" value="{{$fidele->id}}">
                         <div class="col-md-6 mb-3 form-group">
                             <label for="dirigeant">Dirigeant</label>
                             <input type="text" name="dirigeant" required placeholder="Nom dirigeant" class="form-control">
@@ -52,15 +54,7 @@
                              <label for="theme">Theme</label>
                              <input type="text" name="theme" required placeholder="Entrer le theme" class="form-control">
                         </div>
-                        <div class="col-md-6 mb-3 form-group">
-                            <label for="fidele_id">Nombre de fideles</label>
-                            <select class="form-control" name="fidele_id">
-                                <option value="" selected disabled hidden>Sélectionner...</option>
-                                @foreach ($fideles as $fidele)
-                                <option value="{{ $fidele->id }}">{{ $fidele->total_fidele }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                        
                         <div class="col-md-6 mb-3 form-group">
                              <label for="date">Date</label>
                              <input type="date" name="date" required class="form-control">

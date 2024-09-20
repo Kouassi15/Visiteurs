@@ -27,6 +27,19 @@ class CotisationController extends Controller
         return view('dashboard.admin.cotisation.create',compact('membres'));
     }
 
+    public function updateStatus(Request $request, int $id)
+    {
+        $cotisation = Cotisation::findOrFail($id);
+
+        if ($cotisation->mois >= 12) {
+            $cotisation->update(['status' => 'soldé']);
+        } else {
+            $cotisation->update(['status' => 'en cours']);
+        }
+
+        return redirect()->route('cotisations.index')->with('success', 'Statut de cotisation mis à jour avec succès');
+    }
+
     /**
      * Store a newly created resource in storage.
      */

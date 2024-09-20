@@ -70,6 +70,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{ route('fidele.show', $fidele->id)}}" class="btn btn-primary"> Voir</a>
+                                    <a href="{{ route('annonce.fidele', $fidele->id)}}" class="btn btn-primary">Ajouter une annonce</a>
                                     <a href="{{ route('fidele.edit', $fidele->id)}}" class="btn btn-success"> Modifier</a>
                                     <button type="submit" class="btn btn-danger"> Supprimer</button>
                                    </form>

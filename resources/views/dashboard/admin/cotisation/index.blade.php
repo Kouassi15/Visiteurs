@@ -64,14 +64,22 @@
                                     <td>{{$cotisation->mois}}</td>
                                     <td>{{$cotisation->annee}}</td>
                                     <td>{{ $cotisation->date }}</td>
-                                    <td class=" m-2">
-                                        @if($cotisation->status == "en cours")
-                                       <span class="badge bg-warning text-white">En cours</span>
-                                       @endif
-                                       @if($cotisation->status == "soldé")
-                                       <span class="badge bg-success text-white">Soldé</span>
-                                       @endif
-                                     </td>
+                                    <td class="m-2">
+                                        <!-- @if($cotisation->mois = 12 && $cotisation->status == "En cours")
+                                          <span class="badge bg-warning text-white">En cours</span>
+                                            
+                                        @elseif($cotisation->mois >= 12 && $cotisation->status == "soldé")
+                                        <span class="badge bg-success text-white">Soldé</span>
+                                        @endif -->
+                                        @if($cotisation->annee > 0 && $cotisation->status == "en cours")
+                                         <span class="badge bg-warning text-white">En cours</span>
+                                        @elseif($cotisation->annee >= 12 && $cotisation->status == "soldé")
+                                        <span class="badge bg-success text-white">Soldé</span>
+                                        @else
+                                            <span class="badge bg-secondary text-white">Non commencé</span>
+                                        @endif
+
+                                    </td>
                                     <td>
                                     <form method="POST" action="{{ route('cotisation.delete', $cotisation->id)}}">
                                     @csrf

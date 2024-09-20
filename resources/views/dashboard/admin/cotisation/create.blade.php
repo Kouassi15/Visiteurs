@@ -65,8 +65,21 @@
                         </div>
                         <div class="col-md-6 mb-3 form-group">
                             <label for="mois" class="form-label">Mois: </label>
-                            <input type="text" class="form-control @error('mois') is-invalid @enderror" id=""
-                                placeholder="Entrer le mois" name="mois" value="{{ old('mois') }}" />
+                            <select id="mois" name="mois" class="form-control @error('mois') is-invalid @enderror">
+                                <option value="" selected disabled>Selectionner....</option>
+                                <option value="janvier">Janvier</option>
+                                <option value="fevrier">Février</option>
+                                <option value="mars">Mars</option>
+                                <option value="avril">Avril</option>
+                                <option value="mai">Mai</option>
+                                <option value="juin">Juin</option>
+                                <option value="juillet">Juillet</option>
+                                <option value="aout">Août</option>
+                                <option value="septembre">Septembre</option>
+                                <option value="octobre">Octobre</option>
+                                <option value="novembre">Novembre</option>
+                                <option value="decembre">Décembre</option>
+                            </select>
                             @error('mois')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
