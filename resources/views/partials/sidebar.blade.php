@@ -199,8 +199,24 @@
                                 </div>
                             </li>
                             @endrole
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-9" aria-controls="submenu-9"><i class="fas fa-fw fa-map-marker-alt"></i>Maps</a>
+                            <li class="nav-divider">
+                                GESTION DES JEPCEMISTES 
+                            </li>
+                               <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-user"></i>Jepcemiste</a>
+                                <div id="submenu-3" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('jepcemiste.create')}}">Ajouter</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('jepcemiste.index')}}">Listes</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li> 
+                             <!-- <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-9" aria-controls="submenu-9"><i class="fas fa-fw fa-users"></i>Jepcemiste</a>
                                 <div id="submenu-9" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -211,8 +227,8 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-10" aria-controls="submenu-10"><i class="fas fa-f fa-folder"></i>Menu Level</a>
                                 <div id="submenu-10" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
@@ -237,7 +253,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li> -->
+                            </li>  -->
                         </ul>
                     </div>
                 </nav>

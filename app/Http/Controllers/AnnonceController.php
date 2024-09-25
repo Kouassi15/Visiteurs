@@ -61,7 +61,7 @@ class AnnonceController extends Controller
             'orateur' => 'required',
             'texte' => 'required',
             'theme' => 'required',
-            'description' => 'required',
+            'description' => 'nullabe',
             'date' => 'required',
             'nettoyage' => 'nullable',
             'remerciement' => 'nullable',
@@ -144,7 +144,9 @@ class AnnonceController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $annonce = Annonce::findOrFail($id);
+        return view('dashboard.admin.annonce.show',compact('annonce'));
+        
     }
     public function editfidele(string $id)
     {

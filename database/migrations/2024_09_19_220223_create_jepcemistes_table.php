@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('jepcemistes', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('contact');
-            $table->string('activite');
-            $table->string('profession');
-            $table->string('quartier');
-            $table->string('photo');
+            $table->string('nom')->nullable();
+            $table->string('prenom')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('activite')->nullable();
+            $table->string('profession')->nullable();
+            $table->string('quartier')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

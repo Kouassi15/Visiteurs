@@ -70,13 +70,11 @@
             Femmes: {{ $annonce->fidele->nombre_femmes }} ; Enfants: {{ $annonce->fidele->nombre_enfants }} ; Visiteur: {{ $annonce->fidele->nombre_visiteurs }}; soit un total de {{ $annonce->fidele->total_fidele }} personnes
 
         </h2>
-        <!-- <p>{{ $annonce->auditoire }}</p> -->
     </div>
 
-    <!-- <div class="section">
-        <h2>Date : {{ $annonce->date }}</h2>
-         <p>{{ $annonce->date }}</p> 
-    </div> -->
+    <div class="section">
+        <h2>Annonce concenant l'église : {{ $annonce->description }}</h2>
+    </div>
     <h1><i><u>Les annonces de la semaine</u></i></h1>
     <div class="section">
         <h2>Annonce de JEPCMA : {{ $annonce->annonceDepartement->annonceJepcma }}</h2>

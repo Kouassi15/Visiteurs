@@ -10,6 +10,7 @@ use App\Http\Controllers\VisiteurController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CotisationController;
 use App\Http\Controllers\HistoriqueController;
+use App\Http\Controllers\JepcemisteController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ResponsableController;
 use App\Http\Controllers\TypevisiteurController;
@@ -157,6 +158,13 @@ Route::prefix('acteur')->name('acteur.')->group(function () {
     Route::get('edit/{id}',[ActeurController::class, 'edit'])->name('edit');
     Route::put('update/{id}',[ActeurController::class, 'update'])->name('update');
     Route::delete('delete/{id}',[ActeurController::class, 'destroy'])->name('delete');
+
+});
+
+Route::prefix('jepcemiste')->name('jepcemiste.')->group(function () {
+    Route::get('index',[JepcemisteController::class, 'index'])->name('index');
+    Route::get('create',[JepcemisteController::class, 'create'])->name('create');
+    Route::post('store',[JepcemisteController::class, 'store'])->name('store');
 
 });
 

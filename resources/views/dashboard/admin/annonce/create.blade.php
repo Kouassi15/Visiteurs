@@ -60,16 +60,27 @@
                              <input type="date" name="date" required class="form-control">
                         </div>
                         <div class="col-md-6 mb-3 form-group">
-                             <label for="description">Description</label>
-                             <textarea type="text" name="description"cols="2" rows="2" required placeholder="Entrer le description" class="form-control">
-                             </textarea>
-                        </div>
-                        <div class="col-md-6 mb-3 form-group">
                              <label for="nettoyage">Nettoyage du temple</label>
-                             <input type="text" name="nettoyage" required placeholder="Entrer le groupe" class="form-control">
+                             <input type="text" name="nettoyage"  placeholder="Entrer le groupe" class="form-control">
                         </div>
                         <div class="col-md-12 mb-3 form-group">
-                            <h1>Annonces par departements</h1>
+                             <label for="description">Description</label>
+                             <textarea type="text" name="description"cols="2" rows="2" placeholder="Entrer le description" class="form-control">
+                             </textarea>
+                        </div>
+                        <div class="col-md-12 mb-3 form-group">
+                            <h3>Interventions et remerciements</h1>
+                        </div>
+                        <div class="col-md-6 mb-3 form-group">
+                             <label for="remerciement">Remerciements</label>
+                             <input type="text" name="remerciement" placeholder="Entrer" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3 form-group">
+                             <label for="intervention">Interventions</label>
+                             <input type="text" name="intervention"  placeholder="Entrer" class="form-control">
+                        </div>
+                        <div class="col-md-12 mb-3 form-group">
+                            <h3>Annonces par departements</h1>
                         </div>
                         <br>
                         <div class="col-md-6 mb-3 form-group">
@@ -105,7 +116,7 @@
                         <br>
                         <hr>
                         <div class="col-md-12 mb-3 form-group">
-                            <h1>Programmes de l'église</h1>
+                            <h3>Programme de l'église</h1>
                         </div>
                         <br>
                         <br>
@@ -171,17 +182,6 @@
                         </div>
                         <br>
                         <hr>
-                        <div class="col-md-12 mb-3 form-group">
-                            <h1>Interventions et remerciements</h1>
-                        </div>
-                        <div class="col-md-6 mb-3 form-group">
-                             <label for="remerciement">Remerciements</label>
-                             <input type="text" name="remerciement" placeholder="Entrer" class="form-control">
-                        </div>
-                        <div class="col-md-6 mb-3 form-group">
-                             <label for="intervention">Interventions</label>
-                             <input type="text" name="intervention"  placeholder="Entrer" class="form-control">
-                        </div>
                         <div class="row">
                             <div class="col-sm-6 pl-0 ">
                                 <p class="text-right d-flex m-4">
