@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cotisation;
 use App\Models\Membre;
 
 use Illuminate\Http\Request;
@@ -111,7 +112,9 @@ class MembreController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $membre = Membre::findOrFail($id);
+        $cotisations = Cotisation::all();
+        return view('dashboard.admin.cotisation.show',compact('membre','cotisations'));
     }
 
     /**

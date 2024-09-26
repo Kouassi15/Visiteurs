@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Membre;
 use App\Models\Cotisation;
+use App\Models\Paiement;
 use Illuminate\Http\Request;
 
 class CotisationController extends Controller
@@ -13,9 +14,8 @@ class CotisationController extends Controller
      */
     public function index()
     {
-        $membres = Membre::all();
         $cotisations = Cotisation::all();
-        return view('dashboard.admin.cotisation.index',compact('membres','cotisations'));
+        return view('dashboard.admin.cotisation.show',compact('membres','cotisations'));
     }
 
     /**
@@ -54,7 +54,7 @@ class CotisationController extends Controller
     //         'date' => 'required|string|max:255',
     //         'status' => 'nullable',
     //     ]);
-          
+
     //     $cotisation = new Cotisation();
     //     $cotisation->membre_id = $request->membre_id;
     //     $cotisation->montant_mensuel = $request->montant_mensuel;
@@ -69,85 +69,96 @@ class CotisationController extends Controller
     // }
 
 
-// public function store(Request $request)
-// {
-//     // Validation de la requête
-//     $request->validate([
-//         'membre_id' => 'required|string|max:255',
-//         'montant_mensuel' => 'required|numeric|min:0',
-//         'mois' => 'required|string|max:255',
-//         'annee' => 'required|string|max:255', 
-//         'date' => 'required|date',
-//         'status' => 'nullable',
-//     ]);
+    // public function store(Request $request)
+    // {
+    //     // Validation de la requête
+    //     $request->validate([
+    //         'membre_id' => 'required|string|max:255',
+    //         'montant_mensuel' => 'required|numeric|min:0',
+    //         'mois' => 'required|string|max:255',
+    //         'annee' => 'required|string|max:255', 
+    //         'date' => 'required|date',
+    //         'status' => 'nullable',
+    //     ]);
 
-//     // Trouver une cotisation existante pour le membre et l'année spécifiés
-//     $cotisation = Cotisation::where('membre_id', $request->membre_id);
-//                             // ->whereYear('date', $request->annee)
-//                              //->whereMonth('date', $request->mois)
-//                             // ->first();
+    //     // Trouver une cotisation existante pour le membre et l'année spécifiés
+    //     $cotisation = Cotisation::where('membre_id', $request->membre_id);
+    //                             // ->whereYear('date', $request->annee)
+    //                              //->whereMonth('date', $request->mois)
+    //                             // ->first();
 
-//     // if ($cotisation) {
-//         // Incrémenter le montant total à partir du deuxième ajout
-//         // Assurez-vous que le montant total est initialisé avant de l'incrémenter
-//         // if (!$cotisation->montant_total) {
-//         //     $cotisation->montant_total = 0; // Initialisation du montant total si jamais il était null
-//         // }
-//         // $cotisation->montant_total += $request->montant_mensuel;
-        
-//     // } else {
-//         // Créer une nouvelle cotisation si elle n'existe pas
-//         $cotisation = new Cotisation();
-//         $cotisation->membre_id = $request->membre_id;
-//         $cotisation->montant_mensuel = $request->montant_mensuel;
-//         $cotisation->mois = $request->mois;
-//         $cotisation->annee = $request->annee;
-//         $cotisation->date = $request->date;
-//         // Initialiser le montant total au montant mensuel pour le premier ajout
-//         $cotisation->montant_total = $request->montant_mensuel;
-//     // }
+    //     // if ($cotisation) {
+    //         // Incrémenter le montant total à partir du deuxième ajout
+    //         // Assurez-vous que le montant total est initialisé avant de l'incrémenter
+    //         // if (!$cotisation->montant_total) {
+    //         //     $cotisation->montant_total = 0; // Initialisation du montant total si jamais il était null
+    //         // }
+    //         // $cotisation->montant_total += $request->montant_mensuel;
 
-//     // Sauvegarder les modifications
-//     $cotisation->save();
+    //     // } else {
+    //         // Créer une nouvelle cotisation si elle n'existe pas
+    //         $cotisation = new Cotisation();
+    //         $cotisation->membre_id = $request->membre_id;
+    //         $cotisation->montant_mensuel = $request->montant_mensuel;
+    //         $cotisation->mois = $request->mois;
+    //         $cotisation->annee = $request->annee;
+    //         $cotisation->date = $request->date;
+    //         // Initialiser le montant total au montant mensuel pour le premier ajout
+    //         $cotisation->montant_total = $request->montant_mensuel;
+    //     // }
 
-//     // Redirection avec un message de succès
-//     return redirect()->route('cotisation.index')->with('success', 'Une cotisation ajoutée avec succès.');
-// }
+    //     // Sauvegarder les modifications
+    //     $cotisation->save();
+
+    //     // Redirection avec un message de succès
+    //     return redirect()->route('cotisation.index')->with('success', 'Une cotisation ajoutée avec succès.');
+    // }
+
+
+    // CotisationController.php
+
+    public function updateMontantTotal(Cotisation $cotisation)
+    {
+        // Calculer la somme des paiements
+        $montantTotal = $cotisation->calculerMontantTotal();
+
+        // Mettre à jour le champ montant_total
+        $cotisation->montant_total = $montantTotal;
+        $cotisation->save();
+
+        return redirect()->back()->with('success', 'Montant total mis à jour avec succès.');
+    }
+
+
 
     public function store(Request $request)
     {
 
+        // dd($request->all());
+
         $request->validate([
-            'membre_id' => 'required|string|max:255',
-            'montant_mensuel' => 'required|numeric|min:0',
-            'mois' => 'required|string|max:255',
-            'annee' => 'required|string|max:255', 
-            'date' => 'required|date',
-            'status' => 'nullable',
+            // 'membre_id' => 'required|string|max:255',
+            'membre_id' => 'required|integer|exists:membres,id',
+            'libelle' => 'required|string|max:255',
+            // 'montant_total' => 'required|string|max:255',
+            'description' => 'required|string|max:255', 
+            'date_debut' => 'required|date',
+            'date_fin' => 'required|date',
         ]);
 
-        $cotisation = Cotisation::where('membre_id', $request->membre_id)
-                                //->whereYear('date', $request->annee)
-                                ->whereMonth('date', $request->mois)
-                                ->first();
-
-        if ($cotisation) {
-            
-            $cotisation->montant_total += $request->montant_mensuel ;
-            } else {
            
             $cotisation = new Cotisation();
             $cotisation->membre_id = $request->membre_id;
-            $cotisation->montant_mensuel = $request->montant_mensuel;
-            $cotisation->mois = $request->mois;
-            $cotisation->annee = $request->annee;
-            $cotisation->date = $request->date;
-            $cotisation->montant_total = $request->montant_mensuel;
-           
-            }
-        $cotisation->save();
+            $cotisation->libelle = $request->libelle;
+            $cotisation->montant_total = $request->montant_total;
+            $cotisation->description = $request->description;
+            $cotisation->date_debut = $request->date_debut;
+            $cotisation->date_fin = $request->date_fin;
+            $cotisation->status = 'en cours';
+            // dd($cotisation);
+            $cotisation->save();
 
-        return redirect()->route('cotisation.index')->with('success', 'Une cotisation ajoutée avec succès.');
+        return redirect()->back()->with('success', 'Une cotisation ajoutée avec succès.');
     }
 
 
@@ -158,8 +169,9 @@ class CotisationController extends Controller
      */
     public function show(string $id)
     {
-        $cotisations = Cotisation::where('membre_id',$id)->get();
-        return view('dashboard.admin.cotisation.show',compact('cotisations'));
+        $cotisation = Cotisation::findOrFail($id);
+        $paiements = Paiement::all();
+        return view('dashboard.admin.paiement.index',compact('cotisation','paiements'));
     }
 
     /**

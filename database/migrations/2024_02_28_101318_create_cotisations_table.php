@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('cotisations', function (Blueprint $table) {
             $table->id();
-            $table->integer('membre_id')->nullable();
-            $table->string('no_cotisation')->nullable();
-            $table->string('montant_mensuel')->nullable();
-            $table->string('montant_total')->nullable();
-            $table->string('mois')->nullable();
-            $table->string('annee')->nullable();
-            $table->enum('status', ['en cours', 'soldé']);
-            $table->date('date')->nullable();
+            $table->string('libelle')->nullable();
+            $table->decimal('montant_total', 8, 2)->nullable();
+            $table->text('description')->nullable();
+            $table->date('date_debut');
+            $table->date('date_fin');
+            $table->enum('status', ['en cours', 'soldé'])->nullable();
+            $table->unsignedBigInteger('membre_id');
+            $table->foreign('membre_id')->references('id')->on('membres')->onDelete('cascade');
             $table->timestamps();
         });
     }

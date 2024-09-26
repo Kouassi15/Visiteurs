@@ -13,4 +13,15 @@ class Cotisation extends Model
     {
         return $this->belongsTo(Membre::class);
     }
+
+    public function paiements()
+    {
+        return $this->hasMany(Paiement::class , 'cotisation_id');
+    }
+
+    public function calculerMontantTotal()
+    {
+        return $this->paiements()->sum('montant_verse');
+    }
+
 }
