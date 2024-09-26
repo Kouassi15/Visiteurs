@@ -37,7 +37,7 @@ class JepcemisteController extends Controller
             'profession' => 'nullable',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'quartier' => 'required',
-            
+            'sexe' => 'required',           
         ]);
     
         $jepcemiste = new Jepcemiste();
@@ -78,7 +78,32 @@ class JepcemisteController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'contact' => 'required',
+            'activite' => 'nullable',
+            'profession' => 'nullable',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'quartier' => 'required',
+            'sexe' => 'required',
+            'status'=> 'required',           
+        ]);
+    
+        $jepcemiste = Jepcemiste::findOrFail($id);
+        $jepcemiste->fill($validatedData);
+    
+        if ($request->hasFile('photo')) {
+            $imageName = time() . '_' . $request->file('photo')->getClientOriginalName();
+            $request->file('photo')->move(public_path('assets/images/photos'), $imageName);
+            $jepcemiste->photo = $imageName;
+        }
+    
+       
+
+        $jepcemiste->save();
+
+        return redirect()->route('jepcemiste.index')->with('Succès','Un jepcemiste a été modifie avec succès');
     }
 
     /**
@@ -86,6 +111,8 @@ class JepcemisteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $jepcemiste = Jepcemiste::findOrFail($id);
+        $jepcemiste->delete();
+        return redirect()->route('jepcemiste.index')->with('Succès','Un jepcemiste a été ajouté avec succès');
     }
 }

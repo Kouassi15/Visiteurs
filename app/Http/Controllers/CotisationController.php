@@ -15,7 +15,8 @@ class CotisationController extends Controller
     public function index()
     {
         $cotisations = Cotisation::all();
-        return view('dashboard.admin.cotisation.show',compact('membres','cotisations'));
+        $membre = Membre::all();
+        return view('dashboard.admin.cotisation.show',compact('membre','cotisations'));
     }
 
     /**
