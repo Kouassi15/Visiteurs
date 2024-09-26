@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ResponsableController;
 use App\Http\Controllers\TypevisiteurController;
 use App\Http\Controllers\CollaborateurController;
+use App\Http\Controllers\PaiementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,10 +104,10 @@ Route::prefix('membre')->name('membre.')->group(function () {
     Route::get('index',[MembreController::class, 'index'])->name('index');
     Route::get('create',[MembreController::class, 'create'])->name('create');
     Route::post('store',[MembreController::class, 'store'])->name('store');
-     Route::get('show/{id}',[MembreController::class, 'show'])->name('show');
-     Route::get('edit/{id}',[MembreController::class, 'edit'])->name('edit');
-     Route::put('update/{id}',[MembreController::class, 'update'])->name('update');
-     Route::delete('delete/{id}',[MembreController::class, 'destroy'])->name('delete');
+    Route::get('show-liste-cotisations-membre/{id}',[MembreController::class, 'show'])->name('show');
+    Route::get('edit/{id}',[MembreController::class, 'edit'])->name('edit');
+    Route::put('update/{id}',[MembreController::class, 'update'])->name('update');
+    Route::delete('delete/{id}',[MembreController::class, 'destroy'])->name('delete');
 
 });
 
@@ -115,10 +116,22 @@ Route::prefix('cotisation')->name('cotisation.')->group(function () {
     Route::get('index',[CotisationController::class, 'index'])->name('index');
     Route::get('create',[CotisationController::class, 'create'])->name('create');
     Route::post('store',[CotisationController::class, 'store'])->name('store');
-     Route::get('show/{id}',[CotisationController::class, 'show'])->name('show');
+     Route::get('liste-paiement-show/{id}',[CotisationController::class, 'show'])->name('show.paiement');
      Route::get('edit/{id}',[CotisationController::class, 'edit'])->name('edit');
      Route::put('update/{id}',[CotisationController::class, 'update'])->name('update');
      Route::delete('delete/{id}',[CotisationController::class, 'destroy'])->name('delete');
+
+});
+
+// cotisation
+Route::prefix('paiement')->name('paiement.')->group(function () {
+    Route::get('index',[PaiementController::class, 'index'])->name('index');
+    Route::get('create',[PaiementController::class, 'create'])->name('create');
+    Route::post('store',[PaiementController::class, 'store'])->name('store');
+    //  Route::get('liste-paiement-show/{id}',[PaiementController::class, 'show'])->name('show.paiement');
+     Route::get('edit/{id}',[PaiementController::class, 'edit'])->name('edit');
+     Route::put('update/{id}',[PaiementController::class, 'update'])->name('update');
+     Route::delete('delete/{id}',[PaiementController::class, 'destroy'])->name('delete');
 
 });
 
@@ -165,6 +178,7 @@ Route::prefix('jepcemiste')->name('jepcemiste.')->group(function () {
     Route::get('index',[JepcemisteController::class, 'index'])->name('index');
     Route::get('create',[JepcemisteController::class, 'create'])->name('create');
     Route::post('store',[JepcemisteController::class, 'store'])->name('store');
+    Route::get('show-liste-cotisations/{id}',[JepcemisteController::class, 'show'])->name('show');
 
 });
 

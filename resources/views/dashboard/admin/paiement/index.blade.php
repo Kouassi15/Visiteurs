@@ -7,15 +7,15 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h2 class="pageheader-title">Membres</h2>
+                <h2 class="pageheader-title">Paiements</h2>
                 <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet
                     vestibulum mi. Morbi lobortis pulvinar quam.</p>
                 <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Tableau de bord</a></li>
-                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Membres</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Listes Membres</li>
+                            <li class="breadcrumb-item"><a href="{{route('membre.show', $cotisation->id)}}" class="breadcrumb-link">Cotisation</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Listes Paiements</li>
                         </ol>
                     </nav>
                 </div>
@@ -36,45 +36,61 @@
             <div class="card">
                 <h5 class="card-header">Ajouter une cotisation</h5>
                 <div class="card-body">
-                     <form id="formationForm" class="row g-3" method="POST" action="{{ route('cotisation.store') }}">
+                     <form id="formationForm" class="row g-3" method="POST" action="{{ route('paiement.store') }}">
                         @csrf
-                        <input class="" type="hidden" name="membre_id"  value="{{ $membre->id}}" placeholder="">
+                        <input class="" type="hidden" name="cotisation_id" value="{{ $cotisation->id}}" placeholder="">
                         <div class="col-md-6 mb-3 form-group">
-                            <label for="libelle" class="form-label">Libellé</label>
-                            <input type="text" class="form-control @error('libelle') is-invalid @enderror" id=""
-                                placeholder="Entrer le montant" name="libelle" value="{{ old('libelle') }}" />
-                            @error('libelle')
+                            <label for="montant_verse" class="form-label">Montant versé</label>
+                            <input type="number" class="form-control @error('montant_verse') is-invalid @enderror" id=""
+                                placeholder="Entrer le montant" name="montant_verse" value="{{ old('montant_verse') }}" />
+                            @error('montant_verse')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
                          <div class="col-md-6 mb-3 form-group">
-                            <label for="libelle" class="form-label">Description</label>
-                            <input type="text" class="form-control @error('description') is-invalid @enderror" id=""
-                                placeholder="Entrer le montant" name="description" value="{{ old('description') }}" />
-                            @error('description')
+                            <label for="mode_paiement" class="form-label">Mode de paiement</label>
+                            <select id="mode_paiement" name="mode_paiement" class="form-control @error('mode_paiement') is-invalid @enderror">
+                                <option value="" selected disabled>Selectionner....</option>
+                                <option value="mobile">Mobile</option>
+                                <option value="espece">Espèce</option>
+                            </select>
+                            @error('mois')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                         <div class="col-md-6 mb-3 form-group">
+                            <label for="mois" class="form-label">Mois: </label>
+                            <select id="mois" name="mois" class="form-control @error('mois') is-invalid @enderror">
+                                <option value="" selected disabled>Selectionner....</option>
+                                <option value="janvier">Janvier</option>
+                                <option value="fevrier">Février</option>
+                                <option value="mars">Mars</option>
+                                <option value="avril">Avril</option>
+                                <option value="mai">Mai</option>
+                                <option value="juin">Juin</option>
+                                <option value="juillet">Juillet</option>
+                                <option value="aout">Août</option>
+                                <option value="septembre">Septembre</option>
+                                <option value="octobre">Octobre</option>
+                                <option value="novembre">Novembre</option>
+                                <option value="decembre">Décembre</option>
+                            </select>
+                            @error('mois')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
                         <div class="col-md-6 mb-3 form-group">
-                            <label for="date_debut" class="form-label">Date debut </label>
-                            <input type="date" class="form-control @error('date_debut') is-invalid @enderror" id=""
-                                placeholder="Entrer la date debut" name="date_debut" value="{{ old('date_debut') }}" />
-                            @error('date_debut')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="col-md-6 mb-3 form-group">
-                            <label for="date" class="form-label">Date fin </label>
-                            <input type="date" class="form-control @error('date_fin') is-invalid @enderror"
-                                id="" placeholder="Entrer la date fin" name="date_fin"
-                                value="{{ old('date_fin') }}" />
-                            @error('date_fin')
+                            <label for="date_paiement" class="form-label">Date paiement</label>
+                            <input type="date" class="form-control @error('date_paiement') is-invalid @enderror"
+                                id="" placeholder="Entrer la date fin" name="date_paiement"
+                                value="{{ old('date_paiement') }}" />
+                            @error('date_paiement')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -109,35 +125,24 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Libellé</th>
-                                    <th>Description</th>
-                                    <th>Date debut</th>
-                                    <th>Date fin</th>
-                                    <th>Montant Payés</th>
-                                    <th>status</th>
+                                    <th>Versement</th>
+                                    <th>Mode de paiement</th>
+                                    <th>Date paiement</th>
+                                    <th>Mois payé</th>
                                     <th>Action</th> 
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($cotisations as $cotisation)
+                                @foreach($paiements as $paiement)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{$cotisation->libelle}}</td>
-                                    <td>{{$cotisation->description}}</td>
-                                    <td>{{$cotisation->date_debut}}</td>
-                                    <td>{{$cotisation->date_fin}}</td>
-                                    <td>{{$cotisation->montant_total }}</td>
+                                    <td>{{$paiement->montant_verse}}</td>
+                                    <td>{{$paiement->mode_paiement}}</td>
+                                    <td>{{$paiement->date_paiement}}</td>
+                                    <td>{{$paiement->mois}}</td>
                                     <td class=" m-2">
-                                        @if($cotisation->status == "en cours")
-                                       <span class="badge bg-warning text-white">En cours</span>
-                                       @endif
-                                       @if($cotisation->status == "soldé")
-                                       <span class="badge bg-success text-white">Soldé</span>
-                                       @endif
-                                    </td>
-                                    <td class=" m-2">
-                                        <a href="{{ route('cotisation.show.paiement', $cotisation->id)}}" class="btn btn-primary"> Voir</a>
-                                        <a href="{{ route('membre.edit', $cotisation->id)}}" class="btn btn-success"> Modifier</a>
+                                        <a href="{{ route('membre.show', $paiement->id)}}" class="btn btn-primary"> Voir</a>
+                                        <a href="{{ route('membre.edit', $paiement->id)}}" class="btn btn-success"> Modifier</a>
                                          <button type="submit" class="btn btn-danger"> Supprimer</button>
                                     </td>
                                 </tr>
