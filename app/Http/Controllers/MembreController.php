@@ -113,7 +113,7 @@ class MembreController extends Controller
     public function show(string $id)
     {
         $membre = Membre::findOrFail($id);
-        $cotisations = Cotisation::all();
+        $cotisations = Cotisation::where('membre_id', $id)->get();
         return view('dashboard.admin.cotisation.show',compact('membre','cotisations'));
     }
 
