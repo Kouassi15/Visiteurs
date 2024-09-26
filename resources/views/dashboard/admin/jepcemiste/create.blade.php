@@ -14,8 +14,8 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Tableau de bord</a></li>
-                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Adhérents</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Enregistrer un nouveau adhérent</li>
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Jepcemistes</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Enregistrer un nouveau jepcemiste</li>
                         </ol>
                     </nav>
                 </div>
@@ -32,7 +32,7 @@
         <!-- ============================================================== -->
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
-                <h5 class="card-header">Ajouter un adhérent</h5>
+                <h5 class="card-header">Ajouter un jepcemiste</h5>
                 <div class="card-body p-4">
                     <form action="{{ route('jepcemiste.store') }}" method="post" class="row g-3" enctype="multipart/form-data">
                         @csrf
@@ -60,7 +60,15 @@
                             <label for="profession">Profession</label>
                             <input type="text" name="profession" required placeholder="Entrer la profession" class="form-control">
                         </div>
-                        <div class="col-md-12 mb-3 form-group">
+                        <div class="col-md-6 mb-3 form-group">
+                            <label for="sexe">Sexe</label>
+                            <select class="form-control" name="sexe" required>
+                                <option value="" selected disabled hidden>Sélectionner...</option>
+                                <option value="Homme">Homme</option>
+                                <option value="Femme">Femme</option>
+                            </select>
+                        </div> 
+                        <div class="col-md-6 mb-3 form-group">
                             <label for="photo">Sélectionner l'image</label>
                             <input type="file" name="photo" required class="form-control">
                         </div>

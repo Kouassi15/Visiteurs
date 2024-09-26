@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('profession')->nullable();
             $table->string('quartier')->nullable();
             $table->string('photo')->nullable();
+            $table->string('sexe')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });

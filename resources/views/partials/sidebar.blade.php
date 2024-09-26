@@ -199,6 +199,7 @@
                                 </div>
                             </li>
                             @endrole
+                            @role('jepcma')
                             <li class="nav-divider">
                                 GESTION DES JEPCEMISTES 
                             </li>
@@ -214,7 +215,8 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li> 
+                            </li>
+                            @endrole 
                              <!-- <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-9" aria-controls="submenu-9"><i class="fas fa-fw fa-users"></i>Jepcemiste</a>
                                 <div id="submenu-9" class="collapse submenu" style="">

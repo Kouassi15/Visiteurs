@@ -7,15 +7,15 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h2 class="pageheader-title">Membres</h2>
+                <h2 class="pageheader-title">Jepcemistes</h2>
                 <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet
                     vestibulum mi. Morbi lobortis pulvinar quam.</p>
                 <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Tableau de bord</a></li>
-                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Membres</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Listes Membres</li>
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Jepcemistes</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Listes Jepcemistes</li>
                         </ol>
                     </nav>
                 </div>
@@ -50,8 +50,8 @@
                                     <th>Quartier</th>
                                     <th >Activite</th>
                                     <th>Profession</th>
-                                    <!-- <th>Sexes</th>
-                                    <th>Personne contactée en cas urgence</th>
+                                    <th>Sexes</th>
+                                    <!--<th>Personne contactée en cas urgence</th>
                                     <th>Numero en cas urgence</th>
                                     <th >Date de naissance</th> -->
                                     <th>Photos</th>
@@ -65,9 +65,10 @@
                                     <td>{{$jepcemiste->nom}}</td>
                                     <td>{{$jepcemiste->prenom}}</td>
                                     <td>{{$jepcemiste->contact}}</td>
-                                    <td >{{$jepcemiste->activite}}</td>
+                                    <td>{{$jepcemiste->activite}}</td>
                                     <td>{{$jepcemiste->quartier}}</td>
                                     <td>{{$jepcemiste->profession}}</td>
+                                    <td>{{$jepcemiste->sexe}}</td>
                                     <td><img src="{{asset('assets/images/photos/'.$jepcemiste->photo)}}"  width="40px" alt="Photo jepcemiste"></td>
                                     <td width="180%">
                                     <form method="POST" action="{{ route('membre.delete', $jepcemiste->id)}}">
