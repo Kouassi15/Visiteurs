@@ -122,6 +122,7 @@ class MembreController extends Controller
      */
     public function edit(string $id)
     {
+        
         $membre = Membre::find($id);
         return view('dashboard.admin.membre.edit',compact('membre'));
     }
