@@ -171,7 +171,7 @@ class CotisationController extends Controller
     public function show(string $id)
     {
         $cotisation = Cotisation::findOrFail($id);
-        $paiements = Paiement::all();
+        $paiements = Paiement::where('cotisation_id', $id)->get();
         return view('dashboard.admin.paiement.index',compact('cotisation','paiements'));
     }
 
