@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('quartier')->nullable();
             $table->string('photo')->nullable();
             $table->string('sexe')->nullable();
-            $table->string('status')->nullable();
+            $table->string('status')->default('Sans emploi');
             $table->timestamps();
         });
     }

@@ -61,7 +61,8 @@ class JepcemisteController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $jepcemiste = Jepcemiste::find($id);
+        return view('dashboard.admin.jepcemiste.show',compact('jepcemiste'));
     }
 
     /**
@@ -111,7 +112,7 @@ class JepcemisteController extends Controller
      */
     public function destroy(string $id)
     {
-        $jepcemiste = Jepcemiste::findOrFail($id);
+        $jepcemiste = Jepcemiste::find($id);
         $jepcemiste->delete();
         return redirect()->route('jepcemiste.index')->with('Succès','Un jepcemiste a été ajouté avec succès');
     }

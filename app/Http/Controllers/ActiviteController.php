@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activite;
 use Illuminate\Http\Request;
 
 class ActiviteController extends Controller
@@ -11,7 +12,8 @@ class ActiviteController extends Controller
      */
     public function index()
     {
-        //
+        $activites = Activite::all();
+        return view('dashboard.admin.activite.index',compact('activites'));
     }
 
     /**
@@ -19,7 +21,7 @@ class ActiviteController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.admin.activite.create');
     }
 
     /**
@@ -27,7 +29,23 @@ class ActiviteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+          'titre' => 'required',
+          'description' => 'required',
+          'date' => 'required',
+        ]);
+
+        $activite = Activite::create([
+            'titre'=> $request->input('titre'),
+            'description'=> $request->input('description'),
+            'date'=> $request->input('date'),
+        ]);
+
+        $activite->save();
+
+        return redirect()->route('activite.index')->with('Succès','Une activite ajouté avec succès');
+
+
     }
 
     /**
@@ -35,7 +53,8 @@ class ActiviteController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $activite = Activite::find($id);
+        return view('dashboard.admin.activite.show',compact('activite'));
     }
 
     /**
@@ -43,7 +62,8 @@ class ActiviteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $activite = Activite::find($id);
+        return view('dashboard.admin.activite.edit',compact('activite'));
     }
 
     /**
@@ -51,7 +71,23 @@ class ActiviteController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'titre' => 'required',
+            'description' => 'required',
+            'date' => 'required',
+          ]);
+  
+         $activite = Activite::find($id);
+            $activite->update([
+              'titre'=> $request->input('titre'),
+              'description'=> $request->input('description'),
+              'date'=> $request->input('date'),
+          ]);
+  
+          $activite->update();
+  
+          return redirect()->route('activite.index')->with('Succès','Une activite ajouté avec succès');
+
     }
 
     /**
@@ -59,6 +95,8 @@ class ActiviteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $activite = Activite::find($id);
+        $activite->delete();
+        return redirect()->route('activite.index')->with('Succès','Une activite a été mise à jour avec succès');
     }
 }

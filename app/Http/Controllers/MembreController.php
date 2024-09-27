@@ -105,8 +105,6 @@ class MembreController extends Controller
         return redirect()->route('membre.index')->with('success', 'Membre ajouté avec succès.');
     }
 
-    
-
     /**
      * Display the specified resource.
      */

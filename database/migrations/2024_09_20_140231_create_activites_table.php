@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('activites', function (Blueprint $table) {
             $table->id();
-            $table->string('titre');
-            $table->string('description');
+            $table->string('titre')->nullable();
+            $table->string('description')->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }

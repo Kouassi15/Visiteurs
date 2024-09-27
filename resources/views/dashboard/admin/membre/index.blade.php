@@ -77,7 +77,7 @@
                                     <form method="POST" action="{{ route('membre.delete', $membre->id)}}">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('membre.show', $membre->id)}}" class="btn btn-primary"> Voir mes cotisations</a>
+                                    <a href="{{ route('membre.show', $membre->id)}}" class="btn btn-primary"> Ajouter une cotisation</a>
                                     <a href="{{ route('membre.edit', $membre->id)}}" class="btn btn-success"> Modifier</a>
                                     <button type="submit" class="btn btn-danger"> Supprimer</button>
                                    </form>

@@ -9,5 +9,5 @@ class Activite extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titre','description'];
+    protected $fillable = ['titre','description','date'];
 }

@@ -6,6 +6,8 @@ use App\Http\Controllers\FideleController;
 use App\Http\Controllers\MembreController;
 use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ActiviteController;
+use App\Http\Controllers\PaiementController;
 use App\Http\Controllers\VisiteurController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CotisationController;
@@ -15,7 +17,6 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ResponsableController;
 use App\Http\Controllers\TypevisiteurController;
 use App\Http\Controllers\CollaborateurController;
-use App\Http\Controllers\PaiementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -179,6 +180,20 @@ Route::prefix('jepcemiste')->name('jepcemiste.')->group(function () {
     Route::get('create',[JepcemisteController::class, 'create'])->name('create');
     Route::post('store',[JepcemisteController::class, 'store'])->name('store');
     Route::get('show-liste-cotisations/{id}',[JepcemisteController::class, 'show'])->name('show');
+    Route::get('edit/{id}',[JepcemisteController::class, 'edit'])->name('edit');
+    Route::put('update/{id}',[JepcemisteController::class, 'update'])->name('update');
+    Route::delete('delete/{id}',[JepcemisteController::class, 'destroy'])->name('delete');
+
+});
+
+Route::prefix('activite')->name('activite.')->group(function () {
+    Route::get('index',[ActiviteController::class, 'index'])->name('index');
+    Route::get('create',[ActiviteController::class, 'create'])->name('create');
+    Route::post('store',[ActiviteController::class, 'store'])->name('store');
+    Route::get('show/{id}',[ActiviteController::class, 'show'])->name('show');
+    Route::get('edit/{id}',[ActiviteController::class, 'edit'])->name('edit');
+    Route::post('update/{id}',[ActiviteController::class, 'update'])->name('update');
+    Route::delete('delete/{id}',[ActiviteController::class, 'destroy'])->name('delete');
 
 });
 

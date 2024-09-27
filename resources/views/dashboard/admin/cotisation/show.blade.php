@@ -7,15 +7,15 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h2 class="pageheader-title">Membres</h2>
+                <h2 class="pageheader-title">Cotisations</h2>
                 <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet
                     vestibulum mi. Morbi lobortis pulvinar quam.</p>
                 <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Tableau de bord</a></li>
-                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Membres</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Listes Membres</li>
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Cotisations</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Listes Cotisations</li>
                         </ol>
                     </nav>
                 </div>
@@ -101,7 +101,7 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">Listes des Membres </h5>
+                    <h5 class="mb-0">Listes des cotisation </h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive text-nowrap" >
@@ -136,7 +136,7 @@
                                        @endif
                                     </td>
                                     <td class=" m-2">
-                                        <a href="{{ route('cotisation.show.paiement', $cotisation->id)}}" class="btn btn-primary"> Voir</a>
+                                        <a href="{{ route('cotisation.show.paiement', $cotisation->id)}}" class="btn btn-primary"> Voir et un versement</a>
                                         <a href="{{ route('membre.edit', $cotisation->id)}}" class="btn btn-success"> Modifier</a>
                                          <button type="submit" class="btn btn-danger"> Supprimer</button>
                                     </td>
