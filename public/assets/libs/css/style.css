@@ -1276,7 +1276,9 @@ Top Header
 
 /* ------  Notification Dropdown --------  */
 
-.notification {}
+.notification {
+    
+}
 
 .notification-dropdown {
     min-width: 320px;

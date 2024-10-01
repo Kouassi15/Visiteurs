@@ -180,7 +180,9 @@ class CotisationController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $cotisation = Cotisation::findOrfail($id);
+        return view('dashboard.admin.cotisation.edit',compact('cotisation'));
+
     }
 
     /**
@@ -188,7 +190,29 @@ class CotisationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            // 'membre_id' => 'required|string|max:255',
+            'membre_id' => 'required|integer|exists:membres,id',
+            'libelle' => 'required|string|max:255',
+            // 'montant_total' => 'required|string|max:255',
+            'description' => 'required|string|max:255', 
+            'date_debut' => 'required|date',
+            'date_fin' => 'required|date',
+        ]);
+
+           
+            $cotisation = Cotisation::find($id);
+            $cotisation->membre_id = $request->membre_id;
+            $cotisation->libelle = $request->libelle;
+            $cotisation->montant_total = $request->montant_total;
+            $cotisation->description = $request->description;
+            $cotisation->date_debut = $request->date_debut;
+            $cotisation->date_fin = $request->date_fin;
+            $cotisation->status = 'en cours';
+            // dd($cotisation);
+            $cotisation->save();
+
+        return redirect()->back()->with('success', 'Une cotisation a été mis à jour avec succès.');
     }
 
     /**

@@ -28,7 +28,7 @@
         <div class="col-lg-1 my-3">
             <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#editInfosForm" aria-expanded="false" aria-controls="editInfosForm">
                 <em class="fa-solid fa-pen"></em>
-                Ajouter
+                Editer
             </button>
         </div>
 
@@ -36,13 +36,14 @@
             <div class="card">
                 <h5 class="card-header">Ajouter une cotisation</h5>
                 <div class="card-body">
-                     <form id="formationForm" class="row g-3" method="POST" action="{{ route('cotisation.store') }}">
+                     <form id="formationForm" class="row g-3" method="POST" action="{{ route('cotisation.update',$cotisation->id) }}">
                         @csrf
-                        <input class="" type="hidden" name="membre_id"  value="{{ $membre->id}}" placeholder="">
+                        @method('PUT')
+                        <input class="" type="hidden" name="membre_id"  value="{{ $cotisation->membre->id}}" placeholder="">
                         <div class="col-md-6 mb-3 form-group">
                             <label for="libelle" class="form-label">Libellé</label>
                             <input type="text" class="form-control @error('libelle') is-invalid @enderror" id=""
-                                placeholder="Entrer le montant" name="libelle" value="{{ old('libelle') }}" />
+                                placeholder="Entrer le montant" name="libelle" value="{{ $cotisation->libelle }}" />
                             @error('libelle')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -52,7 +53,7 @@
                          <div class="col-md-6 mb-3 form-group">
                             <label for="libelle" class="form-label">Description</label>
                             <input type="text" class="form-control @error('description') is-invalid @enderror" id=""
-                                placeholder="Entrer le montant" name="description" value="{{ old('description') }}" />
+                                placeholder="Entrer le montant" name="description" value="{{ $cotisation->description }}" />
                             @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -62,7 +63,7 @@
                         <div class="col-md-6 mb-3 form-group">
                             <label for="date_debut" class="form-label">Date debut </label>
                             <input type="date" class="form-control @error('date_debut') is-invalid @enderror" id=""
-                                placeholder="Entrer la date debut" name="date_debut" value="{{ old('date_debut') }}" />
+                                placeholder="Entrer la date debut" name="date_debut" value="{{ $cotisation->date_debut }}" />
                             @error('date_debut')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -73,7 +74,7 @@
                             <label for="date" class="form-label">Date fin </label>
                             <input type="date" class="form-control @error('date_fin') is-invalid @enderror"
                                 id="" placeholder="Entrer la date fin" name="date_fin"
-                                value="{{ old('date_fin') }}" />
+                                value="{{ $cotisation->date_fin }}" />
                             @error('date_fin')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -98,56 +99,7 @@
         <!-- ============================================================== -->
         <!-- data table rowgroup  -->
         <!-- ============================================================== -->
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-0">Listes des cotisation </h5>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive text-nowrap" >
-                        <table id="example2" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Libellé</th>
-                                    <th>Description</th>
-                                    <th>Date debut</th>
-                                    <th>Date fin</th>
-                                    <th>Montant Payés</th>
-                                    <th>status</th>
-                                    <th>Action</th> 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($cotisations as $cotisation)
-                                <tr>
-                                    <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{$cotisation->libelle}}</td>
-                                    <td>{{$cotisation->description}}</td>
-                                    <td>{{$cotisation->date_debut}}</td>
-                                    <td>{{$cotisation->date_fin}}</td>
-                                    <td>{{$cotisation->montant_total }}</td>
-                                    <td class=" m-2">
-                                        @if($cotisation->status == "en cours")
-                                       <span class="badge bg-warning text-white">En cours</span>
-                                       @endif
-                                       @if($cotisation->status == "soldé")
-                                       <span class="badge bg-success text-white">Soldé</span>
-                                       @endif
-                                    </td>
-                                    <td class=" m-2">
-                                        <a href="{{ route('cotisation.show.paiement', $cotisation->id)}}" class="btn btn-primary"> Voir et un versement</a>
-                                        <a href="{{ route('cotisation.edit', $cotisation->id)}}" class="btn btn-success"> Modifier</a>
-                                         <button type="submit" class="btn btn-danger"> Supprimer</button>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!-- ============================================================== -->
         <!-- end data table rowgroup  -->
         <!-- ============================================================== -->
