@@ -1242,6 +1242,8 @@ Top Header
     text-transform: uppercase;
     font-weight: 700;
     color: #007bff;
+    width:20% ;
+    height:20%;
 }
 .navbar-brand:hover{
     color: #007bff;

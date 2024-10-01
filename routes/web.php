@@ -32,7 +32,7 @@ use App\Http\Controllers\CollaborateurController;
 Route::get('/', function () {
     return view('auth.login');
 });
-
+Route::post('/authentification',[LoginController::class,'authentification'])->name('authentification');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
