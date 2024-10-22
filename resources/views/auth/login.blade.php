@@ -36,7 +36,7 @@
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card ">
-            <div class="card-header text-center"><a href=""><img class="logo-img" src="{{ asset('assets/images/logo.png')}}" alt="logo"></a><span class="splash-description">Veuillez saisir vos informations d’utilisateur.</span></div>
+            <div class="card-header text-center"><a href=""><img class="logo-img" src="{{ asset('assets/images/logo1.png')}}" alt="logo" width=30% height=30%  class="rounded w-25 "><span class="text-primary">CMA DOKUI 2</span></a><span class="splash-description">Veuillez saisir vos informations d’utilisateur.</span></div>
             <div class="card-body">
                 <form method="post" action="{{ route('login') }}">
                 @csrf
@@ -53,7 +53,7 @@
                 <div class="card-footer-item card-footer-item-bordered">
                     <a href="#" class="footer-link">Create An Account</a></div>
                 <div class="card-footer-item card-footer-item-bordered">
-                    <a href="#" class="footer-link">Forgot Password</a>
+                    <a href="#" class="footer-link">Mot de passe</a>
                 </div>
             </div>
         </div>

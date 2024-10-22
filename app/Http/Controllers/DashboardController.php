@@ -35,7 +35,8 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+        $cotisations = Catisation::all();
+        return view('dashboard.admin.homeaffairesocail', compact('cotisations'));
     }
 
     /**
