@@ -3,7 +3,7 @@
 @section('content')
 <!-- Banner Main Start Here  -->
 
-@include('frontend.home.slider')
+
 
 <!-- Banner Main End Here  -->
 
@@ -16,7 +16,7 @@
             </h2>
             <div class="title-icon py-3"></div>
         </div>
-        {{-- {{asset('frontend/ --}}
+        {{-- {{asset('frontend/)}} --}}
         <div class="row align-items-center">
             <div class="col-sm-6 col-xl-3">
                 <div class="feature-card rounded-4  border primary-border card-bg p-2 p-xl-4 mb-3">

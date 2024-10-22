@@ -35,8 +35,12 @@ class DashboardController extends Controller
      */
     public function create()
     {
+        $user = auth()->user();
         $cotisations = Catisation::all();
-        return view('dashboard.admin.homeaffairesocail', compact('cotisations'));
+        if (role() == 'affaire_social') {
+            return to_route('dashboard.admin.homeaffairesocail', compact('cotisations'));
+        }
+        
     }
 
     /**

@@ -117,7 +117,7 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">Listes des Membres </h5>
+                    <h5 class="mb-0">Listes des paiements</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive text-nowrap" >
@@ -141,7 +141,7 @@
                                     <td>{{$paiement->date_paiement}}</td>
                                     <td>{{$paiement->mois}}</td>
                                     <td class=" m-2">
-                                        <a href="{{ route('membre.show', $paiement->id)}}" class="btn btn-primary"> Voir</a>
+                                        <!-- <a href="{{ route('membre.show', $paiement->id)}}" class="btn btn-primary"> Voir</a> -->
                                         <a href="{{ route('membre.edit', $paiement->id)}}" class="btn btn-success"> Modifier</a>
                                          <button type="submit" class="btn btn-danger"> Supprimer</button>
                                     </td>

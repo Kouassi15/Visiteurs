@@ -220,7 +220,7 @@ class CotisationController extends Controller
      */
     public function destroy(string $id)
     {
-        $cotisation = Cotisation::find($id);
+        $cotisation = Cotisation::findOrFail($id);
         $cotisation->delete();
         return redirect()->route('cotisation.index')->with('success', 'Une cotisation supprimé avec succès.');
     }

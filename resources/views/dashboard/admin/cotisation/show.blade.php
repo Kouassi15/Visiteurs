@@ -42,7 +42,7 @@
                         <div class="col-md-6 mb-3 form-group">
                             <label for="libelle" class="form-label">Libellé</label>
                             <input type="text" class="form-control @error('libelle') is-invalid @enderror" id=""
-                                placeholder="Entrer le montant" name="libelle" value="{{ old('libelle') }}" />
+                                placeholder="Entrer le libellé" name="libelle" value="{{ old('libelle') }}" />
                             @error('libelle')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -52,7 +52,7 @@
                          <div class="col-md-6 mb-3 form-group">
                             <label for="libelle" class="form-label">Description</label>
                             <input type="text" class="form-control @error('description') is-invalid @enderror" id=""
-                                placeholder="Entrer le montant" name="description" value="{{ old('description') }}" />
+                                placeholder="Entrer la description" name="description" value="{{ old('description') }}" />
                             @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -136,9 +136,13 @@
                                        @endif
                                     </td>
                                     <td class=" m-2">
-                                        <a href="{{ route('cotisation.show.paiement', $cotisation->id)}}" class="btn btn-primary"> Voir et un versement</a>
-                                        <a href="{{ route('cotisation.edit', $cotisation->id)}}" class="btn btn-success"> Modifier</a>
+                                        <form method="POST" action="{{ route('cotisation.delete', $cotisation->id)}}">
+                                         @csrf
+                                         @method('DELETE')
+                                         <a href="{{ route('cotisation.show.paiement', $cotisation->id)}}" class="btn btn-primary"> Voir et un versement</a>
+                                         <a href="{{ route('cotisation.edit', $cotisation->id)}}" class="btn btn-success"> Modifier</a>
                                          <button type="submit" class="btn btn-danger"> Supprimer</button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
