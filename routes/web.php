@@ -10,6 +10,7 @@ use App\Http\Controllers\ActiviteController;
 use App\Http\Controllers\PaiementController;
 use App\Http\Controllers\VisiteurController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CotisationController;
 use App\Http\Controllers\HistoriqueController;
 use App\Http\Controllers\JepcemisteController;
@@ -32,7 +33,7 @@ use App\Http\Controllers\CollaborateurController;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::post('/authentification',[LoginController::class,'authentification'])->name('authentification');
+ Route::post('/authentification',[LoginController::class,'authentifications'])->name('authentification');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

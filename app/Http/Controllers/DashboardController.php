@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fidele;
+use App\Models\Membre;
 use App\Models\Visiteur;
+use App\Models\Cotisation;
 use App\Models\Responsable;
-use App\Models\Type_visiteur;
 use Illuminate\Http\Request;
+use App\Models\Type_visiteur;
 
 class DashboardController extends Controller
 {
@@ -27,9 +29,18 @@ class DashboardController extends Controller
         $totalfemmes = Fidele::whereNotNull('nombre_femmes')->count();
         $totalhommes = Fidele::whereNotNull('nombre_hommes')->count();
 
-        return view('dashboard', compact('totalvisiteurs','totalresponsables','totalfideles','totalenfants','totalfemmes','totaltypevisiteurs','totalhommes'));
-    }
+        $membres = Membre::count();
+        $cotisations = Cotisation::count();
+        $montantTotal = Cotisation::whereNotNull('montant_total')->count();
 
+        return view('dashboard', compact('totalvisiteurs','totalresponsables','totalfideles','totalenfants','totalfemmes','totaltypevisiteurs','totalhommes','membres','montantTotal'));
+    }
+    public function liste(){
+        $membres = Membre::count();
+        $cotisations = Cotisation::count();
+        $montantTotal = Cotisation::whereNotNull('montant_total')->count();
+        return view('dashboard', compact('membres','cotisations','montantTotal'));
+    }
     /**
      * Show the form for creating a new resource.
      */

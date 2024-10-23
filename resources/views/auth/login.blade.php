@@ -38,7 +38,7 @@
         <div class="card ">
             <div class="card-header text-center"><a href=""><img class="logo-img" src="{{ asset('assets/images/logo1.png')}}" alt="logo" width=30% height=30%  class="rounded w-25 "><span class="text-primary">CMA DOKUI 2</span></a><span class="splash-description">Veuillez saisir vos informations d’utilisateur.</span></div>
             <div class="card-body">
-                <form method="post" action="{{ route('login') }}">
+                <form method="post" action="{{ route('authentification') }}">
                 @csrf
                     <div class="form-group">
                         <input class="form-control form-control-lg" name="email" id="useemailrname" type="text" placeholder="Email" autocomplete="off">
