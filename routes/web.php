@@ -30,10 +30,11 @@ use App\Http\Controllers\CollaborateurController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
- Route::post('/authentification',[LoginController::class,'authentifications'])->name('authentification');
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
+    Route::get('/',[DashboardController::class,'login'])->name('auth');
+    Route::post('/authentification',[LoginController::class,'authentifications'])->name('authentification');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

@@ -12,6 +12,10 @@ use App\Models\Type_visiteur;
 
 class DashboardController extends Controller
 {
+
+    public function login(){
+        return view('auth.login');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -47,11 +51,10 @@ class DashboardController extends Controller
     public function create()
     {
         $user = auth()->user();
-        $cotisations = Catisation::all();
-        if (role() == 'affaire_social') {
+        $cotisations = Cotisation::all();
+        if ($user->role->name == 'affaire_social') {
             return to_route('dashboard.admin.homeaffairesocail', compact('cotisations'));
         }
-        
     }
 
     /**
