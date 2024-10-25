@@ -40,7 +40,7 @@ use App\Http\Controllers\CollaborateurController;
 // })->middleware(['auth', 'verified'])->name('dashboard');
 Route::middleware(['auth', 'verified'])->group( function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/homeaffairesocial', [DashboardController::class, 'create'])->name('homeaffairesocial');
+    Route::get('/homeaffairesocial', [DashboardController::class, 'liste'])->name('homeaffairesocial');
 });
     
 Route::middleware('auth')->group(function () {

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Acteur;
 use App\Models\Fidele;
 use App\Models\Membre;
+use App\Models\Paiement;
 use App\Models\Visiteur;
 use App\Models\Cotisation;
 use App\Models\Responsable;
 use Illuminate\Http\Request;
+use App\Models\Collaborateur;
 use App\Models\Type_visiteur;
 
 class DashboardController extends Controller
@@ -25,36 +28,35 @@ class DashboardController extends Controller
         
         $totalvisiteurs = Visiteur::count();
         $totalresponsables = Responsable::count();
-        $totaltypevisiteurs = Type_visiteur::count();
+        $collaborateurs = Collaborateur::count();
         // $totaltypevisiteurs = Type_visiteur::whereNotNull()->count();
-
+        $acteurs = Acteur::count();
         $totalfideles = Fidele::count();
         $totalenfants = Fidele::whereNotNull('nombre_enfants')->count();
         $totalfemmes = Fidele::whereNotNull('nombre_femmes')->count();
         $totalhommes = Fidele::whereNotNull('nombre_hommes')->count();
-
+        
+        $membresall = Membre::all();
         $membres = Membre::count();
-        $cotisations = Cotisation::count();
-        $montantTotal = Cotisation::whereNotNull('montant_total')->count();
+        // $cotisations = Cotisation::count();
+        $montantTotal = Cotisation::whereNotNull('montant_total')->sum('montant_total');
+        $montantVerse = Paiement::whereNotNull('montant_verse')->sum('montant_verse');
 
-        return view('dashboard', compact('totalvisiteurs','totalresponsables','totalfideles','totalenfants','totalfemmes','totaltypevisiteurs','totalhommes','membres','montantTotal'));
+        return view('dashboard', compact('totalvisiteurs','totalresponsables','totalfideles','totalenfants','acteurs','collaborateurs','totalhommes','membres','membresall','montantTotal','montantVerse'));
     }
-    public function liste(){
+    public function liste()
+    {
         $membres = Membre::count();
         $cotisations = Cotisation::count();
         $montantTotal = Cotisation::whereNotNull('montant_total')->count();
-        return view('dashboard', compact('membres','cotisations','montantTotal'));
+        return view('dashboard.admin.homeaffairesocial', compact('membres','cotisations','montantTotal'));
     }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        $user = auth()->user();
-        $cotisations = Cotisation::all();
-        if ($user->role->name == 'affaire_social') {
-            return to_route('dashboard.admin.homeaffairesocail', compact('cotisations'));
-        }
+        
     }
 
     /**

@@ -331,10 +331,10 @@
             <!-- ============================================================== -->
             <!-- sales  -->
             <!-- ============================================================== -->
-            <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                 <div class="card border-3 border-top border-top-primary">
                     <div class="card-body">
-                        <h5 class="text-muted">Total responsables</h5>
+                        <h5 class="text-muted"> Nombre des responsables</h5>
                         <div class="metric-value d-inline-block">
                             <h1 class="mb-1">{{$totalresponsables}}</h1>
                         </div>
@@ -369,7 +369,7 @@
             <!-- ============================================================== -->
             <!-- visitor  -->
             <!-- ============================================================== -->
-            <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                 <div class="card border-3 border-top border-top-primary">
                     <div class="card-body">
                         <h5 class="text-muted">Total visiteurs</h5>
@@ -388,12 +388,12 @@
             <!-- ============================================================== -->
             <!-- total orders  -->
             <!-- ============================================================== -->
-            <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                 <div class="card border-3 border-top border-top-primary">
                     <div class="card-body">
-                        <h5 class="text-muted">Total personnes</h5>
+                        <h5 class="text-muted">Les acteurs de culte</h5>
                         <div class="metric-value d-inline-block">
-                            <h1 class="mb-1">{{$totalfideles}}</h1>
+                            <h1 class="mb-1">{{$acteurs}}</h1>
                         </div>
                         <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
                             <!-- <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span> -->
@@ -404,15 +404,12 @@
             <!-- ============================================================== -->
             <!-- end total orders  -->
             <!-- ============================================================== -->
-        </div>
-        <!-- double -->
-        <div class="row">
-            <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                 <div class="card border-3 border-top border-top-primary">
                     <div class="card-body">
-                        <h5 class="text-muted">Total enfants</h5>
+                        <h5 class="text-muted">Nombre des collaborateurs</h5>
                         <div class="metric-value d-inline-block">
-                            <h1 class="mb-1">{{$totalenfants}}</h1>
+                            <h1 class="mb-1">{{$collaborateurs}}</h1>
                         </div>
                         <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                             <!-- <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span> -->
@@ -420,67 +417,8 @@
                     </div>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- end sales  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- new customer  -->
-            <!-- ============================================================== -->
-            {{--<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                <div class="card border-3 border-top border-top-primary">
-                    <div class="card-body">
-                        <h5 class="text-muted">New Customer</h5>
-                        <div class="metric-value d-inline-block">
-                            <h1 class="mb-1">1245</h1>
-                        </div>
-                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                            <!-- <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span> -->
-                        </div>
-                    </div>
-                </div>
-            </div>--}}
-            <!-- ============================================================== -->
-            <!-- end new customer  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- visitor  -->
-            <!-- ============================================================== -->
-            <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
-                <div class="card border-3 border-top border-top-primary">
-                    <div class="card-body">
-                        <h5 class="text-muted">Total femmes</h5>
-                        <div class="metric-value d-inline-block">
-                            <h1 class="mb-1">{{$totalfemmes}}</h1>
-                        </div>
-                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                            <!-- <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- end visitor  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- total orders  -->
-            <!-- ============================================================== -->
-            <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
-                <div class="card border-3 border-top border-top-primary">
-                    <div class="card-body">
-                        <h5 class="text-muted">Nombres de personnes</h5>
-                        <div class="metric-value d-inline-block">
-                            <h1 class="mb-1">{{$totalhommes}}</h1>
-                        </div>
-                        <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
-                            <!-- <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- end total orders  -->
-            <!-- ============================================================== -->
         </div>
+        <!-- double -->
     </div>
     <div class="row">
         <!-- ============================================================== -->
@@ -704,12 +642,12 @@
             <!-- ============================================================== -->
             <!-- total views   -->
             <!-- ============================================================== -->
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-inline-block">
-                            <h5 class="text-muted">Total Views</h5>
-                            <h2 class="mb-0"> 10,28,056</h2>
+                            <h5 class="text-muted">Montant total versés/ mois</h5>
+                            <h2 class="mb-0"> {{$montantVerse}}</h2>
                         </div>
                         <div class="float-right icon-circle-medium  icon-box-lg  bg-info-light mt-1">
                             <i class="fa fa-eye fa-fw fa-sm text-info"></i>
@@ -723,11 +661,11 @@
             <!-- ============================================================== -->
             <!-- total followers   -->
             <!-- ============================================================== -->
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-inline-block">
-                            <h5 class="text-muted">Total adehrents</h5>
+                            <h5 class="text-muted">Nombre des adehrents</h5>
                             <h2 class="mb-0"> {{$membres}}</h2>
                         </div>
                         <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
@@ -742,7 +680,7 @@
             <!-- ============================================================== -->
             <!-- partnerships   -->
             <!-- ============================================================== -->
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            <!-- <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-inline-block">
@@ -754,18 +692,18 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- ============================================================== -->
             <!-- end partnerships   -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
             <!-- total earned   -->
             <!-- ============================================================== -->
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-inline-block">
-                            <h5 class="text-muted">Montant total</h5>
+                            <h5 class="text-muted">Montant total cotisés</h5>
                             <h2 class="mb-0"> {{$montantTotal}}</h2>
                         </div>
                         <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
@@ -791,202 +729,52 @@
                     <h3 class="section-title">Liste des adehrents</h3>
                 </div>
                 <div class="card">
-                    <div class="campaign-table table-responsive">
+                    <div class="campaign-table table-responsive text-nowrap">
                         <table class="table">
                             <thead>
-                                <tr class="border-0">
-                                    <th class="border-0">Company</th>
-                                    <th class="border-0">Campaign Name</th>
-                                    <th class="border-0">Social Platform</th>
-                                    <th class="border-0">Min / Max Views</th>
-                                    <th class="border-0">Status</th>
-                                    <th class="border-0">Start Date</th>
-                                    <th class="border-0">Action</th>
+                                <tr >
+                                    <th>#</th>
+                                    <th >Noms</th>
+                                    <th >Prenoms</th>
+                                    <th >Contacts</th>
+                                    <th >Quartier</th>
+                                    <th >Profession</th>
+                                    <th >Sexes</th>
+                                    <th >Personne contactée en cas urgence</th>
+                                    <th >Numero en cas urgence</th>
+                                    <th >Date de naissance</th>
+                                    <th >Lieu de naissance</th>
+                                    <th >Images</th>
+                                    <th >Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($membresall as $membre)
                                 <tr>
-                                    <td>
-                                        <div class="m-r-10"><img src="assets/images/dribbble.png" alt="user" width="35">
-                                        </div>
-                                    </td>
-                                    <td>Fashion E Commerce </td>
-                                    <td>
-                                        <div class="avatar-group">
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-facebook-square facebook-color"></i></a></span>
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-twitter-square twitter-color"></i></a></span>
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-instagram instagram-color"></i></a></span>
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
-                                        </div>
-                                    </td>
-                                    <td>1,00,000 / 1,50,000</td>
-                                    <td>70%</td>
-                                    <td>7 Aug,2018</td>
-                                    <td>
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown"
-                                                aria-expanded="true">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
+                                    <td>{{ $loop->index + 1 }}</td>
+                                    <td>{{$membre->nom}}</td>
+                                    <td>{{$membre->prenom}}</td>
+                                    <td>{{$membre->contact}}</td>
+                                    <td>{{$membre->domicile}}</td>
+                                    <td>{{$membre->poste}}</td>
+                                    <td>{{$membre->sexe}}</td>
+                                    <td>{{$membre->personne_contacte}}</td>
+                                    <td>{{$membre->numero_urgent}}</td>
+                                    <td>{{ $membre->date_naissance }}</td>
+                                    <td >{{$membre->lieu}}</td>
+                                    <td><img src="{{asset('assets/images/'.$membre->image)}}"  width="40px" alt="Archive Image"></td>
+                                    <td width="180%">
+                                    <form method="POST" action="{{ route('membre.delete', $membre->id)}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="{{ route('membre.show', $membre->id)}}" class="btn btn-primary"> Ajouter une cotisation</a>
+                                    <a href="{{ route('membre.edit', $membre->id)}}" class="btn btn-success"> Modifier</a>
+                                    <button type="submit" class="btn btn-danger"> Supprimer</button>
+                                   </form>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35">
-                                        </div>
-                                    </td>
-                                    <td>Fitness Products </td>
-                                    <td>
-                                        <div class="avatar-group">
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-facebook-square facebook-color "></i></a></span>
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-twitter-square twitter-color "></i></a></span>
-                                        </div>
-                                    </td>
-                                    <td>2,50,000 / 3,50,000</td>
-                                    <td>70%</td>
-                                    <td>10 Aug,2018</td>
-                                    <td>
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown"
-                                                aria-expanded="true">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="m-r-10"><img src="assets/images/dropbox.png" alt="user" width="35">
-                                        </div>
-                                    </td>
-                                    <td>Gym Trainer Program </td>
-                                    <td>
-                                        <div class="avatar-group">
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-facebook-square facebook-color "></i></a></span>
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-pinterest-square pinterest-color "></i></a></span>
-                                        </div>
-                                    </td>
-                                    <td>3,50,000 / 4,50,000</td>
-                                    <td>70%</td>
-                                    <td>22 Aug,2018</td>
-                                    <td>
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown"
-                                                aria-expanded="true">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="m-r-10"><img src="assets/images/bitbucket.png" alt="user"
-                                                width="30"></div>
-                                    </td>
-                                    <td>2018 Top Product </td>
-                                    <td>
-                                        <div class="avatar-group">
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
-                                        </div>
-                                    </td>
-                                    <td>4,50,000 / 5,50,000</td>
-                                    <td>70%</td>
-                                    <td>25 Aug,2018</td>
-                                    <td>
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown"
-                                                aria-expanded="true">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="m-r-10"><img src="assets/images/mail_chimp.png" alt="user"
-                                                width="30"></div>
-                                    </td>
-                                    <td>Top Dashboard Sale 2018</td>
-                                    <td>
-                                        <div class="avatar-group">
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-facebook-square facebook-color"></i></a></span>
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
-                                        </div>
-                                    </td>
-                                    <td>5,50,000 / 6,50,000</td>
-                                    <td>70%</td>
-                                    <td>27 Aug,2018</td>
-                                    <td>
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown"
-                                                aria-expanded="true">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
