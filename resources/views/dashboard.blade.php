@@ -453,7 +453,34 @@
                 </div>
             </div>
         </div>
-    </div>
+        <!-- <div class="row"> -->
+                    <!-- ============================================================== -->
+                    <!--  area chart  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Area Chart</h5>
+                            <div class="card-body">
+                                <div id="c3chart_area"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!--  end area chart  -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!--  spline chart  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Spline Chart</h5>
+                            <div class="card-body">
+                                <div id="c3chart_spline"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- </div> -->
+    <!-- </div> -->
     {{--<div class="row">
         <div class="col-xl-5 col-lg-6 col-md-6 col-sm-12 col-12">
             <!-- ============================================================== -->
@@ -793,4 +820,197 @@
 </div>
 <!-- </div> -->
 @endrole('affaire_social')
+
+@role('jepcma')
+
+
+<div class="dashboard-influence">
+    <div class="container-fluid dashboard-content">
+        <!-- ============================================================== -->
+        <!-- pageheader  -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="page-header">
+                    <h3 class="mb-2">Tableau de bord JEPCMA</h3>
+                    <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet
+                        vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                    <div class="page-breadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Tableau de bord</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Tableau de bord JEPCMA
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end pageheader  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- content  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- widgets   -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <!-- ============================================================== -->
+            <!-- four widgets   -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- total views   -->
+            <!-- ============================================================== -->
+            <!-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-inline-block">
+                            <h5 class="text-muted">Montant total versés/ mois</h5>
+                            <h2 class="mb-0"> {{$montantVerse}}</h2>
+                        </div>
+                        <div class="float-right icon-circle-medium  icon-box-lg  bg-info-light mt-1">
+                            <i class="fa fa-eye fa-fw fa-sm text-info"></i>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- ============================================================== -->
+            <!-- end total views   -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- total followers   -->
+            <!-- ============================================================== -->
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-inline-block">
+                            <h5 class="text-muted">Nombre des jepcemistes</h5>
+                            <h2 class="mb-0"> {{$jepcemiste}}</h2>
+                        </div>
+                        <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
+                            <i class="fa fa-user fa-fw fa-sm text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end total followers   -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- partnerships   -->
+            <!-- ============================================================== -->
+            <!-- <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-inline-block">
+                            <h5 class="text-muted">Partnerships</h5>
+                            <h2 class="mb-0">14</h2>
+                        </div>
+                        <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
+                            <i class="fa fa-handshake fa-fw fa-sm text-secondary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- ============================================================== -->
+            <!-- end partnerships   -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- total earned   -->
+            <!-- ============================================================== -->
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-inline-block">
+                            <h5 class="text-muted">Nombre d'activitées JEPCMA</h5>
+                            <h2 class="mb-0"> {{$activites}}</h2>
+                        </div>
+                        <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
+                            <i class="fa fa-folder fa-fw fa-sm text-brand"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end total earned   -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end widgets   -->
+        <!-- ============================================================== -->
+        <!--  -->
+        <div class="row">
+            <!-- ============================================================== -->
+            <!-- campaign activities   -->
+            <!-- ============================================================== -->
+            <div class="col-lg-12">
+                <div class="section-block">
+                    <h3 class="section-title">Liste des jepcemistes</h3>
+                </div>
+                <div class="card">
+                    <div class="campaign-table table-responsive text-nowrap">
+                        <table class="table">
+                            <thead>
+                                <tr >
+                                    <th>#</th>
+                                    <th >Noms</th>
+                                    <th >Prenoms</th>
+                                    <th >Contacts</th>
+                                    <th >Quartier</th>
+                                    <th >Activite</th>
+                                    <th >Profession</th>
+                                    <th >Sexes</th>
+                                    <th>Statut</th>
+                                    <th >Photos</th>
+                                    <th >Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($jepcemistes as $jepcemiste)
+                                <tr>
+                                    <td>{{ $loop->index + 1 }}</td>
+                                    <td>{{$jepcemiste->nom}}</td>
+                                    <td>{{$jepcemiste->prenom}}</td>
+                                    <td>{{$jepcemiste->contact}}</td>
+                                    <td>{{$jepcemiste->activite}}</td>
+                                    <td>{{$jepcemiste->quartier}}</td>
+                                    <td>{{$jepcemiste->profession}}</td>
+                                    <td>{{$jepcemiste->sexe}}</td>
+                                    <td>{{$jepcemiste->status}}</td>
+                                    <td><img src="{{asset('assets/images/photos/'.$jepcemiste->photo)}}"  width="40px" alt="Photo jepcemiste"></td>
+                                    <td width="180%">
+                                    <form method="POST" action="{{route('jepcemiste.delete', $jepcemiste->id)}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="{{ route('jepcemiste.show', $jepcemiste->id)}}" class="btn btn-primary"> Voir</a>
+                                    <a href="{{ route('jepcemiste.edit', $jepcemiste->id)}}" class="btn btn-success"> Modifier</a>
+                                    <button type="submit" class="btn btn-danger"> Supprimer</button>
+                                   </form>
+                                    </td>
+                                </tr>
+
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end campaign activities   -->
+            <!-- ============================================================== -->
+        </div>
+        
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- end content  -->
+        <!-- ============================================================== -->
+    </div>
+</div>
+<!-- </div> -->
+@endrole('jepcma')
 @endsection
